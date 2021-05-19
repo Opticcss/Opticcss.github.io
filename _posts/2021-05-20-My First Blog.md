@@ -57,7 +57,7 @@ a+\LaTeX=1;
 $$
 
 
-```c++
+```cpp
 #include <iostream>
 ```
 
