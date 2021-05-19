@@ -8,3 +8,16 @@ tags: [sticky]
 ---
 
 xxx
+
+
+$$
+\begin{equation}
+a+\LaTeX=1;
+\end{equation}
+$$
+
+
+```c++
+#include <iostream>
+```
+
