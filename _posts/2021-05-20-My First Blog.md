@@ -59,5 +59,11 @@ $$
 
 ```cpp
 #include <iostream>
+using std;
+
+int main()
+{
+    return 0;
+}
 ```
 
