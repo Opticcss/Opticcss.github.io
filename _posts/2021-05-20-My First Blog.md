@@ -201,46 +201,6 @@ https://gohugo.io/
 
 
 
-
-
-> $\mathbf{Algorithm}$:$\mathbf{\ Birkhoff}$-$\mathbf{von\ Neumann}$
-> $\mathbf{Input}$: the double stochastic matrix ${\color{#ff6347}{\boldsymbol{R}}}=[r_{ij}]$
-> $\mathbf{Output}$:  the set/vector of positive numbers and permutation matrices $\{{\color{#c71585}{\boldsymbol{\Phi}}}=[{\color{#c71585}{\boldsymbol{\phi}}}_k],{\color{#c71585}{\boldsymbol{\mathscr{P}}}}=[{\color{#c71585}{\boldsymbol{P}}}_k]\}$
->
-> // find doubly stochastic matrix $\tilde{{\color{#ff8c00}{\boldsymbol{R}}}}=[\tilde{r}_{ij}],{\text{s.t.}}\forall i,j,\tilde{r}_{ij}\geq{r}_{ij}$, with total complexity of $O(N^3)$
-> $\tilde{{\color{#ff8c00}{\boldsymbol{R}}}}\leftarrow{\color{#ff6347}{\boldsymbol{R}}}$;
-> // with complexity of $O(2N-1)\sim O(N)$
-> $\color{#3cb371}{\mathbf{REPEAT}}$
-> |	// with complexity of $O(N^2)$
-> |	$[i,j]\leftarrow{\color{#696969}{\mathbf{find}}}(\tilde{{\color{#ff8c00}{\boldsymbol{R}}}},{\color{#696969}{\mathbf{bind}}}(\sum_nr_{in}<1,\sum_mr_{mj}<1))$;
-> |	$\epsilon\leftarrow1-\max[\sum_nr_{in},\sum_mr_{mj}]$;
-> |	$r_{ij}\leftarrow\epsilon+r_{ij}$;
-> |	${\color{#696969}{\mathbf{update}}}(\tilde{{\color{#ff8c00}{\boldsymbol{R}}}})$;
-> $\color{#3cb371}{\mathbf{UNTIL}}$ $\sum_{n,m}r_{nm}=N$;
->
-> // find set of positive numbers ${\color{#c71585}{\boldsymbol{\phi}}}_k>0$ with permutation matrices ${\color{#c71585}{\boldsymbol{P}}}_k,{\rm\ st.\ }\tilde{{\color{#ff8c00}{\boldsymbol{R}}}}=\sum_k{\color{#c71585}{\boldsymbol{\phi}}}_k{\color{#c71585}{\boldsymbol{P}}}_k$, with total complexity of $O(N^{4.5})$, which further means $\sum_{k=1}^K{\color{#c71585}{\boldsymbol{\phi}}}_k=1$, doubly stochastic matrices are within the convex hull of permutation matrices
-> $[i_1,i_2,\cdots,i_N]\leftarrow{\color{#696969}{\mathbf{find}}}(\tilde{{\color{#ff8c00}{\boldsymbol{R}}}},{\color{#696969}{\mathbf{bind}}}(\prod_{k=1}^N\tilde{r}_{ki_k}>0))$;
-> $\phi'\leftarrow\min_{1\leq k\leq N}[\tilde{r}_{ki_k}]$;
-> // the permutation matrix of $[i_1,i_2,\cdots,i_N]$
-> $s_{perm}\leftarrow{\color{#696969}{\mathbf{to\_perm}}}([i_1,i_2,\cdots,i_N])$;
-> $R'\leftarrow\tilde{{\color{#ff8c00}{\boldsymbol{R}}}}-\phi's_{perm}$;
-> // with complexity of $O(N^2-2N+2)\sim O(N^2)$
-> $\color{#2e8b57}{\mathbf{FOR}}$ ${\color{#696969}{\mathbf{true}}}$
-> |	$\color{#6b8e23}{\mathbf{IF}}$ $\phi'<1$
-> |	|	// with complexity improved to $O(N^{2.5})$
-> |	|	$[i_1,i_2,\cdots,i_N]\leftarrow{\color{#696969}{\mathbf{find}}}(R',{\color{#696969}{\mathbf{bind}}}(\prod_{k=1}^N\tilde{r}_{ki_k}>0))$;
-> |	|	$R'\leftarrow R'/(1-\phi')$;
-> |	|	$\phi'\leftarrow\min_{1\leq k\leq N}[\tilde{r}_{ki_k}]$;
-> |	|	$\mathbf{s}_{perm}\leftarrow{\color{#696969}{\mathbf{to\_perm}}}([i_1,i_2,\cdots,i_N])$;
-> |	|	$R'\leftarrow R'-\phi's_{perm}$;
-> |	$\color{#6b8e23}{\mathbf{ELSE}}$
-> |	|	$\color{#6b8e23}{\mathbf{BREAK}}$;
-> |	$\color{#6b8e23}{\mathbf{END}}$
-> |	$[{\color{#c71585}{\boldsymbol{\Phi}}},{\color{#c71585}{\boldsymbol{\mathscr{P}}}}].{\color{#696969}{\mathbf{emplaced\_back}}}[\phi',R']$;
-> $\color{#2e8b57}{\mathbf{END}}$ 
-
-
-
 <svg id="图层_1" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" width=50% viewBox="0 0 626.46371 426.61413">
 <title>ExpansionGamm1</title>
 <path d="M783.9,245c2.4,9.4,5.1,18.8,7,28.3,1.2,6.1-2,11.8-3.5,17.6-3.1,12.4-6.7,24.8-12.4,36.3-7.6,15-15.8,29.7-31.8,37.9-2.5-2.8-5.9-.8-8.8-1.3-9.1-1.7-18.3-3.1-27.4-4.6-6.7-2.6-13.9-2.5-20.8-3.8-17-3.1-34.1-5.9-51.4-7.3-11.7-1-23.1-3.3-33.9-8.1-4.5-2-9.4-.1-14-1v-2.7l7.3-.4v-.7H580.1c-2.1,0-4.2-.1-6.3-.1s-3-.9-2.9-2.9c1-.5,2.3.4,3.6-1.2H566c-.4-1.5-.6-4-2.5-3.4-3.7,1.2-4.5-2-6.1-3.5-2-1.8-.9-3.1,1.7-3,.1.7.1,1.6,1.2,1.5a.45087.45087,0,0,0,.3-.3c.1-1.1-.8-1.1-1.5-1.2.2-3.4-2.5-5.1-4.4-7.2-1.6-1.9-1.7-3.4.5-4.7,4,1.8,7.6,1.1,10.8-1.9l5.3-.5v-.5l-6.2-.4c-.9-1.8-3.6-3.7.5-5.8,1.9,3.3,4.3,4.9,6.5.3,5.8,5.9,8.3,14.1,17.4,16.9,6.5,2,12.9,3.6,19.2,2.2,5.1-1.2,10.6-.6,15.5-3.3,5.9-3.3,12.7-4.6,17.5-10,2-2.2,5-5.4,8.2-4.7,5.2,1.1,10.7-.1,16.1,2.9.8-4.9,4-7.3,7.1-10.1a11.531,11.531,0,0,0,4.2-8.6c-.1-8.9.5-17.8,4.6-26a17.20977,17.20977,0,0,0-7.9-2.6c-1.3-.1-3.3-.5-3.2-1.9.5-6.3-3.5-11.8-2.6-18-.4-6.8,3.7-11.8,7-17,3,1.5,7.7-.1,8.3-1,2.3-3.7,7.4-4.8,8.5-9.4.5-2.1,2.2-2.7,4.3-2.5s2.6,1.6,2.9,3.4c1,5.4,2,10.7,1.9,16.2-.1,3,.6,5.8,2.8,7.7,3.3,2.9,7,5.4,5.5,10.7-.1.4.7,1,1,1.6,3.7,7.6,10.7,12.5,15.9,18.8,5.2-9.4,9.9-18.7,14.2-28.3.6-1.3,1-3,2.9-3.1,2.2-.2,2.7,1.6,3.4,3.1.7,1.6,2.3,2.4,3.3,3.6,5.2,6.4,8.5,13.7,7.5,22.1-.4,3.6,1,3.9,3.9,3.8,3.5-.1,3.9-3.6,6.3-5,5.9-3.6,12.1-7.2,13.6-14.9A2.13879,2.13879,0,0,1,783.9,245Z" transform="translate(-164.69997 -12.50001)" style="fill: #758835;opacity: 0.8999999761581421;isolation: isolate"/>
@@ -879,42 +839,4 @@ https://gohugo.io/
 <path d="M365,322c.8-1.6,2-1.2,4.4-.3Z" transform="translate(-164.69997 -12.50001)" style="opacity: 0.8999999761581421;isolation: isolate"/>
 <path d="M468.9,138.1h5.3c-1.7.5-3.6,1.6-5.3,0Z" transform="translate(-164.69997 -12.50001)" style="opacity: 0.8999999761581421;isolation: isolate"/>
 </svg>
-
-
-
-> $\mathbf{Algorithm}$:$\mathbf{\ Birkhoff}$-$\mathbf{von\ Neumann}$
-> $\mathbf{Input}$: the double stochastic matrix ${\color{#ff6347}{\boldsymbol{R}}}=[r_{ij}]$
-> $\mathbf{Output}$:  the set/vector of positive numbers and permutation matrices $\{{\color{#c71585}{\boldsymbol{\Phi}}}=[{\color{#c71585}{\boldsymbol{\phi}}}_k],{\color{#c71585}{\boldsymbol{\mathscr{P}}}}=[{\color{#c71585}{\boldsymbol{P}}}_k]\}$
->
-> // find doubly stochastic matrix $\tilde{{\color{#ff8c00}{\boldsymbol{R}}}}=[\tilde{r}_{ij}],{\text{s.t.}}\forall i,j,\tilde{r}_{ij}\geq{r}_{ij}$, with total complexity of $O(N^3)$
-> $\tilde{{\color{#ff8c00}{\boldsymbol{R}}}}\leftarrow{\color{#ff6347}{\boldsymbol{R}}}$;
-> // with complexity of $O(2N-1)\sim O(N)$
-> $\color{#3cb371}{\mathbf{REPEAT}}$
-> |	// with complexity of $O(N^2)$
-> |	$[i,j]\leftarrow{\color{#696969}{\mathbf{find}}}(\tilde{{\color{#ff8c00}{\boldsymbol{R}}}},{\color{#696969}{\mathbf{bind}}}(\sum_nr_{in}<1,\sum_mr_{mj}<1))$;
-> |	$\epsilon\leftarrow1-\max[\sum_nr_{in},\sum_mr_{mj}]$;
-> |	$r_{ij}\leftarrow\epsilon+r_{ij}$;
-> |	${\color{#696969}{\mathbf{update}}}(\tilde{{\color{#ff8c00}{\boldsymbol{R}}}})$;
-> $\color{#3cb371}{\mathbf{UNTIL}}$ $\sum_{n,m}r_{nm}=N$;
->
-> // find set of positive numbers ${\color{#c71585}{\boldsymbol{\phi}}}_k>0$ with permutation matrices ${\color{#c71585}{\boldsymbol{P}}}_k,{\rm\ st.\ }\tilde{{\color{#ff8c00}{\boldsymbol{R}}}}=\sum_k{\color{#c71585}{\boldsymbol{\phi}}}_k{\color{#c71585}{\boldsymbol{P}}}_k$, with total complexity of $O(N^{4.5})$, which further means $\sum_{k=1}^K{\color{#c71585}{\boldsymbol{\phi}}}_k=1$, doubly stochastic matrices are within the convex hull of permutation matrices
-> $[i_1,i_2,\cdots,i_N]\leftarrow{\color{#696969}{\mathbf{find}}}(\tilde{{\color{#ff8c00}{\boldsymbol{R}}}},{\color{#696969}{\mathbf{bind}}}(\prod_{k=1}^N\tilde{r}_{ki_k}>0))$;
-> $\phi'\leftarrow\min_{1\leq k\leq N}[\tilde{r}_{ki_k}]$;
-> // the permutation matrix of $[i_1,i_2,\cdots,i_N]$
-> $s_{perm}\leftarrow{\color{#696969}{\mathbf{to\_perm}}}([i_1,i_2,\cdots,i_N])$;
-> $R'\leftarrow\tilde{{\color{#ff8c00}{\boldsymbol{R}}}}-\phi's_{perm}$;
-> // with complexity of $O(N^2-2N+2)\sim O(N^2)$
-> $\color{#2e8b57}{\mathbf{FOR}}$ ${\color{#696969}{\mathbf{true}}}$
-> |	$\color{#6b8e23}{\mathbf{IF}}$ $\phi'<1$
-> |	|	// with complexity improved to $O(N^{2.5})$
-> |	|	$[i_1,i_2,\cdots,i_N]\leftarrow{\color{#696969}{\mathbf{find}}}(R',{\color{#696969}{\mathbf{bind}}}(\prod_{k=1}^N\tilde{r}_{ki_k}>0))$;
-> |	|	$R'\leftarrow R'/(1-\phi')$;
-> |	|	$\phi'\leftarrow\min_{1\leq k\leq N}[\tilde{r}_{ki_k}]$;
-> |	|	$\mathbf{s}_{perm}\leftarrow{\color{#696969}{\mathbf{to\_perm}}}([i_1,i_2,\cdots,i_N])$;
-> |	|	$R'\leftarrow R'-\phi's_{perm}$;
-> |	$\color{#6b8e23}{\mathbf{ELSE}}$
-> |	|	$\color{#6b8e23}{\mathbf{BREAK}}$;
-> |	$\color{#6b8e23}{\mathbf{END}}$
-> |	$[{\color{#c71585}{\boldsymbol{\Phi}}},{\color{#c71585}{\boldsymbol{\mathscr{P}}}}].{\color{#696969}{\mathbf{emplaced\_back}}}[\phi',R']$;
-> $\color{#2e8b57}{\mathbf{END}}$ 
 
