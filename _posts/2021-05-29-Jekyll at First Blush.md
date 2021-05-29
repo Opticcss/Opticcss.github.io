@@ -9,7 +9,7 @@ tags: [sticky]
 
 > **Abstract**/**Snippet**. Jekyll is like a machine to realize the static site production task in form of blog, which is the prerequisite for me as a blogger, and it seems like a good choice to keep track of my learning process...
 
-**Content**
+**Contents**
 
 * toc
 {:toc}

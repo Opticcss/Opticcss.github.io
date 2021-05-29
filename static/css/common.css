@@ -4,6 +4,12 @@
   src: url('../font/consola.ttf');
 }
 
+@font-face {
+  font-family: 'Sarasa-Mono-SC-Semibold';
+  font-display: fallback;
+  src: url('../font/Sarasa-Mono-SC-Semibold.ttf');
+}
+
 html {
   color: #333333;
   background: #ffffff;
@@ -15,7 +21,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: all 500ms ease;
-  font-family: Consolas, 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+  font-family: Consolas, Sarasa-Mono-SC-Semibold, 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
 }
 body {
   max-width: 680px;
@@ -58,7 +64,7 @@ textarea {
 }
 pre,
 code {
-  font-family: inherit;
+  font-family: Sarasa-Mono-SC-Semibold;
 }
 input:-webkit-autofill {
   /* 自动填充的文本颜色 */
