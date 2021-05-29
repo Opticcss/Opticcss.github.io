@@ -1,6 +1,6 @@
 ---
 layout: mypost
-title: 关于我
+title: About Li Jinzhao
 ---
 
 Hey there, welcome to Optics_css's blog. This blog is Made by Li Jinzhao [@Opticcss](https://opticcss.github.io/), star me if you like, questions and inquiries are also welcome.
