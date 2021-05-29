@@ -56,7 +56,7 @@ $$
 
 
 
-algorithm[^{1}]
+algorithm[^1]
 
 
 
@@ -114,7 +114,7 @@ algorithm[^{1}]
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSxXXXX]**
 
-[^{1}]:Cormen T H, Leiserson C E, Rivest R L, et al. Introduction to algorithms[M]. MIT press, 2009.
+[^1]:Cormen T H, Leiserson C E, Rivest R L, et al. Introduction to algorithms[M]. MIT press, 2009.
 [^{2}]:
 [^{3}]:
 
