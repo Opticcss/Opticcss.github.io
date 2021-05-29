@@ -11,7 +11,7 @@ footerText: 'Copyright © 2021'
 permalink: /posts/:year/:month/:day/:title.html
 kramdown:
   auto_ids: true
-  input: GFM
+  input: kramdown
   syntax_highlighter: rouge
 exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.lock', 'blog.sh']
 
