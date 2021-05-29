@@ -4,6 +4,7 @@ _site
 node_modules
 Gemfile.lock
 demo-tmaize-blog
+_drafts
 /_site
 /dist
 /dist.tar.gz
