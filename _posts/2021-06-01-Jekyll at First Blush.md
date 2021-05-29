@@ -25,8 +25,8 @@ tags: [sticky]
 
 **Content**
 
-[TOC]
-
+* toc
+{:toc}
 ## **1. Installation of Environment**
 
 
