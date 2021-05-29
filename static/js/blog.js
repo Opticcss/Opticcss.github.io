@@ -1,9 +1,8 @@
-// 打印主题标识,请保留出处
 ;(function () {
-  var style1 = 'background:#4BB596;color:#ffffff;border-radius: 2px;'
+  var style1 = 'background:#0ae4a2;color:#ffffff;border-radius: 2px;'
   var style2 = 'color:auto;'
-  var author = ' TMaize'
-  var github = ' https://github.com/TMaize/tmaize-blog'
+  var author = ' Optics_css'
+  var github = ' https://opticcss.github.io/'
   var build = ' ' + blog.buildAt.substr(0, 4)
   build += '/' + blog.buildAt.substr(4, 2)
   build += '/' + blog.buildAt.substr(6, 2)
@@ -29,7 +28,6 @@ blog.addLoadEvent = function (func) {
     }
   }
 }
-
 /**
  * 工具，兼容的方式添加事件
  * @param {单个DOM节点} dom
