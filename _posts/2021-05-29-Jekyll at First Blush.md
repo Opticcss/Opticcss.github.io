@@ -17,18 +17,6 @@ tags: [sticky]
 
 
 
-```c++
-#include <iostream>
-using namespace std;
-
-int main(void)
-{
-    return 0;
-}
-```
-
-等距更纱
-
 
 
 algorithm[^1]
