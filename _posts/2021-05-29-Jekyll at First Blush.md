@@ -35,8 +35,13 @@ tags: [sticky]
 
 algorithm[^1]
 
-
-
+$$
+\begin{equation}
+\begin{split}
+\boxed{welc\phi}=as^2\sum_{i=0}^{N}{\rm i}\times n\varphi,
+\end{split}
+\end{equation}
+$$
 
 
 
