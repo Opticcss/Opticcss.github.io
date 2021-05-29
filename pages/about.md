@@ -5,7 +5,7 @@ title: About Author
 
 ​	Hey there, welcome to Optics_css 's blog [@Opticcss](https://opticcss.github.io/), star me if you like, questions and inquiries are also welcome.
 
-## About Me
+## **About Me**
 
 ​	My name is Li Jinzhao, a theoretical fanatic. Now I am a student majoring in telecommunication engineering, with a certain understanding of the field of applied mathematics, and I am familiar with computation, photon, and other related fields.
 
