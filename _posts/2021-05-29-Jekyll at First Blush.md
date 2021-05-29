@@ -33,7 +33,7 @@ tags: [sticky]
 
 
 
-algorithm[^{1}]
+algorithm[^1]
 
 
 
