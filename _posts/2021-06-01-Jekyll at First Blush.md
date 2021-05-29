@@ -29,6 +29,29 @@ tags: [sticky]
 {:toc}
 ## **1. Installation of Environment**
 
+​	write something...
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main(void)
+{
+    return 0;
+}
+```
+
+$$
+\begin{equation}
+\left\{
+\begin{split}
+&\mathbf{k}\times\dot{\mathscr{B}}(\mathbf{k},t)={\rm i}k^2\mathscr{E}_\perp(\mathbf{k},t),\\
+&\dot{\mathscr{E}}_\perp(\mathbf{k},t)={\rm i}c^2\mathbf{k}\times\mathscr{B}(\mathbf{k},t)-\frac1{\varepsilon_0}\mathscr{J}_\perp(\mathbf{k},t),
+\end{split}
+\right.
+\end{equation}
+$$
+
 
 
 
