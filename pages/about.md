@@ -14,12 +14,12 @@ title: About Author
 ### Programming Languages
 
 - <img src="..\static\img\julialang.svg" alt="julialang" style="zoom:15%;" /> **Julia Lang**
-- <img src="C:\Users\a1020\Desktop\Opticcss.github.io\static\img\cpplang.svg" alt="cpplang" style="zoom:14%;" /> **C++**
-- <img src="C:\Users\a1020\Desktop\Opticcss.github.io\static\img\matlablang.svg" alt="matlablang" style="zoom:15%;" /> **MATLAB**
-- <img src="C:\Users\a1020\Desktop\Opticcss.github.io\static\img\clang.svg" alt="clang" style="zoom:10%;" /> **/**<img src="C:\Users\a1020\Desktop\Opticcss.github.io\static\img\cmake.svg" alt="cmake" style="zoom:15%;" /> **C with CMake**
-- <img src="C:\Users\a1020\Desktop\Opticcss.github.io\static\img\rustlang.svg" alt="rustlang" style="zoom: 15%;" /> **Rust**
-- <img src="C:\Users\a1020\Desktop\Opticcss.github.io\static\img\javascriptlang.svg" alt="javascriptlang" style="zoom:12%;" /> **JavaScript**
-- <img src="C:\Users\a1020\Desktop\Opticcss.github.io\static\img\veriloglang.svg" alt="veriloglang" style="zoom:15%;" /> **Verilog HDL (VHDL)**
+- <img src="..\static\img\cpplang.svg" alt="cpplang" style="zoom:14%;" /> **C++**
+- <img src="..\static\img\matlablang.svg" alt="matlablang" style="zoom:15%;" /> **MATLAB**
+- <img src="..\static\img\clang.svg" alt="clang" style="zoom:10%;" /> **/**<img src="..\static\img\cmake.svg" alt="cmake" style="zoom:15%;" /> **C with CMake**
+- <img src="..\static\img\rustlang.svg" alt="rustlang" style="zoom: 15%;" /> **Rust**
+- <img src="..\static\img\javascriptlang.svg" alt="javascriptlang" style="zoom:12%;" /> **JavaScript**
+- <img src="..\static\img\veriloglang.svg" alt="veriloglang" style="zoom:15%;" /> **Verilog HDL (VHDL)**
 
 ### Knowledges
 
@@ -39,7 +39,7 @@ title: About Author
 
 ## **Details of My Blog**
 
-​	This blog is produced by [**Jekyll**](https://jekyllrb.com/) <img src="C:\Users\a1020\Desktop\Opticcss.github.io\static\img\jekyll.svg" alt="jekyll" style="zoom:3%;" /> and hosted on [**GitHub Pages**](https://pages.github.com/), for more details related to the development (update) process of the blog, see the following table as shown below
+​	This blog is produced by [**Jekyll**](https://jekyllrb.com/) <img src="..\static\img\jekyll.svg" alt="jekyll" style="zoom:3%;" /> and hosted on [**GitHub Pages**](https://pages.github.com/), for more details related to the development (update) process of the blog, see the following table as shown below
 
 | **Time Stamp** |                      **Update Events**                       |
 | :------------: | :----------------------------------------------------------: |
