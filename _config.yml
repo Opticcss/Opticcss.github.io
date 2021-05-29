@@ -11,7 +11,7 @@ footerText: 'Copyright © 2021'
 permalink: /posts/:year/:month/:day/:title.html
 kramdown:
   auto_ids: true
-  input: kramdown
+  input: GFM
   syntax_highlighter: rouge
 exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.lock', 'blog.sh']
 
@@ -35,9 +35,6 @@ menu:
     url: /pages/chat.html
   - title: About
     url: /pages/about.html
-
-# 点击页面文字冒出特效,不需要请设置为false
-extClickEffect: true
 
 # Google Adsense,不需要请设置为false
 # _includes/ext-adsense.html 里面修改为自己的配置
