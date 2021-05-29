@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: mypost
 title:  "Jekyll at First Blush"
 author: Li Jinzhao
 categories: [Jekyll]
