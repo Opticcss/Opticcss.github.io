@@ -186,26 +186,6 @@ blog.ajax = function (option, success, fail) {
   xmlHttp.send()
 }
 
-/**
- * 特效：点击页面文字冒出特效
- */
-blog.initClickEffect = function (textArr) {
-  function createDOM(text) {
-    var dom = document.createElement('span')
-    dom.innerText = text
-    dom.style.left = 0
-    dom.style.top = 0
-    dom.style.position = 'fixed'
-    dom.style.fontSize = '12px'
-    dom.style.whiteSpace = 'nowrap'
-    dom.style.webkitUserSelect = 'none'
-    dom.style.userSelect = 'none'
-    dom.style.opacity = 0
-    dom.style.transform = 'translateY(0)'
-    dom.style.webkitTransform = 'translateY(0)'
-    return dom
-  }
-
   blog.addEvent(window, 'click', function (ev) {
     var tagName = ev.target.tagName.toLocaleLowerCase()
     if (tagName == 'a') {
