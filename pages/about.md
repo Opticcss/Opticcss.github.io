@@ -43,5 +43,6 @@ title: About Author
 
 | **Time Stamp** |                      **Update Events**                       |
 | :------------: | :----------------------------------------------------------: |
-|                | The website moved from "Jianshu" to "CNBlog" and finally here, GitHub Page |
+|    May 2021    | The website moved from "Jianshu" to "CNBlog" and finally here, GitHub Page |
+|   June 2021    | CSS-based blog beautification scheme,<br />referencing the network of individual/personal blogs |
 
