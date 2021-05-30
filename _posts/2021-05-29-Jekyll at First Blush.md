@@ -24,6 +24,32 @@ tree /f > saved_names.txt
 
 ​	The resulting directory structure (roughly) is as below, with the meaning of each file marked out in comments, note that `##` represents necessary, and `#^` is optional.
 
+```bash
+.
+├─Gemfile
+├─_config.yml
+├─_includes
+├─_layouts
+├─_posts
+│  └────2021-XX-XX-XXX.md
+├─_drafts
+│  └────[OPTSxXXXX]_Template.md
+├─_data
+├─index.html
+├─static
+│  ├─css
+│  ├─font
+│  ├─img
+│  ├─js
+│  └─xml
+├─pages
+├─mater
+│  └─[OPTSxXXXX]_Template
+├─favicon.ico
+├─.gitattributes
+└─.gitignore
+```
+
 | `.` **as Parent Node** | **Usage**                                                    |
 | ---------------------- | ------------------------------------------------------------ |
 | `Gemfile`              | `## for configurations and dependencies of RubyGems`         |
@@ -43,7 +69,7 @@ tree /f > saved_names.txt
 
 ## 2. **YAML for Configuration**
 
-​	`YAML` syntax is of significant importance in manipulation of `Jekyll` `_config.yml`,  it saves the complexity of configuring the website by command-line. 
+​	`YAML` syntax (`/ˈjæməl/`) is of significant importance in manipulation of `Jekyll` `_config.yml`,  it saves the complexity of configuring the website by command-line. 
 
 
 
