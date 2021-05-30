@@ -4,6 +4,7 @@ _site
 node_modules
 Gemfile.lock
 _drafts
+mater
 /_site
 /dist
 /dist.tar.gz
