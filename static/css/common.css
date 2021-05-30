@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'Sarasa-Mono-SC-Semibold';
+  font-family: 'FiraCode';
   font-display: fallback;
-  src: url('../font/Sarasa-Mono-SC-Semibold.ttf');
+  src: url('../font/FiraCode-Bold.ttf');
 }
 
 @font-face {
@@ -21,7 +21,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: all 500ms ease;
-  font-family: FiraMono, Sarasa-Mono-SC-Semibold, 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+  font-family: FiraMono, FiraCode, 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
 }
 body {
   max-width: 680px;
@@ -64,7 +64,7 @@ textarea {
 }
 pre,
 code {
-  font-family: Sarasa-Mono-SC-Semibold, FiraMono;
+  font-family: FiraCode, FiraMono;
 }
 input:-webkit-autofill {
   /* 自动填充的文本颜色 */
