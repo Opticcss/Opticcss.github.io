@@ -1,10 +1,4 @@
 @font-face {
-  font-family: 'Consolas';
-  font-display: fallback;
-  src: url('../font/consola.ttf');
-}
-
-@font-face {
   font-family: 'Sarasa-Mono-SC-Semibold';
   font-display: fallback;
   src: url('../font/Sarasa-Mono-SC-Semibold.ttf');
@@ -27,7 +21,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: all 500ms ease;
-  font-family: FuraMono, Consolas, Sarasa-Mono-SC-Semibold, 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+  font-family: FuraMono, Sarasa-Mono-SC-Semibold, 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
 }
 body {
   max-width: 680px;
