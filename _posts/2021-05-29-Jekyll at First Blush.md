@@ -50,6 +50,8 @@ tree /f > saved_names.txt
 └─.gitignore
 ```
 
+​	The including command is serious in the `markdown` language, so the `{` `%` `include file.xxx` `%` `}` notation is used to represent the command line, in real programming, the spaces and **\`** symbol should be omitted.
+
 | `.` **as Parent Node** | **Usage**                                                    |
 | ---------------------- | ------------------------------------------------------------ |
 | `Gemfile`              | `## for configurations and dependencies of RubyGems`         |
