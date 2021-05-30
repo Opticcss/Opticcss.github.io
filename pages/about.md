@@ -7,9 +7,9 @@ title: About Author
 
 ## **About Me**
 
-​	My name is Li Jinzhao, a theoretical fanatic. Now I am a student majoring in telecommunication engineering, with a certain understanding of the field of applied mathematics, and I am familiar with computation, photonics, and other related fields.
+​	My name is **Li Jinzhao**, a theoretical fanatic. Now I am a student majoring in **telecommunication engineering**, with a certain understanding of the field of applied mathematics, and I am familiar with **computation**, **photonics**, and other related fields.
 
-​	Happily, I make "making my own stuff" a daily hobby, and stick to the idea that "you don't need a lot of friends, you just need to be friends with them for life" and try to live a challenging life....
+​	Happily, I make "<u>making my own stuff</u>" a daily hobby, and stick to the idea that "<u>you don't need a lot of friends, you just need to be friends with them for life</u>" and try to live a challenging life....
 
 ### Programming Languages
 
