@@ -69,7 +69,7 @@ tree /f > saved_names.txt
 | `.gitattributes`       | `#^ the GitHub attributes file`                              |
 | `.gitignore`           | `#^ the list of ignored file`                                |
 
-## 2. **YAML for Configuration**
+## **2. YAML for Configuration**
 
 ​	`YAML` syntax (`/ˈjæməl/`) is of significant importance in manipulation of `Jekyll` `_config.yml`,  it saves the complexity of configuring the website by command-line. 
 
