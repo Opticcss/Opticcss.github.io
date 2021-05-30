@@ -99,9 +99,49 @@ baseurl: ''
 
 ​	To quote these site values, using `site.xxx` for `xxx` property, for example, the value of `site.title` is just `optics_css Blog`.
 
+​	In `YAML`, the array, which is denoted as (in `JavaScript`) `['dog', 'cat', 'catfish', 'dogfish']`, can be formed as "lines" `-` at the beginning of a set of conjunction lines, for example
 
+```yaml
+- cat
+- dog
+- catfish
+- dogfish
+```
 
+​	This kind of array can also be represented inline, which is the same with `{animal: ['dog', 'cat', 'catfish', 'dogfish']}`, as
 
+```yaml
+anis: [dog, cat, catfish, dogfish]
+```
+
+​	Hence the combination of array and properties lead to the following notation, which defines the structure of the web page menu bar and the corresponding links in the `YAML` configuration file.
+
+```yaml
+# menu
+menu:
+  - title: Home
+    url: /
+  - title: Categories
+    url: /pages/categories.html
+  - title: Search
+    url: /pages/search.html
+  - title: Chat
+    url: /pages/chat.html
+  - title: About
+    url: /pages/about.html
+```
+
+​	The `.markdown` file which 
+
+## **3. Jekyll + GitHub Pages**
+
+​	Using GitHub Pages, with help of `Jekyll`, it is sufficient to build a personal/individual website/blog, the blog based on these two services have following several properties:
+
+- static, don't need any back-end language to support.
+- some limits by the platform
+  - space should not be greater than $1\rm\ G$.
+  - monthly flow should not be greater than $100\rm\ G$.
+  - cannot be updated $10$ times per hour.
 
 
 
