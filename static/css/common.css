@@ -208,3 +208,9 @@ input:-webkit-autofill {
     font-size: 15px;
   }
 }
+.container {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	z-index: -1;
+}
