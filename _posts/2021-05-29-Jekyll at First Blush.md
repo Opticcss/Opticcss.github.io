@@ -94,16 +94,6 @@ tree /f > saved_names.txt
 
 
 
-
-
-![Metrics](https://metrics.lecoq.io/Opticcss?template=classic&config.timezone=Asia%2FShanghai)
-
-![Optic_css's GitHub stats](https://github-readme-stats.vercel.app/api?username=Opticcss&show_icons=true&theme=radical)
-
-![Optic_css's Most used languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Opticcss&layout=compact&hide_border=true&langs_count=10)
-
-
-
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx0021]**
 
 [^1]:http://jekyllcn.com/docs/windows/#installation
