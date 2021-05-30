@@ -3,7 +3,7 @@ layout: optics_post
 title:  "Jekyll at First Blush"
 author: Li Jinzhao
 categories: [front-end]
-image: assets/images/....jpg
+image: ....jpg
 tags: [Jekyll]
 ---
 
@@ -71,7 +71,7 @@ tree /f > saved_names.txt
 
 ## **2. YAML for Configuration**
 
-​	`YAML` syntax (`/ˈjæməl/`, a markup language) is of significant importance in manipulation of `Jekyll` `_config.yml`,  it saves the complexity of configuring the website by command-line. By setting the user-defined attributes, for example the configuration below specify the `UTF-8` encoding, the blog title and author, as well some copyright information. As for the URL, I'm planning to add one for myself, maybe when I grow up... `φ(゜▽゜*)♪`
+​	`YAML` syntax (`/ˈjæməl/`, a markup language[^2]) is of significant importance in manipulation of `Jekyll` `_config.yml`,  it saves the complexity of configuring the website by command-line. By setting the user-defined attributes, for example the configuration below specify the `UTF-8` encoding, the blog title and author, as well some copyright information. As for the URL, I'm planning to add one for myself, maybe when I grow up... `φ(゜▽゜*)♪`
 
 ```yaml
 encoding: UTF-8
@@ -131,62 +131,55 @@ menu:
     url: /pages/about.html
 ```
 
-​	The `.markdown` file which 
+​	The `.markdown` file which form the main part of the blog, should contain the `YAML frontmatter`, which is commonly (my formal/standard)
+
+```yaml
+layout: ...
+title:  "..."
+author: Li Jinzhao
+categories: [...]
+image: ....jpg
+tags: [...]
+```
+
+​	These variables are completely pre-defined, meanings of them are as below. Note that only `space` is allowed for indention in `YAML`, do not use `TAB` here.
+
+| `Variable`                     | `Descriptions & Notices`                                     |
+| ------------------------------ | ------------------------------------------------------------ |
+| `layout`                       | specify the template file in the `_layouts` direction,<br />note that no file extension is required |
+| `permalink`                    | set the final URL address                                    |
+| `published`                    | set to false if do not want to display a particular blog     |
+| `date`                         | override the dates in article name,<br />in the format of `YYYY-MM-DD HH:MM:SS +/-TTTT`,<br />the last number is always `+0800` (the time zone offset) |
+| `category`, `categories`       | specify one or more categorical attributes for the blog,<br />these articles can be read according to `categories`<br />`categories` can be accessed through `YAML List` |
+| `tags`                         | similar thing as `categories`                                |
+| `other self-defined variables` | can also be referenced by `{{ page.var }}` as others         |
 
 ## **3. Jekyll + GitHub Pages**
 
-​	Using GitHub Pages, with help of `Jekyll`, it is sufficient to build a personal/individual website/blog, the blog based on these two services have following several properties:
+​	Using GitHub Pages[^3], with help of `Jekyll`, it is sufficient to build a personal/individual website/blog, the blog based on these two services have following several properties:
 
 - static, don't need any back-end language to support.
+- totally free.
+- no database support is required.
 - some limits by the platform
   - space should not be greater than $1\rm\ G$.
   - monthly flow should not be greater than $100\rm\ G$.
   - cannot be updated $10$ times per hour.
+  - cannot be equipped with comment function (this can be complemented by third-party services).
 
+## **Small Tips for Publish Individual Blogs**
 
+### **Internal links for Data Statistics**
 
+​	Several links for GitHub users' personal activity data, dynamic ratings of activity data, and statistics on the most commonly used programming languages, they are correspond to three internal links as
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```markdown
 ![Metrics](https://metrics.lecoq.io/Opticcss?template=classic&config.timezone=Asia%2FShanghai)
-
 ![Optic_css's GitHub stats](https://github-readme-stats.vercel.app/api?username=Opticcss&show_icons=true&theme=radical)
-
 ![Optic_css's Most used languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Opticcss&layout=compact&hide_border=true&langs_count=10)
+```
 
-
+​	Inevitably, these services are limited to the consumer and throw error of `maximum retries exceed` when exceeded, and there may hint one to add an environment variable as `PAT_1` with GitHub token in `vercel`, maybe this will help...
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx0021]**
 
