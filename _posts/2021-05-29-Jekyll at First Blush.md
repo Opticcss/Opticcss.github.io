@@ -28,10 +28,10 @@ tree /f > saved_names.txt
 | ---------------------- | ------------------------------------------------------------ |
 | `Gemfile`              | `## for configurations and dependencies of RubyGems`         |
 | `_config.yml`          | `## store the configuration data`                            |
-| `_includes`            | `## include sessions, loaded in other files by  for reuse`   |
+| `_includes`            | `## include sessions, loaded in other files by`<br />`{` `%` `include file.xxx` `%` `}` `for reuse` |
 | `_layouts`             | `## template of the pages`                                   |
 | `_posts`               | `## store articles with format of YEAR-MONTH-DAY-title.MARKUP`<br />`2021-XX-XX-XXX.md` |
-| `_drafts`              | `## store the unpublished files, whcih do not have title.MARKUP <!deprecated!>`<br />`[OPTSxXXXX]_Template.md` |
+| `_drafts`              | `## store the unpublished files`,<br />`which do not have title.MARKUP <!deprecated!>`<br />`[OPTSxXXXX]_Template.md` |
 | `_data`                | `## formatted data .yml, .yaml, .json, .csv, referred by site.data.members` |
 | `index.html`           | `## automatically converted by Jekyll if contains YAML frontmatter` |
 | `static`               | `#^ contains.js,.css and some image resources, similar to [assets]`<br />`css`, `font`, `img`, `js`, `xml` |
