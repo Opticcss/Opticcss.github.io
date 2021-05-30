@@ -28,7 +28,7 @@ tree /f > saved_names.txt
 | ---------------------- | ------------------------------------------------------------ |
 | `Gemfile`              | `## for configurations and dependencies of RubyGems`         |
 | `_config.yml`          | `## store the configuration data`                            |
-| `_includes`            | `## include sessions, loaded in other files by {% include file.xxx %} for reuse` |
+| `_includes`            | `## include sessions, loaded in other files by  for reuse`   |
 | `_layouts`             | `## template of the pages`                                   |
 | `_posts`               | `## store articles with format of YEAR-MONTH-DAY-title.MARKUP`<br />`2021-XX-XX-XXX.md` |
 | `_drafts`              | `## store the unpublished files, whcih do not have title.MARKUP <!deprecated!>`<br />`[OPTSxXXXX]_Template.md` |
@@ -41,13 +41,9 @@ tree /f > saved_names.txt
 | `.gitattributes`       | `#^ the GitHub attributes file`                              |
 | `.gitignore`           | `#^ the list of ignored file`                                |
 
-
-
-
-
 ## 2. **YAML for Configuration**
 
-
+​	`YAML` syntax is of significant importance in manipulation of `Jekyll` `_config.yml`,  it saves the complexity of configuring the website by command-line. 
 
 
 
