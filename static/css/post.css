@@ -1,7 +1,8 @@
 .page-post {
   font-size: 14px;
   line-height: 2;
-  word-break: break-all;
+  word-wrap: break-word;
+  text-align:justify;
 }
 .page-post .title {
   font-size: 18px;
