@@ -5,6 +5,8 @@ title: About Author
 
 ​	Hey there, welcome to Optics_css 's blog [@Opticcss](https://opticcss.github.io/), star me if you like, questions and inquiries are also welcome.
 
+![Optic_css's GitHub stats](https://github-readme-stats.vercel.app/api?username=Opticcss&show_icons=true&theme=radical)
+
 ## **About Me**
 
 ​	My name is **Li Jinzhao**, a theoretical fanatic. Now I am a student majoring in **telecommunication engineering**, with a certain understanding of the field of applied mathematics, and I am familiar with **computation**, **photonics**, and other related fields.
@@ -22,6 +24,10 @@ title: About Author
 | <img src="..\static\img\rustlang.svg" alt="rustlang" style="zoom: 15%;" /> | **Rust**                    |
 | <img src="..\static\img\javascriptlang.svg" alt="javascriptlang" style="zoom:12%;" /> | **JavaScript**              |
 | <img src="..\static\img\veriloglang.svg" alt="veriloglang" style="zoom:15%;" /> | **Verilog HDL (VHDL)**      |
+
+​	also thanks for GitHub stats for my most used languages
+
+![Optic_css's Most used languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Opticcss&layout=compact&hide_border=true&langs_count=10)
 
 ### Knowledges
 
