@@ -71,7 +71,33 @@ tree /f > saved_names.txt
 
 ## **2. YAML for Configuration**
 
-​	`YAML` syntax (`/ˈjæməl/`) is of significant importance in manipulation of `Jekyll` `_config.yml`,  it saves the complexity of configuring the website by command-line. 
+​	`YAML` syntax (`/ˈjæməl/`, kind of markup language) is of significant importance in manipulation of `Jekyll` `_config.yml`,  it saves the complexity of configuring the website by command-line. By setting the user-defined attributes, for example the configuration below specify the `UTF-8` encoding, the blog title and author, as well some copyright information. As for the URL, I'm planning to add one for myself, maybe when I grow up... `φ(゜▽゜*)♪`
+
+```yaml
+encoding: UTF-8
+
+# SEO relevant information
+title: optics_css Blog
+description: optics_css's Blog
+keywords: optics_css,Blog
+author: optics_css
+footerText: 'Copyright © 2021'
+
+permalink: /posts/:year/:month/:day/:title.html
+kramdown:
+  auto_ids: true
+  input: GFM
+  syntax_highlighter: rouge
+exclude: [...]
+
+# configuration of domain
+# baseurl configuration
+# set to /[directory name] if the site is deployed in another directory under the root directory
+domainUrl: ''
+baseurl: ''
+```
+
+​	To quote these site values, using `site.xxx` for `xxx` property, for example, the value of `site.title` is just `optics_css Blog`.
 
 
 
@@ -125,6 +151,6 @@ tree /f > saved_names.txt
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx0021]**
 
 [^1]:http://jekyllcn.com/docs/windows/#installation
-[^2]:https://pages.github.com/
-[^3]:
+[^2]:http://yaml.org/YAML_for_ruby.html
+[^3]:https://pages.github.com/
 

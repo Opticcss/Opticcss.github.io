@@ -1,13 +1,12 @@
 encoding: UTF-8
 
-# SEO相关信息
+# SEO relevant information
 title: optics_css Blog
 description: optics_css's Blog
 keywords: optics_css,Blog
 author: optics_css
 footerText: 'Copyright © 2021'
 
-# 这些不要动
 permalink: /posts/:year/:month/:day/:title.html
 kramdown:
   auto_ids: true
@@ -16,7 +15,8 @@ kramdown:
 exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.lock', 'blog.sh']
 
 # configuration of domain
-# baseurl配置,如果网站部署在根目录下的其他目录中，请设置为 /目录名
+# baseurl configuration
+# set to /[directory name] if the site is deployed in another directory under the root directory
 domainUrl: ''
 baseurl: ''
 
