@@ -142,6 +142,7 @@ input:-webkit-autofill {
   margin-right: -9px;
   text-align: right;
   user-select: none;
+  border: solid;
 }
 .header .menu a {
   display: inline-block;
