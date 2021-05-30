@@ -24,12 +24,28 @@ tree /f > saved_names.txt
 
 ​	The resulting directory structure (roughly) is as below, with the meaning of each file marked out in comments, note that `##` represents necessary, and `#^` is optional.
 
+| `.` **as Parent Node** | **Usage**                                                    |
+| ---------------------- | ------------------------------------------------------------ |
+| `Gemfile`              | `## for configurations and dependencies of RubyGems`         |
+| `_config.yml`          | `## store the configuration data`                            |
+| `_includes`            | `## include sessions, loaded in other files by {% include file.xxx %} for reuse` |
+| `_layouts`             | `## template of the pages`                                   |
+| `_posts`               | `## store articles with format of YEAR-MONTH-DAY-title.MARKUP`<br />`2021-XX-XX-XXX.md` |
+| `_drafts`              | `## store the unpublished files, whcih do not have title.MARKUP <!deprecated!>`<br />`[OPTSxXXXX]_Template.md` |
+| `_data`                | `## formatted data .yml, .yaml, .json, .csv, referred by site.data.members` |
+| `index.html`           | `## automatically converted by Jekyll if contains YAML frontmatter` |
+| `static`               | `#^ contains.js,.css and some image resources, similar to [assets]`<br />`css`, `font`, `img`, `js`, `xml` |
+| `pages`                | `#^ resource files used in indices of pages`                 |
+| `mater`                | `#^ resource files referenced by my blog`<br />`[OPTSxXXXX]_Template` |
+| `favicon.ico`          | `#^ the common icon file`                                    |
+| `.gitattributes`       | `#^ the GitHub attributes file`                              |
+| `.gitignore`           | `#^ the list of ignored file`                                |
 
-```bash
-#^ the list of ignored file
-```
 
 
+
+
+## 2. **YAML for Configuration**
 
 
 
