@@ -2,9 +2,9 @@
 layout: optics_post
 title:  "Jekyll at First Blush"
 author: Li Jinzhao
-categories: [Jekyll]
+categories: [front-end]
 image: assets/images/....jpg
-tags: [sticky]
+tags: [Jekyll]
 ---
 
 > **Abstract**/**Snippet**. Jekyll is like a machine to realize the static site production task in form of blog, which is the prerequisite for me as a blogger, and it seems like a good choice to keep track of my learning process...
@@ -19,11 +19,11 @@ tags: [sticky]
 
 
 
-algorithm[^1]
+ [^1]
 
 
 
-> <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSxXXXX]**
+> <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx0021]**
 
 [^1]:https://pages.github.com/
 [^2]:
