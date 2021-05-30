@@ -127,6 +127,13 @@ input:-webkit-autofill {
   user-select: none;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
+.header .logo:hover {
+  -webkit-transform: rotateZ(360deg);
+  -moz-transform: rotateZ(360deg);
+  -o-transform: rotateZ(360deg);
+  -ms-transform: rotateZ(360deg);
+  transform: rotateZ(360deg);
+}
 .header .menu {
   margin-right: -9px;
   text-align: right;
