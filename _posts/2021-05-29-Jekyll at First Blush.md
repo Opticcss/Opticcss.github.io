@@ -24,7 +24,7 @@ tree /f > saved_names.txt
 
 ​	The resulting directory structure (roughly) is as below, with the meaning of each file marked out in comments, note that `##` represents necessary, and `#^` is optional.
 
-```bash
+```pseudocode
 .
 ├─Gemfile
 ├─_config.yml
@@ -54,24 +54,24 @@ tree /f > saved_names.txt
 
 | `.` **as Parent Node** | **Usage**                                                    |
 | ---------------------- | ------------------------------------------------------------ |
-| `Gemfile`              | `## for configurations and dependencies of RubyGems`         |
-| `_config.yml`          | `## store the configuration data`                            |
-| `_includes`            | `## include sessions, loaded in other files by`<br />`{` `%` `include file.xxx` `%` `}` `for reuse` |
-| `_layouts`             | `## template of the pages`                                   |
-| `_posts`               | `## store articles with format of YEAR-MONTH-DAY-title.MARKUP`<br />`2021-XX-XX-XXX.md` |
-| `_drafts`              | `## store the unpublished files`,<br />`which do not have title.MARKUP <!deprecated!>`<br />`[OPTSxXXXX]_Template.md` |
-| `_data`                | `## formatted data .yml, .yaml, .json, .csv, referred by site.data.members` |
-| `index.html`           | `## automatically converted by Jekyll if contains YAML frontmatter` |
-| `static`               | `#^ contains.js,.css and some image resources, similar to [assets]`<br />`css`, `font`, `img`, `js`, `xml` |
-| `pages`                | `#^ resource files used in indices of pages`                 |
-| `mater`                | `#^ resource files referenced by my blog`<br />`[OPTSxXXXX]_Template` |
-| `favicon.ico`          | `#^ the common icon file`                                    |
-| `.gitattributes`       | `#^ the GitHub attributes file`                              |
-| `.gitignore`           | `#^ the list of ignored file`                                |
+| `Gemfile`              | `##` for configurations and dependencies of `RubyGems`       |
+| `_config.yml`          | `##` store the configuration data                            |
+| `_includes`            | `##` include sessions, loaded in other files by<br />`{` `%` `include file.xxx` `%` `}` `for reuse` |
+| `_layouts`             | `##` template of the pages                                   |
+| `_posts`               | `##` store articles with format of `YEAR-MONTH-DAY-title.MARKUP`<br />`2021-XX-XX-XXX.md` |
+| `_drafts`              | `##` store the unpublished files,<br />which do not have `title.MARKUP <!deprecated!>`<br />`[OPTSxXXXX]_Template.md` |
+| `_data`                | `##` formatted data `.yml`, `.yaml`, `.json`, `.csv`, referred by `site.data.members` |
+| `index.html`           | `##` automatically converted by `Jekyll` if contains `YAML frontmatter` |
+| `static`               | `#^` contains `.js`, `.css` and some image resources, similar to `[assets]`<br />`css`, `font`, `img`, `js`, `xml` |
+| `pages`                | `#^` resource files used in indices of pages                 |
+| `mater`                | `#^` resource files referenced by my blog<br />`[OPTSxXXXX]_Template` |
+| `favicon.ico`          | `#^` the common icon file                                    |
+| `.gitattributes`       | `#^` the GitHub attributes file                              |
+| `.gitignore`           | `#^` the list of ignored file                                |
 
 ## **2. YAML for Configuration**
 
-​	`YAML` syntax (`/ˈjæməl/`, kind of markup language) is of significant importance in manipulation of `Jekyll` `_config.yml`,  it saves the complexity of configuring the website by command-line. By setting the user-defined attributes, for example the configuration below specify the `UTF-8` encoding, the blog title and author, as well some copyright information. As for the URL, I'm planning to add one for myself, maybe when I grow up... `φ(゜▽゜*)♪`
+​	`YAML` syntax (`/ˈjæməl/`, a markup language) is of significant importance in manipulation of `Jekyll` `_config.yml`,  it saves the complexity of configuring the website by command-line. By setting the user-defined attributes, for example the configuration below specify the `UTF-8` encoding, the blog title and author, as well some copyright information. As for the URL, I'm planning to add one for myself, maybe when I grow up... `φ(゜▽゜*)♪`
 
 ```yaml
 encoding: UTF-8
