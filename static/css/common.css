@@ -126,6 +126,10 @@ input:-webkit-autofill {
   border: .08em solid #ffffff !important;
   user-select: none;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  -webkit-transition: -webkit-transform 2s ease-out;
+  -moz-transition: -moz-transform 2s ease-out;
+  -o-transition: -o-transform 2s ease-out;
+  -ms-transition: -ms-transform 2s ease-out;
 }
 .header .logo:hover {
   -webkit-transform: rotateZ(360deg);
