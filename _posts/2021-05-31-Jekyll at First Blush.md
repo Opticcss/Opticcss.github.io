@@ -167,7 +167,7 @@ tags: [...]
   - cannot be updated $10$ times per hour.
   - cannot be equipped with comment function (this can be complemented by third-party services).
 
-## **Small Tips for Publish Individual Blogs**
+## **4. Small Tips for Publish Individual Blogs**
 
 ### **Internal links for Data Statistics**
 
