@@ -8,9 +8,8 @@ tags: [sketch]
 typora-root-url: ..
 ---
 
-> **Abstract**/**Snippet**. Melatonin, as kind of prescription drug/dietary supplement, is used in jet lag, delayed sleep-wake phase disorder (DSWPD), some sleep disorders, and the anxiety symptoms before and after treatment, etc. In the past few years, those born in the 1990s who bought imported sleep-aid products accounted for $62\%$ of the total consumers, and those who bought melatonin products accounted for $85\%$. On the other hand, the incidence of insomnia in people over 65 years of age is $20\sim50\%$, i.e., both the demand for melatonin and its associated range of action have increased considerably... ...
+> **Abstract**/**Snippet**. Melatonin, as kind of prescription drug/dietary supplement, is used in jet lag, delayed sleep-wake phase disorder (DSWPD), some sleep disorders, and the anxiety symptoms before and after treatment, etc. In the past few years, those born in the 1990s who bought imported sleep-aid products accounted for $62\%$ of the total consumers, and those who bought melatonin products accounted for $85\%$. On the other hand, the incidence of insomnia in people over 65 years of age is $20\sim50\%$, i.e., both the demand for melatonin and its associated range of action have increased considerably... ... This article is a collection of relevant resources obtained individually from the network, and should be acquired rationally in practice.
 >
-> This article is a collection of relevant resources obtained individually from the network, and should be acquired rationally in practice.
 
 
 **Contents**
