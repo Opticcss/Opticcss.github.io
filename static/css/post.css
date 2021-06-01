@@ -33,12 +33,25 @@
   font-weight: bold;
   padding-right: 6px;
 }
-.page-post h3,
-.page-post h4,
-.page-post h5,
-.page-post h6 {
+.page-post .post h3 {
+  content: '##';
+}
+.page-post .post h4 {
+  content: '###';
+}
+.page-post .post h5 {
+  content: '###';
+}
+.page-post .post h6 {
+  content: '####';
+}
+.page-post .post h3,
+.page-post .post h4,
+.page-post .post h5,
+.page-post .post h6 {
   font-size: 15px;
   font-weight: bold;
+  padding-right: 6px;
 }
 .page-post blockquote {
   border-left: 3px solid #333333;
