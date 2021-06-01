@@ -93,12 +93,13 @@
   tab-size: 4;
   line-height: 1.6;
 }
+code.language-plaintext.highlighter-rouge {
+  background-color: #00000000;
+}
 .page-post code {
   font-size: 13px;
   background-color: #eeeeee;
   word-break: break-all;
-  padding: 3px 5px;
-  margin: 0 4px;
   border-radius: 5px;
   color: #4d4d4c;
   transition: all 500ms ease;
