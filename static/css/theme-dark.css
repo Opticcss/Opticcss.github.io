@@ -35,7 +35,7 @@ html.dark .page-post img {
   box-shadow: none;
 }
 html.dark .page-post code {
-  background-color: rgba(240, 246, 252, 0.15);
+  background-color: rgb(255 255 255 / 8%);
   color: #c9d1d9;
 }
 html.dark .page-post a {
