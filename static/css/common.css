@@ -280,7 +280,7 @@ textarea {
 }
 pre,
 code {
-  font-family: 'Saira Extra Condensed', FiraCode, FiraMono;
+  font-family: FiraCode, FiraMono;
 }
 input:-webkit-autofill {
   /* 自动填充的文本颜色 */

@@ -5,6 +5,9 @@
   text-align:justify;
 }
 .page-post .title {
+  line-height: 3.5rem;
+  font-size: 3em;
+  font-family: 'Saira Extra Condensed';
   font-size: 18px;
   font-weight: bold;
   color: #666666;
@@ -22,8 +25,9 @@
 }
 .page-post .post h1,
 .page-post .post h2 {
+  font-size: 2em;
+  font-family: 'Saira Extra Condensed';
   font-weight: normal;
-  font-size: 17px;
   position: relative;
 }
 .page-post .post h1::before,
@@ -53,6 +57,8 @@
 .page-post .post h4::before,
 .page-post .post h5::before,
 .page-post .post h6::before {
+  font-size: 1.5em;
+  font-family: 'Saira Extra Condensed';
   font-size: 15px;
   font-weight: bold;
   padding-right: 6px;
