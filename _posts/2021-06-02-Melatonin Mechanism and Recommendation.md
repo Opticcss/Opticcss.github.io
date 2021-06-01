@@ -19,7 +19,7 @@ tags: [sketch]
 
 ​	Melatonin (N-acetyl-5-methoxy tryptamine, 褪黑激素/褪黑素/N-乙酰-5-甲氧基色胺), originally, a **hormone** produced in brain🧠 under dark condition, and **play a role in adjusting the circadian rhythms/biological clock** (discussed in [1.](# 1-mechanism-of-melatonin)). Its secretion is blocked by light, i.e., increases during the day and decreases at night ([1.1, 1.2](# effect-of-light-on-melatonin))... Its chemical structure is[^1]
 
-<img src="..\static\img\[OPTSx1890]_Chemical_Structure.svg" alt="[OPTSx1890]_Chemical_Structure" />
+<img src="..\assets\images\[OPTSx1890]_Chemical_Structure.svg" alt="[OPTSx1890]_Chemical_Structure" />
 
 ​	Lots of people use it as a sleep aid, which are mostly retrieved from microorganisms/animals, but **<u>"natural" doesn't always mean "safe"</u>**... Actually, there hasn't been enough researches on the side effects of its long-term use, what is more, it is only known to all that melatonin regulate the body far more than it does as a sleep aid, but details of what those effects are has not been discovered...
 
@@ -27,11 +27,11 @@ tags: [sketch]
 
 ​	Melatonin, naturally is kind of highly lipid soluble (高脂溶性) hormone produced in brain pineal gland (松果体). It is synthesized from (predecessor) amino acid tryptophan (氨基酸色氨酸) and then released into the blood and cerebrospinal fluid (脑脊液), crossing the blood-brain barrier (血脑屏障)[^2]. It sends messages to the receptor agonist (受体激动剂) in the brain and other areas of the body to help control the sleep and wake cycles.
 
-![[OPTSx1890]_Mechanism](..\static\img\[OPTSx1890]_Mechanism.svg)
+![[OPTSx1890]_Mechanism](..\assets\images\[OPTSx1890]_Mechanism.svg)
 
 ​	The chemical mechanism in detail is described in[^3], as below.
 
-![[OPTSx1890]_Chemical_Mechanism_in_Detail](..\static\img\[OPTSx1890]_Chemical_Mechanism_in_Detail.svg)
+![[OPTSx1890]_Chemical_Mechanism_in_Detail](..\assets\images\[OPTSx1890]_Chemical_Mechanism_in_Detail.svg)
 
 ​	When taken as supplement, it will functional as the effects of the natural hormone. **Drowsiness generally occurs within $\mathbf{30\text{ }min}$ after taking a dose** (this time period is approximately the time of hormone functioning at brain). Finally, the conclusion is raised,
 
@@ -43,11 +43,11 @@ tags: [sketch]
 
 > the release of endogenous melatonin is increased each day in response to darkness, and reach its peak between 11 post meridiem and 3 ante meridiem at roughly $200\text{ picograms}$ per $\text{mL}$, on the other side, the night time levels are roughly $\times10$ higher than in the daytime. Levels fall sharply before daylight, and are barely detectable in the daylight hours. The rise and fall in endogenous levels signal wake and sleep times, which is so called the circadian rhythm.
 
-<img src="..\static\img\[OPTSx1890]_Effect_of_Light_on_Melatonin_Secretion.svg" alt="[OPTSx1890]_Effect_of_Light_on_Melatonin_Secretion"/>
+<img src="..\assets\images\[OPTSx1890]_Effect_of_Light_on_Melatonin_Secretion.svg" alt="[OPTSx1890]_Effect_of_Light_on_Melatonin_Secretion"/>
 
 ​	Furthermore, the melatonin secretion can also be prevented by the using of one's smart phone/television (also by the light), one's age (high ages will also inhibits the release of melatonin at night), and also by the seasons (in summer, the production cycle is shorter, but in winter, the production cycle is longer). All these effects finally operate on the seasonal rhythms and the circadian rhythms[^5].
 
-![[OPTSx1890]_Physiology_of_Melatonin](..\static\img\[OPTSx1890]_Physiology_of_Melatonin.svg)
+![[OPTSx1890]_Physiology_of_Melatonin](..\assets\images\[OPTSx1890]_Physiology_of_Melatonin.svg)
 
 ​	The mechanism of this kind of effect based on photic information[^6] is conveyed to the suprachiasmatic nuclei (SCN, 视交叉上核), principally through the retino-hypothalamic tract (RHT), where it synchronizes the activity of the circadian oscillator to exactly 24 h. Neuronal efferent pathways from the SCN directly distribute circadian information to different brain areas, including the pineal gland, that generates the melatonin rhythm. The neural route for environmental lighting control of melatonin secretion, after relay in the paraventricular nuclei (PVT), includes the intermediolateral column of the thoracic chord grey (ILC) and the superior cervical ganglion (SCG). The generated melatonin rhythm might be used by the SCN to distribute its rhythmic information. Melatonin can feed back at the level of the SCN, as well as the retina itself. A melatonin-driven circadian rhythm of sensitivity to melatonin may exist in the structure(s) involved in seasonality.
 
