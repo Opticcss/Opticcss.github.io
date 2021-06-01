@@ -51,7 +51,7 @@ tags: [sketch]
 
 ​	The mechanism of this kind of effect based on photic information[^6] is conveyed to the suprachiasmatic nuclei (SCN, 视交叉上核), principally through the retino-hypothalamic tract (RHT), where it synchronizes the activity of the circadian oscillator to exactly 24 h. Neuronal efferent pathways from the SCN directly distribute circadian information to different brain areas, including the pineal gland, that generates the melatonin rhythm. The neural route for environmental lighting control of melatonin secretion, after relay in the paraventricular nuclei (PVT), includes the intermediolateral column of the thoracic chord grey (ILC) and the superior cervical ganglion (SCG). The generated melatonin rhythm might be used by the SCN to distribute its rhythmic information. Melatonin can feed back at the level of the SCN, as well as the retina itself. A melatonin-driven circadian rhythm of sensitivity to melatonin may exist in the structure(s) involved in seasonality.
 
-## **Melatonin for Sleeping**
+## **2. Melatonin for Sleeping**
 
 ​	Firstly, to avoid misunderstanding, the chronic insomnia always means that unable to sleep or stay asleep for a month or more, so **instead of taking medicine (like melatonin) every time you can't sleep, it is recommended to exercise or change other healthy methods**... Furthermore, this is also not supported in the guidelines proposed by the American Academy of Sleep Medicine and American College of Physicians in 2017 and 2016, respectively, as
 
