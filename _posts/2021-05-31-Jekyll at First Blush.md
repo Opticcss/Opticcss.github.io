@@ -24,7 +24,7 @@ tree /f > saved_names.txt
 
 ​	The resulting directory structure (roughly) is as below, with the meaning of each file marked out in comments, note that `##` represents necessary, and `#^` is optional.
 
-```pseudocode
+```assembly
 .
 ├─Gemfile
 ├─_config.yml
