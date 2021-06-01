@@ -11,7 +11,7 @@ html.dark ::-webkit-scrollbar-thumb {
   background-color: rgba(153, 153, 153, 0.6);
 }
 html.dark img {
-  filter: brightness(1) contrast(0.4);
+  filter: invert(1) contrast(200%);
 }
 html.dark .footer a {
   color: #58a6ff;

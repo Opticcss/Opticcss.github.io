@@ -335,6 +335,7 @@ input:-webkit-autofill {
 .header .logo {
   width: 100px;
   height: 100px;
+  filter: none;
   cursor: pointer;
   border-radius: 50%;
   flex-shrink: 0;
