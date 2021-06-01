@@ -152,7 +152,7 @@ tags: [...]
 | `date`                         | override the dates in article name,<br />in the format of `YYYY-MM-DD HH:MM:SS +/-TTTT`,<br />the last number is always `+0800` (the time zone offset) |
 | `category`, `categories`       | specify one or more categorical attributes for the blog,<br />these articles can be read according to `categories`<br />`categories` can be accessed through `YAML List` |
 | `tags`                         | similar thing as `categories`                                |
-| `other self-defined variables` | can also be referenced by `{{ page.var }}` as others         |
+| `other self-defined variables` | can also be referenced by `{` `{` `page.var` `}` `}` as others |
 
 ## **3. Jekyll + GitHub Pages**
 
