@@ -101,12 +101,12 @@ typora-root-url: ..
 
 ​	Naturally, many foods carries small amounts of melatonin, for example [^8], maybe one can also gain melatonin by eating these foods, which is undoubted a better idea by directly take them as medicine (these, of course, cannot affect melatonin levels significantly)... ...
 
-- tomatoes 🍅, potatoes 🥔, almonds, walnuts.
+- tomatoes🍅, potatoes🥔, almonds, walnuts.
 
 ​	it is also worth trying to combine them with foods rich in tryptophan (色氨酸) which stimulates melatonin production naturally, with
 
 
-- bananas 🍌, oranges 🍊, cherries 🍒, nuts, oat.
+- bananas🍌, oranges🍊, cherries🍒, nuts, oat.
 
 ### **Recommended for Better Sleep, a Non-Pharmacological Way**
 
