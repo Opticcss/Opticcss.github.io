@@ -1,4 +1,5 @@
 .list-post > h2 {
+  font-family: FiraMono;
   font-size: 15px;
   font-weight: bold;
   padding: 12px 0;
@@ -8,9 +9,10 @@
   padding-left: 15px;
 }
 .list-post li {
+  font-family: FiraMono;
   display: flex;
   align-items: center;
-  padding: 8px 0;
+  padding: .2em 0;
 }
 .list-post li .date {
   color: #666666;
@@ -55,6 +57,7 @@
   border-bottom: 1px solid #333333;
 }
 .page-search #search-input {
+  font-family: FiraMono;
   text-align: center;
   font-size: 14px;
   border-bottom: 2px solid #eaeaea;
@@ -63,6 +66,7 @@
   background-color: transparent;
 }
 .page-search h1 {
+  font-family: FiraMono;
   padding: 12px 0;
 }
 .page-search h1 span {
@@ -120,6 +124,7 @@
     display: none;
   }
   .list-category h2 {
+    font-family: FiraMono;
     padding: 10px 0;
   }
   .list-category div a {
