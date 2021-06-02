@@ -37,7 +37,7 @@ typora-root-url: ..
 
 > **NIGHTTIME MELATONIN LEVELS AFFECT THE QUALITY OF SLEEP DIRECTLY**
 
-### **Effect of Light (Intensity) on Melatonin**
+### **1.1. Effect of Light (Intensity) on Melatonin**
 
 ​	The secretion of melatonin is affected by (the intensity of) light (measured in $\text{lux}$), as a demonstration, the experiment utilize different light intensity (of $500\text{ lux}$, $2500\text{ lux}$, $1500\text{ lux}$, and in the dark)[^4]. The experiment results is obvious, which yields that
 
@@ -64,7 +64,7 @@ typora-root-url: ..
 
 ​	Note that these are symptoms which are caused by insomnia, and these depressions (with insomnia) will cause and effect each other in a vicious circle, hence should be treated seriously.
 
-### **Safety Considerations when Taking Melatonin**
+### **2.1. Safety Considerations when Taking Melatonin**
 
 ​	Like other hormones, melatonin, as a hormone, will naturally have some adverse effects if taken at a dose much higher than the normal level in the body. For most people, it is safe to take melatonin in small doses for a short period of time. But for the old Alzheimer's patients, this should be quitted (suggested the American Academy of Sleep Medicine, in 2015, the reason is that melatonin may remain active longer in the elderly than in the young. In turn, the olds are likely to have no spirit even during daytime).
 
@@ -82,7 +82,7 @@ typora-root-url: ..
 - avoid coffee, tea, cola, energy drinks, or other products that contain caffeine, as they may counteract the effects of the melatonin.
 - avoid other unknown allergic reactions or unsuitable menstrual periods (ex. pregnant or lactating women).
 
-### **Recommended Dose**
+### **2.2. Recommended Dose**
 
 ​	If really necessary, it should be known the corresponding dose for taking melatonin, **for jet lag, the effective starting doses is from $\mathbf{0.3}$ to $\mathbf{0.5\text{ mg}}$** (maybe half the pills), higher doses may be associated with more side effects as above shows. One is **recommended to always start with the lowest dose**, according to Cochrane review[^7] (although much higher doses are available for sale in the U.S.).
 
@@ -96,7 +96,7 @@ typora-root-url: ..
 - autoimmune condition.
 - using other sedatives or tranquilizers.
 
-### **Another Way of Natural Fetching/Retrieving**
+### **2.3. Another Way of Natural Fetching/Retrieving**
 
 ​	Naturally, many foods carries small amounts of melatonin, for example [^8], maybe one can also gain melatonin by eating these foods, which is undoubted a better idea by directly take them as medicine (these, of course, cannot affect melatonin levels significantly)... ...
 
@@ -107,7 +107,7 @@ typora-root-url: ..
 
 - bananas🍌, oranges🍊, cherries🍒, nuts, oat.
 
-### **Recommended for Better Sleep, a Non-Pharmacological Way**
+### **2.4. Recommended for Better Sleep, a Non-Pharmacological Way**
 
 ​	Non-pharmacological interventions can be treated as another method to treat insomnia, which includes (these can also be used as some advices for better sleep)
 
