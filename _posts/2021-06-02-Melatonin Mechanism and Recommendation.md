@@ -17,7 +17,7 @@ typora-root-url: ..
 * toc
 {:toc}
 
-​	Melatonin (N-acetyl-5-methoxy tryptamine, 褪黑激素/褪黑素/N-乙酰-5-甲氧基色胺), originally, a **hormone** produced in brain🧠 under dark condition, and **play a role in adjusting the circadian rhythms/biological clock** (discussed in [1.](# 1-mechanism-of-melatonin)). Its secretion is blocked by light, i.e., increases during the day and decreases at night ([1.1, 1.2](# effect-of-light-on-melatonin))... Its chemical structure is[^1]
+​	Melatonin (N-acetyl-5-methoxy tryptamine, 褪黑激素/褪黑素/N-乙酰-5-甲氧基色胺), originally, a **hormone** produced in brain🧠 under dark condition, and **play a role in adjusting the circadian rhythms/biological clock** (discussed in [1.](# 1-mechanism-of-melatonin)). Its secretion is blocked by light, i.e., increases during the day and decreases at night ([1.1, 1.2](# 11-effect-of-light-intensity-on-melatonin))... Its chemical structure is[^1]
 
 <img src="/assets/images/[OPTSx1890]_Chemical_Structure.svg" alt="[OPTSx1890]_Chemical_Structure" />
 
