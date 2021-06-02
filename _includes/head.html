@@ -40,7 +40,7 @@
       }
     }
     if (sessionStorage.darkTheme !== undefined) {
-      blog.setDarkTheme(sessionStorage.darkTheme === 'false'); // 记忆值，单个窗口内有效
+      blog.setDarkTheme(sessionStorage.darkTheme === 'true'); // 记忆值，单个窗口内有效
     } else {
       blog.setDarkTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches); // 跟随系统
     }
