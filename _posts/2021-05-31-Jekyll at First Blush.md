@@ -170,7 +170,7 @@ tags: [...]
 
 ## **4. Small Tips for Publish Individual Blogs**
 
-### **Internal links for Data Statistics**
+### **4.1. Internal Links for Data Statistics**
 
 ​	Several links for GitHub users' personal activity data, dynamic ratings of activity data, and statistics on the most commonly used programming languages, they are correspond to three internal links as
 
