@@ -42,11 +42,13 @@
   margin-left: 8px;
 }
 .list-category h2 {
+  font-family: FiraMono;
   font-size: 15px;
   font-weight: bold;
   padding: 12px 0;
 }
 .list-category div {
+  font-family: FiraMono;
   padding: 8px 0 8px 10px;
 }
 .list-category div a {
