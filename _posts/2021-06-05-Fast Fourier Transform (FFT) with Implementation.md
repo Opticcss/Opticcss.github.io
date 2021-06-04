@@ -159,11 +159,63 @@ $$
 
 ​	Following the stage $\lg N$ decomposition, which **gives $2$ sequences subproblems with half size** ($N/2$), subsequently, based on this stage, there also exists the stage $\lg(N/2)=\lg N-1$ decomposition, yields (totally $4$ subproblems with $N/4$)
 $$
-
+\begin{equation}
+\begin{split}
+&\left.
+\begin{split}
+&X^{[0]}_k=X^{[2]}_k+\omega_{\frac N2}^{k}X^{[3]}_k,\\
+&X^{[0]}_{k+\frac N4}=X^{[2]}_k-\omega_{\frac N2}^{k}X^{[3]}_k,\\
+&X^{[1]}_k=X^{[4]}_k+\omega_{\frac N2}^{k}X^{[5]}_k,\\
+&X^{[1]}_{k+\frac N4}=X^{[4]}_k-\omega_{\frac N2}^{k}X^{[5]}_k,
+\end{split}
+\right\}
+(0\leq k\leq N/4-1),
+\end{split}
+\end{equation}
 $$
+$$
+\begin{equation}
+\begin{split}&\text{where }\left\{
+\begin{split}
+&X^{[2]}_k=\sum_{m=0}^{N/4-1}X^{[0]}_{2m}\cdot \omega_{\frac N4}^{mk},\\
+&X^{[3]}_k=\sum_{m=0}^{N/4-1}X^{[0]}_{2m+1}\cdot \omega_{\frac N4}^{mk},\\
+&X^{[4]}_k=\sum_{m=0}^{N/4-1}X^{[1]}_{2m}\cdot \omega_{\frac N4}^{mk},\\
+&X^{[5]}_k=\sum_{m=0}^{N/4-1}X^{[1]}_{2m+1}\cdot \omega_{\frac N4}^{mk},
+\end{split}
+\right.
+\end{split}
+\end{equation}
+$$
+
 ​	The final stage should have totally $2^{\lg N-1}=N/2$ subproblems with size of $N/(N/2)=2$ (the last component is $X^{[2^1+2^2+\cdots+2^{\lg N/2}-1]}_k=X^{[2(1-2^{\lg N/2})/(1-2)-1]}_k=X^{[N-3]}_k$, the first component is $X^{[N/2-2]}_k$). After this, there will lead to $N$ subproblems with $1$ size, which is undoubted the identity transform of $x[k]$ (which is $x_n$ of $x_n\to x[k]$, again, see [2.2.](# 22-dit-and-bit-reversal-permutation) for details of realize this indices transformation)
 $$
+\begin{equation}
+\begin{split}
+&\left.
+\begin{split}
+&X^{[N/2-2]}_k=X^{[N-2]}_k+\omega_{2}^{k}X^{[N-1]}_k,\\
+&\quad\quad\quad\quad\quad\vdots\\
+&X^{[N-3]}_k=X^{[2N-3]}_k+\omega_{2}^{k}X^{[2N-2]}_k,
+\end{split}
+\right\}
+(0\leq k\leq N/2^{\lg N}-1\to k=0),
+\end{split}
+\end{equation}
+$$
 
+$$
+\begin{equation}
+\begin{split}&\text{where }\left\{
+\begin{split}
+&X^{[N-2]}_k=X^{[N-2]}_0=x[1],\\
+&X^{[N-1]}_k=X^{[N-1]}_0=x[2],\\
+&\quad\quad\quad\vdots\\
+&X^{[2N-2]}_k=X^{[2N-2]}_0=x[N-1],\\
+&X^{[2N-3]}_k=X^{[2N-3]}_0=x[N],
+\end{split}
+\right.
+\end{split}
+\end{equation}
 $$
 ​	Hence, by implementing this method recursively/iteratively, the final result can be deduced, in $\Theta(n\lg n)$.
 
