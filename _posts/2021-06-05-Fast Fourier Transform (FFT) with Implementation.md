@@ -102,7 +102,16 @@ $$
 
 ​	The simplify operation provided by J. W. Cooley and J. W. Tukey (1965) is to divide the DFT equation into odd part and even part as below (this method is also called decimation in time DIT, and realized based on the **bit-reversal permutation**, see [2.2.](# 22-dit-and-bit-reversal-permutation)), it lead to two part of time sequence $\{0,2,4,...\}$ and $\{1,3,5,...\}$.
 $$
-
+\begin{equation}
+\begin{split}
+X_k&=\sum_{n=0}^{N-1}x_n\cdot \omega_N^{nk}\\
+&=\sum_{n=0}^{N-1}x_n\cdot e^{-i2\pi kn/N}\\
+&=\overbrace{\sum_{m=0}^{N/2-1}x_{2m}\cdot e^{-i2\pi km/(N/2)}}^{\text{EVEN PART}}+e^{-i2\pi k/N}
+\overbrace{\sum_{m=0}^{N/2-1}x_{2m+1}\cdot e^{-i2\pi km/(N/2)}}^{\text{ODD PART}}\\
+&=\sum_{m=0}^{N/2-1}x_{2m}\cdot \omega_{\frac N2}^{mk}+\omega_N^k
+\sum_{m=0}^{N/2-1}x_{2m+1}\cdot \omega_{\frac N2}^{mk},
+\end{split}
+\end{equation}
 $$
 ​	to get the reduction of complexity, using **the symmetry (and periodicity) of the twiddle factor,** i.e., $\omega_N^{m+N/2}=-\omega_N^m$.
 $$
