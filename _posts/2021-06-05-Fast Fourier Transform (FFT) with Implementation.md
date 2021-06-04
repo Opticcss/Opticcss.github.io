@@ -16,7 +16,7 @@ typora-root-url: ..
 {:toc}
 ## **1. Prerequisite: the Twiddle Factor**
 
-> The **twiddle factor** is defined as $\omega_N^{km}=e^{-{\rm j}\frac{2\pi}Nkm}$[^1], and used throughout this article
+> The **twiddle factor** is defined as $\omega_N^{km}=e^{-\mathrm{j}\frac{2\pi}Nkm}$[^1], and used throughout this article
 
 ​	Its following properties are essential to the acceleration of FFT
 
@@ -65,8 +65,8 @@ this indicates that "dividing by an extra $2$ over a complex exponential has the
 $$
 \begin{equation}
 \begin{split}
-x[n]&=\frac1N\sum_{k=0}^{N-1}X_k\cdot e^{{\rm j}k2\pi /Nn},\\
-X_k&=\sum_{n=0}^{N-1}x[n]\cdot e^{-{\rm j}k2\pi /Nn},
+x[n]&=\frac1N\sum_{k=0}^{N-1}X_k\cdot e^{\mathrm{j}k2\pi /Nn},\\
+X_k&=\sum_{n=0}^{N-1}x[n]\cdot e^{-\mathrm{j}k2\pi /Nn},
 \end{split}
 \end{equation}
 $$
@@ -149,7 +149,7 @@ $$
 $$
 ​	the formal operation (named butterfly, and has schematic definition) has two input value entered from left, the output are sum and difference, related to the twiddle factor $\omega_n^k$. This is simplified as dark (green) box on the right.
 
-![[OPTSx84a2]_Butterfly_Operation](C:\Users\a1020\Desktop\Opticcss.github.io\assets\images\[OPTSx84a2]_Butterfly_Operation.svg)
+![[OPTSx84a2]_Butterfly_Operation](\assets\images\[OPTSx84a2]_Butterfly_Operation.svg)
 
 ​	Following the stage $\lg N$ decomposition, which **gives $2$ sequences subproblems with half size** ($N/2$), subsequently, based on this stage, there also exists the stage $\lg(N/2)=\lg N-1$ decomposition, yields (totally $4$ subproblems with $N/4$)
 $$
@@ -235,7 +235,7 @@ $$
 \end{split}
 \end{equation}
 $$
-![[OPTSx84a2]_DIT_Scheme](/Desktop/Opticcss.github.io/assets/images/[OPTSx84a2]_DIT_Scheme.svg)
+![[OPTSx84a2]_DIT_Scheme](\assets\images\[OPTSx84a2]_DIT_Scheme.svg)
 
 ​	on the other side, the DIF scheme gives
 $$
@@ -281,7 +281,7 @@ function bit_reverse!(a₀::Vector{ComplexF64})
 end
 ```
 
-![[OPTSx84a2]_Bit_Reversal_Permutation](/Desktop/Opticcss.github.io/assets/images/[OPTSx84a2]_Bit_Reversal_Permutation.svg)
+![[OPTSx84a2]_Bit_Reversal_Permutation](\assets\images\[OPTSx84a2]_Bit_Reversal_Permutation.svg)
 
 > note the macro `@swap` is correspond to the swapping operation implemented as below,
 >
@@ -300,7 +300,7 @@ end
 
 ​	Although the FFT top-down recursive method is simple in code level and more readable, it has high hardware implementation cost and low software efficiency, so the **bottom-up iterative method** is adopted here. Based on the bit-reversal permutation, the iterative FFT can be designed, below is a iterative process (**FFT circuit**) of $N=2^3=8$, $A_k,k=0,1,...,2^3$ is the `::Vector{ComplexF64}` going to be used in , $x_k$ and $X_k$ are the correspondingly original and resulting signals (data), $X_k^{[\cdots]}$ as intermedia variables are not appear in the code (as they have comparably complicated indices, which are useless).
 
-![[OPTSx84a2]_Butterfly_Operation_for_N_8](/Desktop/Opticcss.github.io/assets/images/[OPTSx84a2]_Butterfly_Operation_for_N_8.svg)
+![[OPTSx84a2]_Butterfly_Operation_for_N_8](\assets\images\[OPTSx84a2]_Butterfly_Operation_for_N_8.svg)
 
 ​	The total number of stages related to the iterative process is $s_\max=\lg N$, and there are $N$ operations in each stage, hence totally $N\lg N$ operations here. According to the induction hypothesis, there exists following rules
 
@@ -393,11 +393,11 @@ end
 
 
 
-![[OPTSx84a2]_Comparison](/Desktop/Opticcss.github.io/assets/images/[OPTSx84a2]_Comparison.svg)
+![[OPTSx84a2]_Comparison](\assets\images\[OPTSx84a2]_Comparison.svg)
 
 
 
-<img src="/Desktop/Opticcss.github.io/assets/images/[OPTSx84a2]_ProfileSeen.svg" alt="[OPTSx84a2]_ProfileSeen" />
+<img src="\assets\images\[OPTSx84a2]_ProfileSeen.svg" alt="[OPTSx84a2]_ProfileSeen" />
 
 
 
