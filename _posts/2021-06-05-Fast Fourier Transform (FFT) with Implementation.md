@@ -20,8 +20,11 @@ typora-root-url: ..
 
 ​	Its following properties are essential to the acceleration of FFT
 
-
 ​	Rewrite discrete Fourier transform (DFT) as below, the direct calculation will lead to the time complexity of $\Theta(N^2)$.
+
+
+
+
 $$
 \begin{equation}
 \begin{split}
@@ -30,6 +33,8 @@ X_k&=\sum_{n=0}^{N-1}x[n]\cdot e^{-\mathrm{j}k2\pi /Nn},
 \end{split}
 \end{equation}
 $$
+
+
 
 
 
