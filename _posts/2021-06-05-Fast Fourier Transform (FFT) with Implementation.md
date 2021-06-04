@@ -20,46 +20,6 @@ typora-root-url: ..
 
 ​	Its following properties are essential to the acceleration of FFT
 
-1. periodicity
-   $$
-   \begin{equation}
-   \begin{split}
-   \omega_N^{m+lN}=\omega_N^m,\text{ where }\omega_N^{-m}=\omega_N^{N-m},
-   \end{split}
-   \end{equation}
-   $$
-
-2. symmetry
-   $$
-   \begin{equation}
-   \begin{split}
-   \omega_N^{m+N/2}=-\omega_N^m,
-   \end{split}
-   \end{equation}
-   $$
-this indicates that "dividing by an extra $2$ over a complex exponential has the same effect as squaring an extra complex exponential,which can be represented in the complex plane by symmetry of equipartition".
-   
-3. reducibility
-   $$
-   \begin{equation}
-   \begin{split}
-   \omega_{N/m}^k=\omega_N^{mk},
-   \end{split}
-   \end{equation}
-   $$
-
-4. special twiddle factor as $\omega_N^0=1$.
-
-> These are caused by the the multiplicative group formed by Fourier basis $\{e^{i2\pi mt}\}_{m\in\mathbb{Z}}=\{(e^{-i2\pi/N})^{1},(e^{-i2\pi/N})^{2},\cdots (e^{-i2\pi/N})^{N-1})\}$ on $L^2[\cdots]$ is **isomorphic to modular $n$ additive group** $(\mathbb{Z}_n,+)$ which leads to $(e^{-i2\pi /N})^j(e^{-i2\pi /N})^k=(e^{-i2\pi /N})^{(j+k)\text{ mod }N}$, in addition, there exists the relation of
->
-> $$
-> \begin{equation}
-> \begin{split}
-> (e^{-i2\pi /dN})^{dk}&=(e^{-i2\pi /N})^{k},\\
-> [(e^{-i2\pi /N})^{k+N/2}]^{2}&=[(e^{-i2\pi /N})^{k}]^{2},
-> \end{split}
-> \end{equation}
-> $$
 
 ​	Rewrite discrete Fourier transform (DFT) as below, the direct calculation will lead to the time complexity of $\Theta(N^2)$.
 $$
