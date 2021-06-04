@@ -53,7 +53,27 @@ typora-root-url: ..
 
 4. special twiddle factor as $\omega_N^0=1$.
 
-> These are caused by the the multiplicative group formed by Fourier basis $\{e^{i2\pi mt}\}_{m\in\mathbb{Z}}=\{(e^{-i2\pi/N})^{1},(e^{-i2\pi/N})^{2},\cdots (e^{-i2\pi/N})^{N-1})\}$ on $L^2[\cdots]$ is **isomorphic to modular $n$ additive group** $(\mathbb{Z}_n,+)$ which leads to $(e^{-i2\pi /N})^j(e^{-i2\pi /N})^k=(e^{-i2\pi /N})^{(j+k)\text{ mod }N}$, in addition, there exists the relation of
+> These are caused by the the multiplicative group formed by Fourier basis of
+
+$$
+\begin{equation}
+\begin{split}
+\{e^{i2\pi mt}\}_{m\in\mathbb{Z}}=\{(e^{-i2\pi/N})^{1},(e^{-i2\pi/N})^{2},\cdots (e^{-i2\pi/N})^{N-1})\}
+\end{split}
+\end{equation}
+$$
+
+> which is on $L^2[\cdots]$, this is then **isomorphic to modular $n$ additive group** $(\mathbb{Z}_n,+)$, and will lead to
+
+$$
+\begin{equation}
+\begin{split}
+(e^{-i2\pi /N})^j(e^{-i2\pi /N})^k=(e^{-i2\pi /N})^{(j+k)\text{ mod }N}
+\end{split}
+\end{equation}
+$$
+
+> in addition, there exists the relation of
 
 $$
 \begin{equation}
