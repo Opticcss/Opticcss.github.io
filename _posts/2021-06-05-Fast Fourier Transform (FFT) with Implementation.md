@@ -50,7 +50,7 @@ this indicates that "dividing by an extra $2$ over a complex exponential has the
 
 4. special twiddle factor as $\omega_N^0=1$.
 
-> These are caused by the the multiplicative group formed by Fourier basis $\{e^{i2\pi mt}\}_{m\in\Z}=\{(e^{-i2\pi/N})^{1},(e^{-i2\pi/N})^{2},\cdots (e^{-i2\pi/N})^{N-1})\}$ on $L^2[\cdots]$ is **isomorphic to modular $n$ additive group** $(\Z_n,+)$ which leads to $(e^{-i2\pi /N})^j(e^{-i2\pi /N})^k=(e^{-i2\pi /N})^{(j+k)\text{ mod }N}$, in addition, there exists the relation of
+> These are caused by the the multiplicative group formed by Fourier basis $\{e^{i2\pi mt}\}_{m\in\mathbb{Z}}=\{(e^{-i2\pi/N})^{1},(e^{-i2\pi/N})^{2},\cdots (e^{-i2\pi/N})^{N-1})\}$ on $L^2[\cdots]$ is **isomorphic to modular $n$ additive group** $(\mathbb{Z}_n,+)$ which leads to $(e^{-i2\pi /N})^j(e^{-i2\pi /N})^k=(e^{-i2\pi /N})^{(j+k)\text{ mod }N}$, in addition, there exists the relation of
 >
 > $$
 > \begin{equation}
