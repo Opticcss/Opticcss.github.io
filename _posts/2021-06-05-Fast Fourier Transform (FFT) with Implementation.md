@@ -102,17 +102,16 @@ $$
 ​	First of all, the radix-2 FFT is based on following hypothesis,
 
 - the **sampling frequency is Nyquist frequency**.
-
 - $N$ (the number of sample, the sequence length) is the **integer power of two.**
-
 - the **data length is long enough** to satisfy equation as below (data resolution $\Delta f$, sequence length $N$, sampling period $T_s$, the reality length of data $N\times T_s$)
-  $$
-  \begin{equation}
-  \begin{split}
-  \Delta f=\frac1{N\times T_s},
-  \end{split}
-  \end{equation}
-  $$
+
+$$
+\begin{equation}
+\begin{split}
+\Delta f=\frac1{N\times T_s},
+\end{split}
+\end{equation}
+$$
 
 ### **2.1. Divide-and-Conquer by DIT**
 
