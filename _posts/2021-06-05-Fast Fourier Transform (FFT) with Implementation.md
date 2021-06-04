@@ -116,6 +116,7 @@ $$
 ### **2.1. Divide-and-Conquer by DIT**
 
 ​	The simplify operation provided by J. W. Cooley and J. W. Tukey (1965) is to divide the DFT equation into odd part and even part as below (this method is also called decimation in time DIT, and realized based on the **bit-reversal permutation**, see [2.2.](# 22-dit-and-bit-reversal-permutation)), it lead to two part of time sequence $\{0,2,4,...\}$ and $\{1,3,5,...\}$.
+
 $$
 \begin{equation}
 \begin{split}
@@ -128,7 +129,9 @@ X_k&=\sum_{n=0}^{N-1}x_n\cdot \omega_N^{nk}\\
 \end{split}
 \end{equation}
 $$
+
 ​	to get the reduction of complexity, using **the symmetry (and periodicity) of the twiddle factor,** i.e., $\omega_N^{m+N/2}=-\omega_N^m$.
+
 $$
 \begin{equation}
 \begin{split}
@@ -139,9 +142,11 @@ X_{k+\frac N2}&=\sum_{m=0}^{N/2-1}x_{2m}\cdot \omega_{\frac N2}^{km}-\omega_N^{k
 \end{split}
 \end{equation}
 $$
+
 ​	the computation is hence, broken down into two subproblems of half size, odd and even (this corresponding to a change from $1, \omega_{N}^1, \omega_{N}^2, \cdots, \omega_{N}^{N-1}$ to $1, \omega_{N/2}^1, \omega_{N/2}^2, \cdots, \omega_{N/2}^{N/2-1}$), of course, $k$ satisfied that $0\leq k\leq N/2-1$.
 
 ​	Take the even part as $X^{[1]}_k$,  the odd part as $X^{[2]}_k$, hence have the operation named the **butterfly operation** (defined schematically in graph subsequently, for its realization, see [2.3.](# 23-the-iterative-implementation-of-fft))
+
 $$
 \begin{equation}
 \begin{split}
@@ -168,11 +173,13 @@ $$
 \end{split}
 \end{equation}
 $$
+
 ​	the formal operation (named butterfly, and has schematic definition) has two input value entered from left, the output are sum and difference, related to the twiddle factor $\omega_n^k$. This is simplified as dark (green) box on the right.
 
 ![[OPTSx84a2]_Butterfly_Operation](\assets\images\[OPTSx84a2]_Butterfly_Operation.svg)
 
 ​	Following the stage $\lg N$ decomposition, which **gives $2$ sequences subproblems with half size** ($N/2$), subsequently, based on this stage, there also exists the stage $\lg(N/2)=\lg N-1$ decomposition, yields (totally $4$ subproblems with $N/4$)
+
 $$
 \begin{equation}
 \begin{split}
@@ -188,6 +195,7 @@ $$
 \end{split}
 \end{equation}
 $$
+
 $$
 \begin{equation}
 \begin{split}&\text{where }\left\{
@@ -203,6 +211,7 @@ $$
 $$
 
 ​	The final stage should have totally $2^{\lg N-1}=N/2$ subproblems with size of $N/(N/2)=2$ (the last component is $X^{[2^1+2^2+\cdots+2^{\lg N/2}-1]}_k=X^{[2(1-2^{\lg N/2})/(1-2)-1]}_k=X^{[N-3]}_k$, the first component is $X^{[N/2-2]}_k$). After this, there will lead to $N$ subproblems with $1$ size, which is undoubted the identity transform of $x[k]$ (which is $x_n$ of $x_n\to x[k]$, again, see [2.2.](# 22-dit-and-bit-reversal-permutation) for details of realize this indices transformation)
+
 $$
 \begin{equation}
 \begin{split}
@@ -232,25 +241,28 @@ $$
 \end{split}
 \end{equation}
 $$
+
 ​	Hence, by implementing this method recursively/iteratively, the final result can be deduced, in $\Theta(n\lg n)$.
 
 > Proof of the $\Theta(n\lg n)$ as time complexity is deduced by considering the divide-and-conquer process, which reduce a large problem continuously to a small problem of half size, the size of whole problem is $N$, after one iteration, it becomes $a=2$ subproblems with size of $N/b=N/2$, and the complexity of the decomposition/merging is denoted by $f(n)=\Theta(n)$, this yields
-> $$
-> \begin{equation}
-> \begin{split}
-> T(n)&=aT(n/b)+f(n)\\
-> &=2T(n/2)+\Theta(n)\\
-> &=2(2T(n/4)+\Theta(n))+\Theta(n)\\
-> &=4T(n/4)+2\Theta(n)\\
-> &=8T(n/4)+3\Theta(n)\\
-> &=2^xT(n/2^x)+x\Theta(n)\\
-> &\cdots\\
-> &=nT(1)+\lg n\times\Theta(n)\\
-> &=\Theta(n\lg n)\Big(=\sum_{\text{stage}=1}^{\lg n}\frac n{2^\text{stage}}\cdot2^{\text{stage-1}}
-> \Big),
-> \end{split}
-> \end{equation}
-> $$
+
+$$
+\begin{equation}
+\begin{split}
+T(n)&=aT(n/b)+f(n)\\
+&=2T(n/2)+\Theta(n)\\
+&=2(2T(n/4)+\Theta(n))+\Theta(n)\\
+&=4T(n/4)+2\Theta(n)\\
+&=8T(n/4)+3\Theta(n)\\
+&=2^xT(n/2^x)+x\Theta(n)\\
+&\cdots\\
+&=nT(1)+\lg n\times\Theta(n)\\
+&=\Theta(n\lg n)\Big(=\sum_{\text{stage}=1}^{\lg n}\frac n{2^\text{stage}}\cdot2^{\text{stage-1}}
+\Big),
+\end{split}
+\end{equation}
+$$
+
 > ​	Finally, have that $n/2^x=1$ ($n=2^x\to x=\lg n$), this subsequently yields the factor of $\lg n$.
 
 ​	To conclude, the complexity is largely reduced by the periodicity and symmetric properties of the twiddle factor $\omega_N^{km}$, and then **calculate the new results by adopting the calculated results** (i.e., $X^{[\cdots]}_k$s).
@@ -258,6 +270,7 @@ $$
 ### **2.2. DIT and Bit-Reversal Permutation**
 
 ​	Actually, there are two kinds of decimation formats exists for the process of  $x_n\to x[k]$, called the decimation in time (DIT) and decimation in frequency (DIF), take $N=8$ as example, these results in different results, for DIT, have that
+
 $$
 \begin{equation}
 \begin{split}
@@ -266,9 +279,11 @@ $$
 \end{split}
 \end{equation}
 $$
+
 ![[OPTSx84a2]_DIT_Scheme](\assets\images\[OPTSx84a2]_DIT_Scheme.svg)
 
 ​	on the other side, the DIF scheme gives
+
 $$
 \begin{equation}
 \begin{split}
@@ -277,7 +292,9 @@ $$
 \end{split}
 \end{equation}
 $$
+
 ​	here, the **DIT scheme** is chosen, because in the divide-and-conquer process, the sequence is **divided by even and odd parts**. Furthermore, written the indices of sequence as binary code, which indicate that DIT format can be realized by the reversal process of original indices, i.e., $x[k]=x_{\text{rev}\{n\}}$.
+
 $$
 \begin{equation}
 \begin{split}
@@ -286,6 +303,7 @@ $$
 \end{split}
 \end{equation}
 $$
+
 ​	The bit reversal permutation process is needed here for DIT (and DIF, of course), which is implemented based on the rule shown above. For example, in $N=8$, $a_1$ permutates with $a_4$ (i.e., $1$ with $N/2$), and both $a_0$ and $a_7$ permutate with themselves (i.e., $0$ and $N-1$). Others indices should be reversed only when it is less than its reversal (the reversal is obtained by the **reverse carry operation in each cycle**, as the figure below). Finally, this bit-reversal permutation is as
 
 ```julia
@@ -378,7 +396,8 @@ end
 
 ## **3. Radix-2 Inverse FFT Algorithm Based on Radix-2 FFT**
 
-​	Based on radix-2 FFT algorithm, using the similarity between the discrete Fourier transform and the inverse discrete Fourier transform, 
+​	Based on radix-2 FFT algorithm, using the similarity between the discrete Fourier transform and the inverse discrete Fourier transform,
+
 $$
 \begin{equation}
 \begin{split}
@@ -496,6 +515,7 @@ fft(A [, dims])
 Performs a multidimensional FFT of the array `A`. The optional `dims` argument specifies an iterable subset of dimensions (e.g. an integer, range, tuple, or array) to transform along. Most efficient if the size of `A` along the transformed dimensions is a product of small primes; see `Base.nextprod`. See also [`plan_fft()`](https://juliamath.github.io/AbstractFFTs.jl/stable/api/#AbstractFFTs.plan_fft) for even greater efficiency.
 
 A one-dimensional FFT computes the one-dimensional discrete Fourier transform (DFT) as defined by
+
 $$
 \begin{equation}
 \begin{split}
@@ -503,6 +523,7 @@ $$
 \end{split}
 \end{equation}
 $$
+
 A multidimensional FFT simply performs this operation along each transformed dimension of `A`.
 
 Note
