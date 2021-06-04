@@ -128,7 +128,30 @@ $$
 
 ​	Take the even part as $X^{[1]}_k$,  the odd part as $X^{[2]}_k$, hence have the operation named the **butterfly operation** (defined schematically in graph subsequently, for its realization, see [2.3.](# 23-the-iterative-implementation-of-fft))
 $$
+\begin{equation}
+\begin{split}
+&\left.
+\begin{split}
+&X_k=X^{[0]}_k+\omega_N^{k}X^{[1]}_k,\\
+&X_{k+\frac N2}=X^{[0]}_k-\omega_N^{k}X^{[1]}_k,
+\end{split}
+\right\}
+(0\leq k\leq N/2-1),
+\end{split}
+\end{equation}
+$$
 
+$$
+\begin{equation}
+\begin{split}
+&\text{where }\left\{
+\begin{split}
+&X^{[0]}_k=\sum_{m=0}^{N/2-1}x_{2m}\cdot \omega_{\frac N2}^{mk},\\
+&X^{[1]}_k=\sum_{m=0}^{N/2-1}x_{2m+1}\cdot \omega_{\frac N2}^{mk},
+\end{split}
+\right.
+\end{split}
+\end{equation}
 $$
 ​	the formal operation (named butterfly, and has schematic definition) has two input value entered from left, the output are sum and difference, related to the twiddle factor $\omega_n^k$. This is simplified as dark (green) box on the right.
 
