@@ -31,6 +31,7 @@ typora-root-url: ..
 ​	Its following properties are essential to the acceleration of FFT
 
 1. periodicity
+
    $$
    \begin{equation}
    \begin{split}
@@ -40,6 +41,7 @@ typora-root-url: ..
    $$
 
 2. symmetry
+
    $$
    \begin{equation}
    \begin{split}
@@ -47,9 +49,11 @@ typora-root-url: ..
    \end{split}
    \end{equation}
    $$
-this indicates that "dividing by an extra $2$ over a complex exponential has the same effect as squaring an extra complex exponential,which can be represented in the complex plane by symmetry of equipartition".
-   
+
+   this indicates that "dividing by an extra $2$ over a complex exponential has the same effect as squaring an extra complex exponential,which can be represented in the complex plane by symmetry of equipartition".
+
 3. reducibility
+
    $$
    \begin{equation}
    \begin{split}
@@ -61,17 +65,18 @@ this indicates that "dividing by an extra $2$ over a complex exponential has the
 4. special twiddle factor as $\omega_N^0=1$.
 
 > These are caused by the the multiplicative group formed by Fourier basis $\{e^{i2\pi mt}\}_{m\in\mathbb{Z}}=\{(e^{-i2\pi/N})^{1},(e^{-i2\pi/N})^{2},\cdots (e^{-i2\pi/N})^{N-1})\}$ on $L^2[\cdots]$ is **isomorphic to modular $n$ additive group** $(\mathbb{Z}_n,+)$ which leads to $(e^{-i2\pi /N})^j(e^{-i2\pi /N})^k=(e^{-i2\pi /N})^{(j+k)\text{ mod }N}$, in addition, there exists the relation of
->
-> $$
-> \begin{equation}
-> \begin{split}
-> (e^{-i2\pi /dN})^{dk}&=(e^{-i2\pi /N})^{k},\\
-> [(e^{-i2\pi /N})^{k+N/2}]^{2}&=[(e^{-i2\pi /N})^{k}]^{2},
-> \end{split}
-> \end{equation}
-> $$
+
+$$
+\begin{equation}
+\begin{split}
+(e^{-i2\pi /dN})^{dk}&=(e^{-i2\pi /N})^{k},\\
+[(e^{-i2\pi /N})^{k+N/2}]^{2}&=[(e^{-i2\pi /N})^{k}]^{2},
+\end{split}
+\end{equation}
+$$
 
 ​	Rewrite discrete Fourier transform (DFT) as below, the direct calculation will lead to the time complexity of $\Theta(N^2)$.
+
 $$
 \begin{equation}
 \begin{split}
@@ -82,14 +87,15 @@ X_k&=\sum_{n=0}^{N-1}x[n]\cdot e^{-\mathrm{j}k2\pi /Nn},
 $$
 
 > Original form is as (variable as subscript) below, which map discrete variable to discrete variable...
-> $$
-> \begin{equation}
-> \begin{split}
-> x_n&=\frac1N\sum_{k=0}^{N-1}X_k\cdot e^{i2\pi kn/N},\\
-> X_k&=\sum_{n=0}^{N-1}x_n\cdot e^{-i2\pi kn/N},
-> \end{split}
-> \end{equation}
-> $$
+
+$$
+\begin{equation}
+\begin{split}
+x_n&=\frac1N\sum_{k=0}^{N-1}X_k\cdot e^{i2\pi kn/N},\\
+X_k&=\sum_{n=0}^{N-1}x_n\cdot e^{-i2\pi kn/N},
+\end{split}
+\end{equation}
+$$
 
 ## **2. The Decimation in Time (DIT) - Radix-2 FFT Algorithm**
 
