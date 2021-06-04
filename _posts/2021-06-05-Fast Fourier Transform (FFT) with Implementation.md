@@ -7,17 +7,6 @@ image: ....jpg
 tags: [time-frequency analysis]
 typora-root-url: ..
 ---
-<head>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            inlineMath: [['$','$']]
-            }
-        });
-    </script>
-</head>
 > **Abstract**/**Snippet**. As the commonly use technic in video/audio compression, the fast Fourier transform (FFT) is a time-frequency analysis method of extreme important (also an implementation of the discrete Fourier transform, note that it is DFT instead of DTFT, which convert a periodic discrete time-domain signal into its periodic discrete frequency-domain representation). Principle and `Julia` realization of Radix-2 FFT are explained/made here. Furthermore, its fair property of making the $\Theta(N^2)$ complexity into a $\Theta(N\lg N)$ scheme for $N$ polynomial multiplication is verified.
 
 **Contents**
