@@ -102,16 +102,7 @@ $$
 
 ​	The simplify operation provided by J. W. Cooley and J. W. Tukey (1965) is to divide the DFT equation into odd part and even part as below (this method is also called decimation in time DIT, and realized based on the **bit-reversal permutation**, see [2.2.](# 22-dit-and-bit-reversal-permutation)), it lead to two part of time sequence $\{0,2,4,...\}$ and $\{1,3,5,...\}$.
 $$
-\begin{equation}
-\begin{split}
-X_k&=\sum_{n=0}^{N-1}x_n\cdot \omega_N^{nk}\\
-&=\sum_{n=0}^{N-1}x_n\cdot e^{-i2\pi kn/N}\\
-&=\overbrace{\sum_{m=0}^{N/2-1}x_{2m}\cdot e^{-i2\pi km/(N/2)}}^{\text{EVEN PART}}+e^{-i2\pi k/N}
-\overbrace{\sum_{m=0}^{N/2-1}x_{2m+1}\cdot e^{-i2\pi km/(N/2)}}^{\text{ODD PART}}\\
-&=\sum_{m=0}^{N/2-1}x_{2m}\cdot \omega_{\frac N2}^{mk}+\omega_N^k
-\sum_{m=0}^{N/2-1}x_{2m+1}\cdot \omega_{\frac N2}^{mk},
-\end{split}
-\end{equation}
+
 $$
 ​	to get the reduction of complexity, using **the symmetry (and periodicity) of the twiddle factor,** i.e., $\omega_N^{m+N/2}=-\omega_N^m$.
 $$
@@ -128,24 +119,7 @@ $$
 
 ​	Take the even part as $X^{[1]}_k$,  the odd part as $X^{[2]}_k$, hence have the operation named the **butterfly operation** (defined schematically in graph subsequently, for its realization, see [2.3.](# 23-the-iterative-implementation-of-fft))
 $$
-\begin{equation}
-\begin{split}
-&\left.
-\begin{split}
-&X_k=X^{[0]}_k+\omega_N^{k}X^{[1]}_k,\\
-&X_{k+\frac N2}=X^{[0]}_k-\omega_N^{k}X^{[1]}_k,
-\end{split}
-\right\}
-(0\leq k\leq N/2-1),
-\\
-&\text{where }\left\{
-\begin{split}
-&X^{[0]}_k=\sum_{m=0}^{N/2-1}x_{2m}\cdot \omega_{\frac N2}^{mk},\\
-&X^{[1]}_k=\sum_{m=0}^{N/2-1}x_{2m+1}\cdot \omega_{\frac N2}^{mk},
-\end{split}
-\right.
-\end{split}
-\end{equation}
+
 $$
 ​	the formal operation (named butterfly, and has schematic definition) has two input value entered from left, the output are sum and difference, related to the twiddle factor $\omega_n^k$. This is simplified as dark (green) box on the right.
 
@@ -153,53 +127,11 @@ $$
 
 ​	Following the stage $\lg N$ decomposition, which **gives $2$ sequences subproblems with half size** ($N/2$), subsequently, based on this stage, there also exists the stage $\lg(N/2)=\lg N-1$ decomposition, yields (totally $4$ subproblems with $N/4$)
 $$
-\begin{equation}
-\begin{split}
-&\left.
-\begin{split}
-&X^{[0]}_k=X^{[2]}_k+\omega_{\frac N2}^{k}X^{[3]}_k,\\
-&X^{[0]}_{k+\frac N4}=X^{[2]}_k-\omega_{\frac N2}^{k}X^{[3]}_k,\\
-&X^{[1]}_k=X^{[4]}_k+\omega_{\frac N2}^{k}X^{[5]}_k,\\
-&X^{[1]}_{k+\frac N4}=X^{[4]}_k-\omega_{\frac N2}^{k}X^{[5]}_k,
-\end{split}
-\right\}
-(0\leq k\leq N/4-1),
-\\
-&\text{where }\left\{
-\begin{split}
-&X^{[2]}_k=\sum_{m=0}^{N/4-1}X^{[0]}_{2m}\cdot \omega_{\frac N4}^{mk},\\
-&X^{[3]}_k=\sum_{m=0}^{N/4-1}X^{[0]}_{2m+1}\cdot \omega_{\frac N4}^{mk},\\
-&X^{[4]}_k=\sum_{m=0}^{N/4-1}X^{[1]}_{2m}\cdot \omega_{\frac N4}^{mk},\\
-&X^{[5]}_k=\sum_{m=0}^{N/4-1}X^{[1]}_{2m+1}\cdot \omega_{\frac N4}^{mk},
-\end{split}
-\right.
-\end{split}
-\end{equation}
+
 $$
 ​	The final stage should have totally $2^{\lg N-1}=N/2$ subproblems with size of $N/(N/2)=2$ (the last component is $X^{[2^1+2^2+\cdots+2^{\lg N/2}-1]}_k=X^{[2(1-2^{\lg N/2})/(1-2)-1]}_k=X^{[N-3]}_k$, the first component is $X^{[N/2-2]}_k$). After this, there will lead to $N$ subproblems with $1$ size, which is undoubted the identity transform of $x[k]$ (which is $x_n$ of $x_n\to x[k]$, again, see [2.2.](# 22-dit-and-bit-reversal-permutation) for details of realize this indices transformation)
 $$
-\begin{equation}
-\begin{split}
-&\left.
-\begin{split}
-&X^{[N/2-2]}_k=X^{[N-2]}_k+\omega_{2}^{k}X^{[N-1]}_k,\\
-&\quad\quad\quad\quad\quad\vdots\\
-&X^{[N-3]}_k=X^{[2N-3]}_k+\omega_{2}^{k}X^{[2N-2]}_k,
-\end{split}
-\right\}
-(0\leq k\leq N/2^{\lg N}-1\to k=0),
-\\
-&\text{where }\left\{
-\begin{split}
-&X^{[N-2]}_k=X^{[N-2]}_0=x[1],\\
-&X^{[N-1]}_k=X^{[N-1]}_0=x[2],\\
-&\quad\quad\quad\vdots\\
-&X^{[2N-2]}_k=X^{[2N-2]}_0=x[N-1],\\
-&X^{[2N-3]}_k=X^{[2N-3]}_0=x[N],
-\end{split}
-\right.
-\end{split}
-\end{equation}
+
 $$
 ​	Hence, by implementing this method recursively/iteratively, the final result can be deduced, in $\Theta(n\lg n)$.
 
