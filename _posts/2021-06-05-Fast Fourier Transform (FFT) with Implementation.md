@@ -405,7 +405,7 @@ end
 
 ## **3. Radix-2 Inverse FFT Algorithm Based on Radix-2 FFT**
 
-​	Based on radix-2 FFT algorithm, using the similarity between the discrete Fourier transform and the inverse discrete Fourier transform,
+​	Based on radix-2 FFT algorithm, using the similarity between the discrete Fourier transform and the inverse discrete Fourier transform. From which, the inverse one is different from the FFT by a conjugate operation and a normalizing operation.
 
 $$
 \begin{equation}
@@ -414,6 +414,8 @@ x_n=\frac1N\sum_{k=0}^{N-1}X_k\cdot (\omega_N^{nk})^*=\frac1N\bigg(\sum_{k=0}^{N
 \end{split}
 \end{equation}
 $$
+
+​	Based on the $(\omega_N^{nk})^*$ and $1/N$ (as the only two differences between FFT and IFFT), the radix-2 IFFT algorithm is implemented similarly as FFT (the way of calling, i.e., the signature, of course, is same with FFT)
 
 
 ```julia
@@ -438,27 +440,42 @@ function radix_2_ifft(x_::Vector{ComplexF64})::Vector{ComplexF64}
 end
 ```
 
-
-
-
-
-
-
-
-
-
-
 ## **4. Comparison Between FFTW Standard**
 
+​	In `FFTW` standard, the `AbstractFFTs.fft(·)` function is used to perform the following one-dimensional discrete Fourier transform operation as defined by (note that it performs a multidimensional FFT by default. Furthermore, the FFT libraries in other languages such as `Python` and `Octave` will perform a one-dimensional FFT along the first non-singleton dimension of the array)
 
+$$
+\begin{equation}
+\begin{split}
+\mathcal{DFT}(A)[k] = \sum_{n=1}^{\operatorname{length}(A)} \exp\left(-{\rm i}\frac{2\pi (n-1)(k-1)}{\operatorname{length}(A)} \right) A[n].
+\end{split}
+\end{equation}
+$$
 
-![[OPTSx84a2]_Comparison](\assets\images\[OPTSx84a2]_Comparison.svg)
+​	Using these `fft` (and the `ifft`) functions in `FFTW` package of `Julia`, the final results of them are compared by the `≈` (approximate in `\approx`) operator in `Julia`, and the corresponding results are noted in the commands following the corresponding line as below.
 
+```julia
+using FFTW, BenchmarkTools, ProfileSVG, Gadfly
+# execution time monitor: for 32 of data size
+x_ori = sin.(2π.*(1:2^5)/25).*sin.(4π.*(1:2^5)/5) .+ rand(2^5)im
+X_radix2fft = @btime radix_2_fft($x_ori) # 1.280 μs (1 allocation: 624 bytes)
+X_fft = @btime fft($x_ori) # 5.217 μs (33 allocations: 3.03 KiB)
+# results comparison: for 32 of data size
+println("the complex results comparison yields (32, fft): ", X_radix2fft ≈ X_fft) # true
+# execution time monitor: for 32 of data size
+X_radix2ifft = @btime radix_2_ifft($X_fft) # 1.240 μs (2 allocations: 1.22 KiB)
+X_ifft = @btime ifft($X_fft) # 5.720 μs (39 allocations: 3.41 KiB)
+# results comparison: for 32 of data size
+println("the complex results comparison yields (32, ifft): ", X_radix2ifft ≈ X_ifft) # true
+# execution time monitor: for 1048576 of data size
+# x_ori_1048576 = rand(2^20) .+ rand(2^20)im
+# X_radix2fft_1048576 = @btime radix_2_fft($x_ori_1048576)
+# X_fft_1048576 = @btime fft($x_ori_1048576)
+# results comparison: for 1048576 of data size
+# println("the complex results comparison yields (1048576): ", X_radix2fft_1048576 ≈ X_fft_1048576)
+```
 
-
-<img src="\assets\images\[OPTSx84a2]_ProfileSeen.svg" alt="[OPTSx84a2]_ProfileSeen" />
-
-
+​	It is clear that in comparably large data size `1~2^10`, the self-defined functions `radix_2_ifft(·)` and `radix_2_ifft(·)` have a faster speed compared with the system function, but they are a little slower compared with the system `fft(·)` and `ifft(·)` when the size of signal is very large (as `~2^20`), the further results are compared and displayed as follows. The processing results of the original signal by the self-defined function and the system function are respectively listed in the form of line chart below. It can be seen that they will get the same result, and there is almost no difference between the two in terms of accuracy
 
 ```julia
 set_default_plot_size(28cm, 7cm)
@@ -482,79 +499,18 @@ Gadfly.with_theme(:dark) do
 end
 ```
 
+![[OPTSx84a2]_Comparison](\assets\images\[OPTSx84a2]_Comparison.svg)
 
+​	The more performance (calling structure) is shown below in the form of volcano diagram/profile by calling for `@profview radix_2_fft(x_ori_1048576)`.
 
-```julia
-@profview radix_2_fft(x_ori_1048576)
-```
-
-
-
-```julia
-using FFTW, BenchmarkTools, ProfileSVG, Gadfly
-# execution time monitor: for 32 of data size
-x_ori = sin.(2π.*(1:2^5)/25).*sin.(4π.*(1:2^5)/5) .+ rand(2^5)im
-X_radix2fft = @btime radix_2_fft($x_ori) # 1.280 μs (1 allocation: 624 bytes)
-X_fft = @btime fft($x_ori) # 5.217 μs (33 allocations: 3.03 KiB)
-# results comparison: for 32 of data size
-println("the complex results comparison yields (32, fft): ", X_radix2fft ≈ X_fft) # true
-# execution time monitor: for 32 of data size
-X_radix2ifft = @btime radix_2_ifft($X_fft) # 1.240 μs (2 allocations: 1.22 KiB)
-X_ifft = @btime ifft($X_fft) # 5.720 μs (39 allocations: 3.41 KiB)
-# results comparison: for 32 of data size
-println("the complex results comparison yields (32, ifft): ", X_radix2ifft ≈ X_ifft) # true
-# execution time monitor: for 1048576 of data size
-# x_ori_1048576 = rand(2^20) .+ rand(2^20)im
-# X_radix2fft_1048576 = @btime radix_2_fft($x_ori_1048576)
-# X_fft_1048576 = @btime fft($x_ori_1048576)
-# results comparison: for 1048576 of data size
-# println("the complex results comparison yields (1048576): ", X_radix2fft_1048576 ≈ X_fft_1048576)
-```
-
-
-
-
-
-[`AbstractFFTs.fft`](https://juliamath.github.io/AbstractFFTs.jl/stable/api/#AbstractFFTs.fft) — *Function*.
-
-```julia
-fft(A [, dims])
-```
-
-Performs a multidimensional FFT of the array `A`. The optional `dims` argument specifies an iterable subset of dimensions (e.g. an integer, range, tuple, or array) to transform along. Most efficient if the size of `A` along the transformed dimensions is a product of small primes; see `Base.nextprod`. See also [`plan_fft()`](https://juliamath.github.io/AbstractFFTs.jl/stable/api/#AbstractFFTs.plan_fft) for even greater efficiency.
-
-A one-dimensional FFT computes the one-dimensional discrete Fourier transform (DFT) as defined by
-
-$$
-\begin{equation}
-\begin{split}
-\operatorname{DFT}(A)[k] = \sum_{n=1}^{\operatorname{length}(A)} \exp\left(-{\rm i}\frac{2\pi (n-1)(k-1)}{\operatorname{length}(A)} \right) A[n].
-\end{split}
-\end{equation}
-$$
-
-A multidimensional FFT simply performs this operation along each transformed dimension of `A`.
-
-Note
-
-This performs a multidimensional FFT by default. FFT libraries in other languages such as Python and Octave perform a one-dimensional FFT along the first non-singleton dimension of the array. This is worth noting while performing comparisons.
-
-
-
-
-
-
-
-
-
-
+<img src="\assets\images\[OPTSx84a2]_ProfileSeen.svg" alt="[OPTSx84a2]_ProfileSeen" />
 
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx84a2]**
 
 [^1]:Cormen T H, Leiserson C E, Rivest R L, et al. Introduction to algorithms[M]. MIT press, 2009.
-[^2]:
-[^3]:
+[^2]:https://github.com/JuliaMath/FFTW.jl, with docs in https://juliamath.github.io/FFTW.jl/stable
+[^3]:http://fftw.org/fftw-3.3.9.tar.gz
 
 
 
