@@ -367,7 +367,7 @@ end
 - the twiddle factors for stage $s$ are $\{\omega_{2^s}^{0},\omega_{2^s}^{1},...\}$, which can also be written as $\{\omega_{N}^{0},\omega_{N}^{2^{\lg N-s}},...\}$, hence the **increment of twiddle factor indices (same as number of same type of butterfly operations) in stage $s$** is noted as $\Delta\Omega=2^{\lg N-s}$.
 - similarly, the **same twiddle factors occurred in stage $s$** are $(\text{any_pstn_}\omega,\text{any_pstn_}\omega+2\Delta i,...)$, the index distance between them is $2\Delta i$.
 
-​	from which, the algorithm is designed by left to right (although the FFT circuit is constructed in direction of right to left). as the following three loop.
+​	from which, the algorithm is designed by left to right (although the FFT circuit is constructed in direction of right to left). as the following three loop. (whole algorithm is realized as a function, which takes a vector of `ComplexF64`, and transform it into another vector of `ComplexF64`)
 
 ```julia
 # radix-2 fft algorithm
@@ -390,7 +390,7 @@ function radix_2_fft(x_::Vector{ComplexF64})::Vector{ComplexF64}
 end
 ```
 
-
+​	the butterfly operation is realized by a temporary variable and two operations (`plus` and `minus`), as below, note that the operation is based on the modification of corresponding indices.
 
 ```julia
 # single butterfly operation
@@ -400,8 +400,6 @@ function butterfly_operation!(A₀::Vector{ComplexF64}, ω_::ComplexF64, any_pst
     A₀[any_pstn_in + Δi_ + 1] = tmp - A₀[any_pstn_in + Δi_ + 1] * ω_ # minus
 end
 ```
-
-
 
 ## **3. Radix-2 Inverse FFT Algorithm Based on Radix-2 FFT**
 
@@ -504,6 +502,8 @@ end
 ​	The more performance (calling structure) is shown below in the form of volcano diagram/profile by calling for `@profview radix_2_fft(x_ori_1048576)`.
 
 <img src="\assets\images\[OPTSx84a2]_ProfileSeen.svg" alt="[OPTSx84a2]_ProfileSeen" />
+
+
 
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx84a2]**
