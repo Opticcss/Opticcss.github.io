@@ -440,7 +440,7 @@ end
 
 ## **4. Comparison Between FFTW Standard**
 
-​	In `FFTW` standard, the `AbstractFFTs.fft(·)` function is used to perform the following one-dimensional discrete Fourier transform operation as defined by (note that it performs a multidimensional FFT by default. Furthermore, the FFT libraries in other languages such as `Python` and `Octave` will perform a one-dimensional FFT along the first non-singleton dimension of the array)
+​	In `FFTW` standard[^2][^3], the `AbstractFFTs.fft(·)` function is used to perform the following one-dimensional discrete Fourier transform operation as defined by (note that it performs a multidimensional FFT by default. Furthermore, the FFT libraries in other languages such as `Python` and `Octave` will perform a one-dimensional FFT along the first non-singleton dimension of the array)
 
 $$
 \begin{equation}
