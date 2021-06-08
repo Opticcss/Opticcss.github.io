@@ -28,9 +28,9 @@ tags: [Fourier, Julia, cpp, harmonic]
   $$
   \begin{equation}
   \begin{split}
-  x(t)&=\sum_{k=-\infty}^{+\infty}a_ke^{{\rm j}k\omega_0t}
-  =\sum_{k=-\infty}^{+\infty}a_ke^{{\rm j}k(2\pi/T)t},\\
-a_k&=\frac1T\int_Tx(t)e^{-{\rm j}k\omega_0t}{\rm d}t=\frac1T\int_Tx(t)e^{-{\rm j}k(2\pi/T)t}{\rm d}t,
+  x(t)&=\sum_{k=-\infty}^{+\infty}a_ke^{\mathrm{j}k\omega_0t}
+  =\sum_{k=-\infty}^{+\infty}a_ke^{\mathrm{j}k(2\pi/T)t},\\
+a_k&=\frac1T\int_Tx(t)e^{-\mathrm{j}k\omega_0t}{\rm d}t=\frac1T\int_Tx(t)e^{-\mathrm{j}k(2\pi/T)t}{\rm d}t,
   \end{split}
   \end{equation}
   $$
@@ -55,8 +55,8 @@ a_k&=\frac1T\int_Tx(t)e^{-{\rm j}k\omega_0t}{\rm d}t=\frac1T\int_Tx(t)e^{-{\rm j
   $$
   \begin{equation}
   \begin{split}
-  x(t)&=\frac1{2\pi}\int_{-\infty}^{+\infty}X({\rm j}\omega)e^{{\rm j}\omega t}{\rm d}\omega,\\
-  X({\rm j}\omega)&=\mathscr{F}\{x(t)\}=\int_{-\infty}^{+\infty}x(t)e^{-{\rm j}\omega t}{\rm d}t,
+  x(t)&=\frac1{2\pi}\int_{-\infty}^{+\infty}X(\mathrm{j}\omega)e^{\mathrm{j}\omega t}{\rm d}\omega,\\
+  X(\mathrm{j}\omega)&=\mathscr{F}\{x(t)\}=\int_{-\infty}^{+\infty}x(t)e^{-\mathrm{j}\omega t}{\rm d}t,
   \end{split}
   \end{equation}
   $$
@@ -69,8 +69,8 @@ a_k&=\frac1T\int_Tx(t)e^{-{\rm j}k\omega_0t}{\rm d}t=\frac1T\int_Tx(t)e^{-{\rm j
   $$
   \begin{equation}
   \begin{split}
-  x[n]&=\frac1N\sum_{k=0}^{N-1}a_k\cdot e^{{\rm j}k(2\pi /N)n},\\
-  a_k&=\mathcal{DFT}\{x[n]\}=\sum_{n=0}^{N-1}x[n]\cdot e^{-{\rm j}k(2\pi /N)n},
+  x[n]&=\frac1N\sum_{k=0}^{N-1}a_k\cdot e^{\mathrm{j}k(2\pi /N)n},\\
+  a_k&=\mathcal{DFT}\{x[n]\}=\sum_{n=0}^{N-1}x[n]\cdot e^{-\mathrm{j}k(2\pi /N)n},
   \end{split}
   \end{equation}
   $$
@@ -101,8 +101,8 @@ a_k&=\frac1T\int_Tx(t)e^{-{\rm j}k\omega_0t}{\rm d}t=\frac1T\int_Tx(t)e^{-{\rm j
   $$
   \begin{equation}
   \begin{split}
-  x[n]&=\frac1{2\pi}\int_{2\pi}X(e^{{\rm j}\omega})e^{{\rm j}\omega n}{\rm d}\omega,\\
-  X(e^{{\rm j}\omega})&=\sum_{n=-\infty}^{+\infty}x[n]e^{-{\rm j}\omega n},
+  x[n]&=\frac1{2\pi}\int_{2\pi}X(e^{\mathrm{j}\omega})e^{\mathrm{j}\omega n}{\rm d}\omega,\\
+  X(e^{\mathrm{j}\omega})&=\sum_{n=-\infty}^{+\infty}x[n]e^{-\mathrm{j}\omega n},
   \end{split}
   \end{equation}
   $$
@@ -133,7 +133,7 @@ a_k&=\frac1T\int_Tx(t)e^{-{\rm j}k\omega_0t}{\rm d}t=\frac1T\int_Tx(t)e^{-{\rm j
 > $$
 > \begin{equation}
 > \begin{split}
-> x(t)=\exp\bigg[{\rm j}2\pi\bigg(f_0t+\frac12u_0t^2\bigg)\bigg],
+> x(t)=\exp\bigg[\mathrm{j}2\pi\bigg(f_0t+\frac12u_0t^2\bigg)\bigg],
 > \end{split}
 > \end{equation}
 > $$
@@ -185,17 +185,17 @@ $$
 $$
 \begin{equation}
 \begin{split}
-H(\omega)=-{\rm j}\cdot\text{sgn}(\omega)=
+H(\omega)=-\mathrm{j}\cdot\text{sgn}(\omega)=
 \left\{
 \begin{split}
 &e^{{-\rm j}\pi/2},\text{ }&\omega\geq0,\\
-&e^{{\rm j}\pi/2},\text{ }&\omega<0,
+&e^{\mathrm{j}\pi/2},\text{ }&\omega<0,
 \end{split}
 \right.
 \end{split}
 \end{equation}
 $$
-​	The analytic signal is the combination of original signal and its Hilbert transform, in form of $z(t)=x(t)+{\rm j}H[x(t)]$, take the time derivation of this analytic signal as shown in the example, the final result of the frequency $\omega_i(t)$ is as
+​	The analytic signal is the combination of original signal and its Hilbert transform, in form of $z(t)=x(t)+\mathrm{j}H[x(t)]$, take the time derivation of this analytic signal as shown in the example, the final result of the frequency $\omega_i(t)$ is as
 $$
 \begin{equation}
 \begin{split}
@@ -245,23 +245,21 @@ envelop
 
 ## **2. Weird Idea with Multiple Frequency Components (Noisy), <u>Short Time Fourier Transform</u> (STFT)**
 
-- **复杂时变信号的瞬时幅度和瞬时频率都不是一个常数，它们总是随着时间变化。**
-- **IF是一个正值函数，则信号本身有同样多的过零点和极值点。**
-- **IF有负值，则信号在相继的过零点间有多个极值。**
+​	It is difficult for Fourier transform/Hilbert transform to describe the full properties of the signal when it has **multiple frequency components and time-varying (especially its frequency) property**. Our ears, however, are highly capable of processing sound and can perform precise frequency analysis on very short sounds.
 
-​	通过引入一个窗函数 $w(t)$，得到将信号时域与频域联系起来的一个二维函数 $X(n,\omega)$，模的平方 $S(n,\omega)=|X(n,\omega)|^2$ 称为语音信号的语谱图 (spectrogram)
+​	Based on naïve consideration, it maybe useful **to directly apply the Fourier transform for a extremely short time signal to derive its instantaneous frequency** (it maybe seems that for a infinitesimal time, the real instantaneous frequency can be obtained, however, this is not correct), i.e., the short time Fourier transform (STFT).
+
+​	To a certain extent, the short time Fourier transform, as kind of commonly used technology in audio and music processing, reflects the transient characteristics of the signal, especially the time-varying characteristics of its frequency. In this algorithm, the window $w(t)$ is introduced to realize the interception of signal fragments, hence, the analyse equation is as shown below (convolution in time domain is equivalent to the sliding of the window)
 $$
 \begin{equation}
 \begin{split}
-X(n,\omega)=\sum_{t=-\infty}^{+\infty}x(t)\omega(n-t)e^{-j\omega t},
+X(t,\omega)=\sum_{\tau=-\infty}^{+\infty}x(\tau)\omega(\tau-t)e^{-j\omega\tau},
 \end{split}
 \end{equation}
 $$
-由一个0~250Hz二次递增的扫频信号和一个250~0Hz二次递减的扫频信号的叠加
+​	This result is, of course, a 2D function that links the time $t$ and frequency $\omega$ domains of a signal, and the square of it is $S(t,\omega)=|X(t,\omega)|^2$ is often be of great usage as the spectrogram of an speech signal.
 
-得出非平稳信号的时变特性
-
-
+​	Different window lengths naturally correspond to different spectrograms, which are generally divided into narrow-band spectrograms and wideband spectrograms. Long window (at least two pitch cycles) is often used to calculate narrow-band spectrograms, while short window is used to calculate wideband spectrograms. Narrow band spectrogram has high frequency resolution and low time resolution. Good frequency resolution can make each harmonic component of speech more easily identified and displayed as horizontal stripes on the spectrogram. On the contrary, broadband spectrogram has higher temporal resolution and lower frequency resolution. Only spectral envelope can be obtained at lower frequency resolution, and good temporal resolution is suitable for analysing and testing the pronunciation of English speech
 
 不同的窗长度自然对应着不同的语谱图， 大体分为窄带语谱图，宽带语谱图，长时窗（至少两个基音周期）常被用于计算窄带语谱图，短窗则用于计算宽带语谱图。**窄带语谱图具有较高的频率分辨率和较低的时间分辨率**，良好的频率分辨率可以让语音的每个谐波分量更容易被辨别，在语谱图上显示为水平条纹。相反**宽带语谱图具有较高的时间分辨率和较低的频率分辨率**，低频率分辨率只能得到谱包络，良好的时间分辨率适合用于分析和检验英语语音的发音
 
