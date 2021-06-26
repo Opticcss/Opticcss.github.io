@@ -1,6 +1,6 @@
 ---
 layout: optics_post
-title:  "..."
+title:  "Short Time Fourier Transformation (STFT) with Implementation"
 author: Li Jinzhao
 categories: [Jekyll]
 image: ....jpg
