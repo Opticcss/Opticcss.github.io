@@ -558,6 +558,7 @@ end
 ## **5. The 2-Dimensional Fourier Transform**
 
 ​	The N-dimensional Fourier transform is represented in vector form as
+
 $$
 \begin{equation}
 \begin{split}
@@ -571,7 +572,9 @@ $$
 \end{split}
 \end{equation}
 $$
+
 ​	hence the 2-D FT can be denoted as
+
 $$
 \begin{equation}
 \begin{split}
@@ -579,6 +582,7 @@ $$
 \end{split}
 \end{equation}
 $$
+
 ​	which can be divided into two Fourier transform in two directions correspondingly, similarly, the inverse 2-D Fourier transform corresponds to taking the inverse Fourier transform of the columns and then taking the inverse Fourier transform of the rows.
 
 ​	Hence, the 2-dimensional Fourier transform (with the help of self-defined `fft2shift(·)` function) is implemented as shown below.
