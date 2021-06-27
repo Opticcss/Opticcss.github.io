@@ -14,12 +14,11 @@ typora-root-url: ..
 
 * toc
 {:toc}
-
-## **1...**
-
+## **1. The Short Tome Edition of FFT**
 
 
-## **Realization of N-Points Periodic Hanning Window**
+
+## **2. Realization of N-Points Periodic Hanning Window**
 
 ​	Note that the Hanning window realized here can maintain the horizontal phase property of FFT results, so it is more suitable for the application scenarios of FFT. Of course, it is an asymmetric window, and the sequence length is taken as the denominator in the generation formula (hence it includes the first zero-weighted window sample).
 
