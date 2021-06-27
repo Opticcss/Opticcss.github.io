@@ -584,6 +584,7 @@ $$
 ​	Hence, the 2-dimensional Fourier transform (with the help of self-defined `fft2shift(·)` function) is implemented as shown below.
 
 ```julia
+# the FFT2 function based on radix_2_fft
 function radix_2_fft2(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
     N_ = max(size(x_, 1), size(x_, 2)) # maximum size of signal
     nfft = nextpow(2, N_) # number of points of FFT
@@ -603,6 +604,7 @@ function radix_2_fft2(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
     
     return X_
 end
+# the iFFT2 function based on radix_2_ifft
 function radix_2_ifft2(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
     N_ = max(size(x_, 1), size(x_, 2)) # maximum size of signal
     nfft = nextpow(2, N_) # number of points of iFFT
@@ -628,6 +630,7 @@ end
 
 ```julia
 
+# the fft2shift function to make result more stadard
 function fft2shift(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
     N_ = max(size(x_, 1), size(x_, 2)) # maximum size of signal
     nfft = nextpow(2, N_) # number of points of FFT
