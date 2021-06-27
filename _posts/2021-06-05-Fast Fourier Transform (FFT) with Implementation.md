@@ -629,7 +629,6 @@ end
 ​	The `fft2shift(·)` function is designed in order to see the spectrum of the two-dimensional image more clearly, it is also possible to carry out transposition (shift) as shown in the figure on the basis of dividing the picture into four parts. In this way, the origin in the frequency domain will be shifted back to the center. To be more explicit, it implements $(1,1)\to(2,2)$, $(2,1)\to(1,2)$, $(1,2)\to(2,1)$, $(2,2)\to(1,1)$.
 
 ```julia
-
 # the fft2shift function to make result more stadard
 function fft2shift(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
     N_ = max(size(x_, 1), size(x_, 2)) # maximum size of signal
