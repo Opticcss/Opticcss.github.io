@@ -519,7 +519,7 @@ end
 
 ​	More results for chirped signals are shown below, as can be seen in the graph below, the original signal is superposed by two rows of chirped signals (one with increasing frequency from small to large, the other with decreasing frequency), and its frequency domain representation cannot tell which part of the frequency belongs to a particular signal component, i.e., the Fourier transform cannot reflect the instantaneous change of the signal, and it is only suitable for the analysis of stable signal.
 
-![[OPTSx84a2]_Cos_Cos](/assets/images/[OPTSx84a2]_Cos_Cos.svg)
+![[OPTSx84a2]_Cos_Cos](/assets/images/[OPTSx84a2]_Chirp.svg)
 
 ​	The source code to produce this `vstack` graph is as shown below.
 
