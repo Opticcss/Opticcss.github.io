@@ -185,7 +185,7 @@ $$
 
 ​	the formal operation (named butterfly, and has schematic definition) has two input value entered from left, the output are sum and difference, related to the twiddle factor $\omega_n^k$. This is simplified as dark (green) box on the right.
 
-![[OPTSx84a2]_Butterfly_Operation](\assets\images\[OPTSx84a2]_Butterfly_Operation.svg)
+![[OPTSx84a2]_Butterfly_Operation](/assets/images/[OPTSx84a2]_Butterfly_Operation.svg)
 
 ​	Following the stage $\lg N$ decomposition, which **gives $2$ sequences subproblems with half size** ($N/2$), subsequently, based on this stage, there also exists the stage $\lg(N/2)=\lg N-1$ decomposition, yields (totally $4$ subproblems with $N/4$)
 
@@ -289,7 +289,7 @@ $$
 \end{equation}
 $$
 
-![[OPTSx84a2]_DIT_Scheme](\assets\images\[OPTSx84a2]_DIT_Scheme.svg)
+![[OPTSx84a2]_DIT_Scheme](/assets/images/[OPTSx84a2]_DIT_Scheme.svg)
 
 ​	on the other side, the DIF scheme gives
 
@@ -339,7 +339,7 @@ function bit_reverse!(a₀::Vector{ComplexF64})
 end
 ```
 
-![[OPTSx84a2]_Bit_Reversal_Permutation](\assets\images\[OPTSx84a2]_Bit_Reversal_Permutation.svg)
+![[OPTSx84a2]_Bit_Reversal_Permutation](/assets/images/[OPTSx84a2]_Bit_Reversal_Permutation.svg)
 
 > note the macro `@swap` is correspond to the swapping operation implemented as below,
 >
@@ -358,7 +358,7 @@ end
 
 ​	Although the FFT top-down recursive method is simple in code level and more readable, it has high hardware implementation cost and low software efficiency, so the **bottom-up iterative method** is adopted here. Based on the bit-reversal permutation, the iterative FFT can be designed, below is a iterative process (**FFT circuit**) of $N=2^3=8$, $A_k,k=0,1,...,2^3$ is the `::Vector{ComplexF64}` going to be used in , $x_k$ and $X_k$ are the correspondingly original and resulting signals (data), $X_k^{[\cdots]}$ as intermedia variables are not appear in the code (as they have comparably complicated indices, which are useless).
 
-![[OPTSx84a2]_Butterfly_Operation_for_N_8](\assets\images\[OPTSx84a2]_Butterfly_Operation_for_N_8.svg)
+![[OPTSx84a2]_Butterfly_Operation_for_N_8](/assets/images/[OPTSx84a2]_Butterfly_Operation_for_N_8.svg)
 
 ​	The total number of stages related to the iterative process is $s_\max=\lg N$, and there are $N$ operations in each stage, hence totally $N\lg N$ operations here. According to the induction hypothesis, there exists following rules
 
@@ -473,39 +473,205 @@ println("the complex results comparison yields (32, ifft): ", X_radix2ifft ≈ X
 # println("the complex results comparison yields (1048576): ", X_radix2fft_1048576 ≈ X_fft_1048576)
 ```
 
-​	It is clear that in comparably large data size `1~2^10`, the self-defined functions `radix_2_ifft(·)` and `radix_2_ifft(·)` have a faster speed compared with the system function, but they are a little slower compared with the system `fft(·)` and `ifft(·)` when the size of signal is very large (as `~2^20`), the further results are compared and displayed as follows. The processing results of the original signal by the self-defined function and the system function are respectively listed in the form of line chart below. It can be seen that they will get the same result, and there is almost no difference between the two in terms of accuracy
+​	It is clear that in comparably large data size `1~2^10`, the self-defined functions `radix_2_ifft(·)` and `radix_2_ifft(·)` have a faster speed compared with the system function, but they are a little slower compared with the system `fft(·)` and `ifft(·)` when the size of signal is very large (as `~2^20`), the further results are compared and displayed could be plotted and compared with figures.
+
+​	Ex, the `cos(·)` function has its Fourier transform with two peaks, which is simply the same in our self-defined FFT function, as shown below. (Note that it is important to pick up a sampling frequency satisfied with the corresponding Nyquist Sampling Theorem)
+
+![[OPTSx84a2]_Cos_Cos](/assets/images/[OPTSx84a2]_Cos_Cos.svg)
+
+​	The source code to produce this `vstack` graph is as shown below.
 
 ```julia
-set_default_plot_size(28cm, 7cm)
-Gadfly.with_theme(:dark) do
-    ori_ = plot(x=1:length(x_ori), y=abs.(x_ori), Geom.line, Geom.point,
-        color=[colorant"aliceblue"], style(line_width=.5mm, line_style=[:solid]), size=[1pt],
-        Guide.xlabel("time"), Guide.ylabel("original signal"));
-    radix2fft_ = plot(x=1:length(x_ori), y=abs.(X_radix2fft), Geom.line, Geom.point,
-        color=[colorant"darkorange"], style(line_width=.5mm, line_style=[:solid]), size=[1pt],
-        Guide.xlabel("frequency"), Guide.ylabel("fft(radix-2) signal"));
-    fft_ = plot(x=1:length(x_ori), y=abs.(X_fft), Geom.line, Geom.point,
-        color=[colorant"orangered2"], style(line_width=.5mm, line_style=[:dash]), size=[1pt],
-        Guide.xlabel("frequency"), Guide.ylabel("fft signal"));
-    radix2ifft_ = plot(x=1:length(x_ori), y=abs.(X_radix2ifft), Geom.line, Geom.point,
-        color=[colorant"olivedrab1"], style(line_width=.5mm, line_style=[:solid]), size=[1pt],
-        Guide.xlabel("frequency"), Guide.ylabel("ifft(radix-2) signal"));
-    ifft_ = plot(x=1:length(x_ori), y=abs.(X_ifft), Geom.line, Geom.point,
-        color=[colorant"olivedrab"], style(line_width=.5mm, line_style=[:dash]), size=[1pt],
-        Guide.xlabel("frequency"), Guide.ylabel("ifft signal"));
-    hstack(ori_, radix2fft_, fft_, radix2ifft_, ifft_)
+time_vec = 0:0.002:(0.002*(2^10-1)) # make fₛ = 500 Hz
+x_ori = cos.(200π.*time_vec) .+ 0.5.*cos.(400π.*time_vec) .+ (sin.(200π.*time_vec) .+ 0.5.*sin.(400π.*time_vec))im
+X_radix2fft = radix_2_fft(x_ori)
+set_default_plot_size(25cm, 20cm)
+Gadfly.with_theme(:default) do
+    w_o_p = real.(x_ori)
+    ori_ = plot(x=1:length(w_o_p), color=1:length(w_o_p), y=w_o_p, Geom.point, Geom.bar, # Geom.line,
+        alpha = [0.5],
+        Theme(bar_spacing=-0.2mm, key_position=:none),
+        style(line_width=.5mm, line_style=[:solid]), size=[2.5pt],
+        Guide.xlabel("time"), Guide.ylabel("original signal"),
+        # Guide.title(""),
+        # Scale.color_continuous(colormap = palettef, minvalue=1, maxvalue=length(w_o_p)),
+        Guide.xticks(ticks=1:Int64(round(length(w_o_p)/6)):length(w_o_p), label=true, orientation=:horizontal), Guide.yticks(ticks=minimum(w_o_p):(maximum(w_o_p) - minimum(w_o_p))/6:maximum(w_o_p)),
+        Coord.cartesian(xmin=1, xmax=length(w_o_p), ymin=minimum(w_o_p), ymax=maximum(w_o_p)));
+    w_o_p = abs.(X_radix2fft)
+    radix2fft_ = plot(x=1:length(w_o_p), color=1:length(w_o_p), y=w_o_p, Geom.point, Geom.bar, # Geom.line,
+        alpha = [0.5],
+        Theme(bar_spacing=-0.2mm, key_position=:none),
+        style(line_width=.5mm, line_style=[:solid]), size=[2.5pt],
+        Guide.xlabel("frequency"), Guide.ylabel("fft(radix-2) signal"),
+        # Guide.title(""),
+        # Scale.color_continuous(colormap = palettef, minvalue=1, maxvalue=length(w_o_p)),
+        Guide.xticks(ticks=1:Int64(round(length(w_o_p)/6)):length(w_o_p), label=true, orientation=:horizontal), Guide.yticks(ticks=minimum(w_o_p):(maximum(w_o_p) - minimum(w_o_p))/6:maximum(w_o_p)),
+        Coord.cartesian(xmin=1, xmax=length(w_o_p), ymin=minimum(w_o_p), ymax=maximum(w_o_p)));
+    Nia_draw = vstack(ori_, radix2fft_)
+    Gfspy = SVG("C:/Users/a1020/Desktop/Nia_img_plot.svg")
+    Gadfly.draw(Gfspy, Nia_draw)
 end
 ```
 
-![[OPTSx84a2]_Comparison](\assets\images\[OPTSx84a2]_Comparison.svg)
+​	Moreover, the performance (calling structure) is shown below in the form of volcano diagram/profile by calling for `@profview radix_2_fft(x_ori_1048576)`, as shown below.
 
-​	The more performance (calling structure) is shown below in the form of volcano diagram/profile by calling for `@profview radix_2_fft(x_ori_1048576)`.
+<img src="/assets/images/[OPTSx84a2]_ProfileSeen.svg" alt="[OPTSx84a2]_ProfileSeen" />
 
-<img src="\assets\images\[OPTSx84a2]_ProfileSeen.svg" alt="[OPTSx84a2]_ProfileSeen" />
+​	More results for chirped signals are shown below, as can be seen in the graph below, the original signal is superposed by two rows of chirped signals (one with increasing frequency from small to large, the other with decreasing frequency), and its frequency domain representation cannot tell which part of the frequency belongs to a particular signal component, i.e., the Fourier transform cannot reflect the instantaneous change of the signal, and it is only suitable for the analysis of stable signal.
 
-​	
+![[OPTSx84a2]_Cos_Cos](/assets/images/[OPTSx84a2]_Cos_Cos.svg)
 
-![[OPTSx84a2]_Cos_Cos](\assets\images\[OPTSx84a2]_Cos_Cos.svg)
+​	The source code to produce this `vstack` graph is as shown below.
+
+```julia
+k_nor = 15
+time_vec = 0:0.002:(0.002*(2^10-1)) # make f = kt, φ = 2π.*k.*t.^2
+x_ori = cos.(2π.*k_nor.*time_vec.^2) .+ (sin.(2π.*k_nor.*time_vec.^2))im
+X_radix2fft = radix_2_fft(x_ori)
+Gadfly.with_theme(:default) do
+    w_o_p = real.(x_ori)
+    ori_ = plot(x=1:length(w_o_p), color=1:length(w_o_p), y=w_o_p, Geom.point, Geom.bar, # Geom.line,
+        alpha = [0.5],
+        Theme(bar_spacing=-0.2mm, key_position=:none),
+        style(line_width=.5mm, line_style=[:solid]), size=[2.5pt],
+        Guide.xlabel("time"), Guide.ylabel("original signal"),
+        # Guide.title(""),
+        # Scale.color_continuous(colormap = palettef, minvalue=1, maxvalue=length(w_o_p)),
+        Guide.xticks(ticks=1:Int64(round(length(w_o_p)/6)):length(w_o_p), label=true, orientation=:horizontal), Guide.yticks(ticks=minimum(w_o_p):(maximum(w_o_p) - minimum(w_o_p))/6:maximum(w_o_p)),
+        Coord.cartesian(xmin=1, xmax=length(w_o_p), ymin=minimum(w_o_p), ymax=maximum(w_o_p)));
+    w_o_p = abs.(X_radix2fft)
+    radix2fft_ = plot(x=1:length(w_o_p), color=1:length(w_o_p), y=w_o_p, Geom.point, Geom.bar, # Geom.line,
+        alpha = [0.5],
+        Theme(bar_spacing=-0.2mm, key_position=:none),
+        style(line_width=.5mm, line_style=[:solid]), size=[2.5pt],
+        Guide.xlabel("frequency"), Guide.ylabel("fft(radix-2) signal"),
+        # Guide.title(""),
+        # Scale.color_continuous(colormap = palettef, minvalue=1, maxvalue=length(w_o_p)),
+        Guide.xticks(ticks=1:Int64(round(length(w_o_p)/6)):length(w_o_p), label=true, orientation=:horizontal), Guide.yticks(ticks=minimum(w_o_p):(maximum(w_o_p) - minimum(w_o_p))/6:maximum(w_o_p)),
+        Coord.cartesian(xmin=1, xmax=length(w_o_p), ymin=minimum(w_o_p), ymax=maximum(w_o_p)));
+    Nia_draw = vstack(ori_, radix2fft_)
+    Gfspy = SVG("C:/Users/a1020/Desktop/Nia_img_plot.svg")
+    Gadfly.draw(Gfspy, Nia_draw)
+end
+```
+
+## **5. The 2-Dimensional Fourier Transform**
+
+​	The N-dimensional Fourier transform is represented in vector form as
+$$
+\begin{equation}
+\begin{split}
+&\displaystyle{ \mathcal{F}f(\underline{\xi}) = \int_{\mathbb{R}^n}e^{-2\pi i(\underline{x}\cdot \underline{\xi})}f(\underline{x})\mathrm{d}\underline{x} },\\
+&\mathrm{where}\\
+&\begin{split}
+&\underline{x} &= (x_1,x_2,…,x_n),\\
+&\underline{\xi} &= (\xi_1,\xi_2,…,\xi_n),\\
+&\underline{x}\cdot \underline{\xi} &= x_1\xi_1+x_2\xi_2+…+x_n\xi_n,
+\end{split}
+\end{split}
+\end{equation}
+$$
+​	hence the 2-D FT can be denoted as
+$$
+\begin{equation}
+\begin{split}
+\mathcal{DFT}\{f\}(u,v) = \int_{-\infty }^{\infty}\int_{-\infty }^{\infty} f(x,y)e^{-j2\pi(ux+vy)}\mathrm{d}x\mathrm{d}y,
+\end{split}
+\end{equation}
+$$
+​	which can be divided into two Fourier transform in two directions correspondingly, similarly, the inverse 2-D Fourier transform corresponds to taking the inverse Fourier transform of the columns and then taking the inverse Fourier transform of the rows.
+
+​	Hence, the 2-dimensional Fourier transform (with the help of self-defined `fft2shift(·)` function) is implemented as shown below.
+
+```julia
+function radix_2_fft2(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
+    N_ = max(size(x_, 1), size(x_, 2)) # maximum size of signal
+    nfft = nextpow(2, N_) # number of points of FFT
+    X_ = ComplexF64.(zeros(nfft, nfft)) # pre-allocated memory for pre-processed signal
+    X_[1:size(x_, 1), 1:size(x_, 2)] = x_[1:size(x_, 1), 1:size(x_, 2)] # assign the data into pre-processed matrix
+    Ax_temp = ComplexF64.(zeros(nfft, nfft)) # pre-allocated memory for pre-processed/temp signal
+    
+    for y_index = 1:nfft
+        Ax_temp[:, y_index] = radix_2_fft(X_[:, y_index]); # FFT in column
+    end
+    
+    for x_index = 1:nfft
+        X_[x_index, :] = radix_2_fft(Ax_temp[x_index, :]); # FFT in row
+    end
+    
+    X_ = fft2shift(X_)
+    
+    return X_
+end
+function radix_2_ifft2(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
+    N_ = max(size(x_, 1), size(x_, 2)) # maximum size of signal
+    nfft = nextpow(2, N_) # number of points of iFFT
+    X_ = ComplexF64.(zeros(nfft, nfft)) # pre-allocated memory for pre-processed signal
+    X_[1:size(x_, 1), 1:size(x_, 2)] = x_[1:size(x_, 1), 1:size(x_, 2)] # assign the data into pre-processed matrix
+    Ax_temp = ComplexF64.(zeros(nfft, nfft)) # pre-allocated memory for pre-processed/temp signal
+    
+    for y_index = 1:nfft
+        Ax_temp[:, y_index] = radix_2_ifft(X_[:, y_index]); # iFFT in column
+    end
+    
+    for x_index = 1:nfft
+        X_[x_index, :] = radix_2_ifft(Ax_temp[x_index, :]); # iFFT in row
+    end
+    
+    X_ = fft2shift(X_)
+    
+    return X_
+end
+```
+
+​	The `fft2shift(·)` function is designed in order to see the spectrum of the two-dimensional image more clearly, it is also possible to carry out transposition (shift) as shown in the figure on the basis of dividing the picture into four parts. In this way, the origin in the frequency domain will be shifted back to the center. To be more explicit, it implements $(1,1)\to(2,2)$, $(2,1)\to(1,2)$, $(1,2)\to(2,1)$, $(2,2)\to(1,1)$.
+
+```julia
+
+function fft2shift(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
+    N_ = max(size(x_, 1), size(x_, 2)) # maximum size of signal
+    nfft = nextpow(2, N_) # number of points of FFT
+    half_shift = Int64(round(nfft/2)) # implementation of the fourier shift in 2-dimensional space
+    X_[1:size(x_, 1), 1:size(x_, 2)] = x_[1:size(x_, 1), 1:size(x_, 2)] # assign the data into pre-processed matrix
+    
+    X_[1:(nfft - half_shift + 1), 1:(nfft - half_shift + 1)] = x_[half_shift:nfft, half_shift:nfft]
+    X_[half_shift:nfft, half_shift:nfft] = x_[1:(nfft - half_shift + 1), 1:(nfft - half_shift + 1)]
+    X_[half_shift:nfft, 1:(nfft - half_shift + 1)] = x_[1:(nfft - half_shift + 1), half_shift:nfft]
+    X_[1:(nfft - half_shift + 1), half_shift:nfft] = x_[half_shift:nfft, 1:(nfft - half_shift + 1)]
+    
+    return X_
+end
+```
+
+​	As an example of using `radix_2_ifft2`, an image is randomly selected, grizzled and converted into a floating point matrix, and then the corresponding frequency domain representation can be obtained after filling it, as shown below. Generally, the image will present a star distribution.
+
+![[OPTSx84a2]_Result_of_FFT2](/assets/images/[OPTSx84a2]_Result_of_FFT2.svg)
+
+​	The source code to read an image, produce and finally print the image in frequency domain, with help of `Images` and `Gadfly` packages are as shown below.
+
+```julia
+using Gadfly, Images
+Nia_img = load("C:/Users/a1020/Desktop/Nia_Teppelin.png")
+Nia_img = Gray.(Nia_img)
+Nia_img = convert(Array{Float64, }, Nia_img)
+Nia_img = ComplexF64.(Nia_img)
+s_o_p = log.(abs.(radix_2_fft2(Nia_img)) .+ 1);
+# palettef = Scale.lab_gradient("#cb997e", "#ddbea9", "#ffe8d6", "#b7b7a4", "#a5a58d", "#6b705c")
+# palettef = Scale.lab_gradient("#1d3557", "#457b9d", "#a8dadc", "#f1faee", "#e63946")
+palettef = Scale.lab_gradient("#277da1", "#577590", "#4d908e", "#43aa8b", "#90be6d", "#f9c74f", "#f9844a", "#f8961e", "#f3722c", "#f94144")
+# palettef = Scale.lab_gradient("#fffcf2", "#ccc5b9", "#403d39", "#252422", "#eb5e28", "darkred")
+# palettef = Scale.lab_gradient("#ffbe0b", "#fb5607", "#ff006e", "#8338ec", "#3a86ff")
+# palettef = Scale.lab_gradient("#264653", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51")
+Gadfly.with_theme(:default) do
+    spacer = Int64(round(max(size(s_o_p, 1), size(s_o_p, 2))/200))
+    println(spacer)
+    Nia_draw = Gadfly.spy(20s_o_p[1:spacer:end, 1:spacer:end], alpha = [0.9],
+        Scale.color_continuous(colormap = palettef, minvalue=minimum(20s_o_p[1:spacer:end, 1:spacer:end]), maxvalue=maximum(20s_o_p[1:spacer:end, 1:spacer:end]))
+    )
+    Gfspy = SVG("C:/Users/a1020/Desktop/Nia_img_plot.svg")
+    Gadfly.draw(Gfspy, Nia_draw)
+end
+```
 
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx84a2]**
