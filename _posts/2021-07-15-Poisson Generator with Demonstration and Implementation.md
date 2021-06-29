@@ -124,7 +124,7 @@ $$
 \end{split}
 \end{equation}
 $$
-​	whose inverse Fourier transform is the distribution of variable $\boxed{\log\prod X}$ (denoted as $\boxed{{f}_{\log\prod X}(\mathscr{Y})}$), which can be evaluated by choosing the path of integral as shown below
+​	whose inverse Fourier transform is the distribution of variable $\boxed{\log\prod X}$ (denoted as $\boxed{f_{\log\prod X}(\mathscr{Y})}$), which can be evaluated by choosing the path of integral as shown below
 $$
 \begin{equation}
 \begin{split}
