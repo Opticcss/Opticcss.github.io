@@ -604,8 +604,6 @@ function radix_2_fft2(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
         X_[x_index, :] = radix_2_fft(Ax_temp[x_index, :]); # FFT in row
     end
     
-    X_ = fft2shift(X_)
-    
     return X_
 end
 # the iFFT2 function based on radix_2_ifft
@@ -624,8 +622,6 @@ function radix_2_ifft2(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
         X_[x_index, :] = radix_2_ifft(Ax_temp[x_index, :]); # iFFT in row
     end
     
-    X_ = fft2shift(X_)
-    
     return X_
 end
 ```
@@ -638,6 +634,7 @@ function fft2shift(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
     N_ = max(size(x_, 1), size(x_, 2)) # maximum size of signal
     nfft = nextpow(2, N_) # number of points of FFT
     half_shift = Int64(round(nfft/2)) # implementation of the fourier shift in 2-dimensional space
+    X_ = ComplexF64.(zeros(nfft, nfft)) # pre-allocated memory for pre-processed signal
     X_[1:size(x_, 1), 1:size(x_, 2)] = x_[1:size(x_, 1), 1:size(x_, 2)] # assign the data into pre-processed matrix
     
     X_[1:(nfft - half_shift + 1), 1:(nfft - half_shift + 1)] = x_[half_shift:nfft, half_shift:nfft]
@@ -661,7 +658,7 @@ Nia_img = load("C:/Users/a1020/Desktop/Nia_Teppelin.png")
 Nia_img = Gray.(Nia_img)
 Nia_img = convert(Array{Float64, }, Nia_img)
 Nia_img = ComplexF64.(Nia_img)
-s_o_p = log.(abs.(radix_2_fft2(Nia_img)) .+ 1);
+s_o_p = log.(abs.(fft2shift(radix_2_fft2(Nia_img))) .+ 1);
 # palettef = Scale.lab_gradient("#cb997e", "#ddbea9", "#ffe8d6", "#b7b7a4", "#a5a58d", "#6b705c")
 # palettef = Scale.lab_gradient("#1d3557", "#457b9d", "#a8dadc", "#f1faee", "#e63946")
 palettef = Scale.lab_gradient("#277da1", "#577590", "#4d908e", "#43aa8b", "#90be6d", "#f9c74f", "#f9844a", "#f8961e", "#f3722c", "#f94144")
