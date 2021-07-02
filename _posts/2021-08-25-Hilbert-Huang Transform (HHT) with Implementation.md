@@ -48,7 +48,7 @@ typora-root-url: ..
 > $$
 > \begin{equation}
 > \begin{split}
-> \omega_i(t)=\frac{{\rm d}\theta(t)}{{\rm d}t}=2\pi\bigg(f_0+u_0t\bigg),
+> \omega_i(t)=\frac{\mathrm{d}\theta(t)}{\mathrm{d}t}=2\pi\bigg(f_0+u_0t\bigg),
 > \end{split}
 > \end{equation}
 > $$
@@ -66,7 +66,7 @@ typora-root-url: ..
 > \begin{equation}
 > \begin{split}
 > &x(t)=10\cos[300\pi t^2+500\pi t+200]\to\\
-> &\omega_i(t)=\frac{{\rm d}}{{\rm d}t}[300\pi t^2+500\pi t+200]=600\pi t+500\pi{\rm\ rad/s}.
+> &\omega_i(t)=\frac{\mathrm{d}}{\mathrm{d}t}[300\pi t^2+500\pi t+200]=600\pi t+500\pi{\rm\ rad/s}.
 > \end{split}
 > \end{equation}
 > $$
@@ -75,7 +75,7 @@ typora-root-url: ..
 $$
 \begin{equation}
 \begin{split}
-H[x(t)]=\pi^{-1}\int_{-\infty}^{+\infty}\frac{x(\tau)}{t-\tau}{\rm d}\tau=x(t)*(\pi t)^{-1},
+H[x(t)]=\pi^{-1}\int_{-\infty}^{+\infty}\frac{x(\tau)}{t-\tau}\mathrm{d}\tau=x(t)*(\pi t)^{-1},
 \end{split}
 \end{equation}
 $$
@@ -97,7 +97,7 @@ $$
 $$
 \begin{equation}
 \begin{split}
-\omega_i(t)=\frac{{\rm d}\theta(t)}{{\rm d}t}=\frac{{\rm d}}{{\rm d}t}\Bigg[\arctan\frac{\Re e[{z(t)}]}{\Im m[{z(t)}]}\Bigg]=\frac{{\rm d}}{{\rm d}t}\Bigg[\arctan\frac{x(t)}{H[x(t)]}\Bigg],
+\omega_i(t)=\frac{\mathrm{d}\theta(t)}{\mathrm{d}t}=\frac{\mathrm{d}}{\mathrm{d}t}\Bigg[\arctan\frac{\Re e[{z(t)}]}{\Im m[{z(t)}]}\Bigg]=\frac{\mathrm{d}}{\mathrm{d}t}\Bigg[\arctan\frac{x(t)}{H[x(t)]}\Bigg],
 \end{split}
 \end{equation}
 $$
@@ -114,8 +114,8 @@ $$
 > &\text{where }
 > \left\{
 > \begin{split}
-> &\lambda_0=\frac1\pi\Bigg\{\frac{\int_{-\infty}^{+\infty}\omega^2W(\omega){\rm d}\omega}{\int_{-\infty}^{+\infty}W(\omega){\rm d}\omega}\Bigg\}^{1/2},\\
-> &\omega_{0}=\frac{\int_{-\infty}^{+\infty}|\omega|W(\omega){\rm d}\omega}{\int_{-\infty}^{+\infty}W(\omega){\rm d}\omega},
+> &\lambda_0=\frac1\pi\Bigg\{\frac{\int_{-\infty}^{+\infty}\omega^2W(\omega)\mathrm{d}\omega}{\int_{-\infty}^{+\infty}W(\omega)\mathrm{d}\omega}\Bigg\}^{1/2},\\
+> &\omega_{0}=\frac{\int_{-\infty}^{+\infty}|\omega|W(\omega)\mathrm{d}\omega}{\int_{-\infty}^{+\infty}W(\omega)\mathrm{d}\omega},
 > \end{split}
 > \right.
 > \end{split}
