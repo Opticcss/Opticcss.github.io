@@ -2,9 +2,9 @@
 layout: optics_post
 title:  "Quantum Fourier Transform for Factoring"
 author: Li Jinzhao
-categories: [computing science]
+categories: [quantum information]
 image: ....jpg
-tags: [computing]
+tags: [quantum information, quantum computing]
 typora-root-url: ..
 ---
 > **Abstract**/**Snippet**.

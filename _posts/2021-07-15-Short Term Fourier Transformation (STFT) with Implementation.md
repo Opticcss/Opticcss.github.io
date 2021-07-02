@@ -4,7 +4,7 @@ title:  "Short Term Fourier Transformation (STFT) with Implementation"
 author: Li Jinzhao
 categories: [signal processing]
 image: ....jpg
-tags: [time-frequency analysis]
+tags: [harmonic analysis, Julia]
 typora-root-url: ..
 ---
 > **Abstract**/**Snippet**.
@@ -101,7 +101,6 @@ $$
 - **discrete time Fourier transform**: the discrete sampling in time domain after FT
   - **discrete** time, **aperiodic**.
   - **continuous** frequency, **periodic**.
-  
 $$
 \begin{equation}
 \begin{split}
