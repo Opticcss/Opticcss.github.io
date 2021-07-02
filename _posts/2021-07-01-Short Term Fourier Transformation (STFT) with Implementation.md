@@ -110,7 +110,7 @@ X(e^{\mathrm{j}\omega})&=\sum_{n=-\infty}^{+\infty}x[n]e^{-\mathrm{j}\omega n},
 \end{equation}
 $$
 
-​	Obviously, all these methods take in a bunch of time series and throw out a sequence of their global frequency property, act as a $\mathscr{X}\{\cdot\}$, which yields that the information in frequency domain is of no relation with their time domain counterparts. The so called "instantaneous frequency" does not exists here.
+​	Obviously, all these methods take in a bunch of time series and throw out a sequence of their global frequency property, act as a $\mathscr{X}(\cdot)$, which yields that the information in frequency domain is of no relation with their time domain counterparts. The so called "instantaneous frequency" does not exists here.
 
 ## **2. Weird Idea with Multiple Frequency Components (Noisy), Short Term Fourier Transform (STFT)**
 
@@ -129,7 +129,7 @@ X(t,\omega)&=\int_{-\infty}^\infty x(\tau)w(\tau-t)e^{-j\omega(\tau-t)}\mathrm{d
 \end{equation}
 $$
 
-​	This result is, of course, a 2D function that links the time $t$ and frequency $\omega$ domains of a signal, and the square of it is $S(t,\omega)=|X(t,\omega)|^2$ is often be of great usage as the spectrogram of an speech signal. Note that different lengths of window naturally correspond to different spectrograms, which are generally divided into narrow-band spectrograms and broadband spectrograms. The former one has high frequency resolution but extremely low time resolution, which can make each harmonic component of speech be identified more easily. On the contrary, broadband spectrogram has higher temporal resolution, and it is suitable for the analysis of speech signal.
+​	This result is, of course, a 2D function that links the time $t$ and frequency $\omega$ domains of a signal, and the square of it is $S(t,\omega)=\|X(t,\omega)\|^2$ is often be of great usage as the spectrogram of an speech signal. Note that different lengths of window naturally correspond to different spectrograms, which are generally divided into narrow-band spectrograms and broadband spectrograms. The former one has high frequency resolution but extremely low time resolution, which can make each harmonic component of speech be identified more easily. On the contrary, broadband spectrogram has higher temporal resolution, and it is suitable for the analysis of speech signal.
 
 
 
