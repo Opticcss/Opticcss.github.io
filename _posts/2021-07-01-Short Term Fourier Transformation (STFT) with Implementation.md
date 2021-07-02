@@ -36,11 +36,12 @@ a_k&=\frac1T\int_Tx(t)e^{-\mathrm{j}k\omega_0t}{\rm d}t=\frac1T\int_Tx(t)e^{-\ma
 $$
 
   ​	Parseval's theorem for it yields $1/T\int_T|x(t)|^2{\rm d}t=\sum_{k=-\infty}^{+\infty}|a_k|^2$. Lead to an overshoot of $\sim9\%$ at jump discontinuity (the Gibbs phenomenon). Equivalently, there exists the **trigonometric Fourier series representation** as
+
 $$
-  \begin{equation}
+\begin{equation}
   \begin{split}
-  x(t)&\xlongequal{\omega_0=2\pi/T}a_0+\sum_{n=1}^{+\infty}(a_n\cos{n\omega_0t}+b_n\sin{n\omega_0t})\\
-  &\xlongequal{\omega_0=2\pi/T}a_0+\sum_{n=1}^{+\infty}A_n\cos{(n\omega_0t+\varphi_n)},\\
+  x(t)&=_{[\omega_0=2\pi/T]}a_0+\sum_{n=1}^{+\infty}(a_n\cos{n\omega_0t}+b_n\sin{n\omega_0t})\\
+  &=a_0+\sum_{n=1}^{+\infty}A_n\cos{(n\omega_0t+\varphi_n)},\\
   a_0&=\frac1T\int_Tx(t){\rm d}t,\\
   a_n&=\frac2T\int_Tx(t)\cos{(n{\omega_0t})}{\rm d}t,\ \ b_n=\frac2T\int_Tx(t)\sin{(n{\omega_0t})}{\rm d}t,\\
   A_n&=\sqrt{a_n^2+b_n^2},\ \ \varphi_n=-\tan^{-1}\frac{b_n}{a_n},
@@ -101,6 +102,7 @@ $$
 - **discrete time Fourier transform**: the discrete sampling in time domain after FT
   - **discrete** time, **aperiodic**.
   - **continuous** frequency, **periodic**.
+
 $$
 \begin{equation}
 \begin{split}
