@@ -35,7 +35,7 @@ a_k&=\frac1T\int_Tx(t)e^{-\mathrm{j}k\omega_0t}{\rm d}t=\frac1T\int_Tx(t)e^{-\ma
 \end{equation}
 $$
 
-​	Parseval's theorem for it yields $1/T\int_T|x(t)|^2{\rm d}t=\sum_{k=-\infty}^{+\infty}|a_k|^2$. Lead to an overshoot of $\sim9\%$ at jump discontinuity (the Gibbs phenomenon). Equivalently, there exists the **trigonometric Fourier series representation** as
+​	Parseval's theorem for it yields $1/T\int_T\|x(t)\|^2{\rm d}t=\sum_{k=-\infty}^{+\infty}\|a_k\|^2$. Lead to an overshoot of $\sim9\%$ at jump discontinuity (the Gibbs phenomenon). Equivalently, there exists the **trigonometric Fourier series representation** as
 
 $$
 \begin{equation}
