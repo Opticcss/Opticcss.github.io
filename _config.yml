@@ -21,7 +21,7 @@ domainUrl: ''
 baseurl: ''
 
 # redirected to the predefine address in the chat page
-tucaoUrl: ""
+tucaoUrl: "mailto:optics_css@foxmail.com"
 
 # menu
 menu:
