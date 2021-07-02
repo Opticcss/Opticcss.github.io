@@ -29,6 +29,9 @@
   font-weight: normal;
   position: relative;
 }
+.page-post .post h2 {
+  line-height: 1.1em;
+}
 .page-post .post h1::before,
 .page-post .post h2::before {
   content: '#';
