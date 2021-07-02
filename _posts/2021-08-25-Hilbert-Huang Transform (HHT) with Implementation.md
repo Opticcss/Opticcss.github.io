@@ -1,6 +1,6 @@
 ---
 layout: optics_post
-title:  "Emperical Mode Decomposition with Implementation"
+title:  "Hilbert-Huang Transform (HHT) with Implementation"
 author: Li Jinzhao
 categories: [signal processing]
 image: ....jpg
@@ -21,7 +21,7 @@ typora-root-url: ..
 
 
 
-## **2. Single Frequency Non-Stationary Signals or Signal with Few Overtones, <u>Hilbert Transform</u> (HT)**
+## **2. Single Frequency Non-Stationary Signals or Signal with Few Overtones, Hilbert Transform (HT)**
 
 ​	Corresponding to the **non-stationary signals** with single frequency or with few overtones, the information in time domain becomes significant (it is difficult to analyse the characteristics of this non-stationary signal only through the time domain signal or its power spectrum. On the other side, it can be seen that the frequency domain signal obtained by Fourier transform can achieve high frequency resolution, but **its time resolution is zero**).
 
@@ -153,7 +153,7 @@ envelop
 
 
 
-## **4. Adaptive Time-frequency Analysis, <u>Hilbert-Huang Transform</u> (HHT)**
+## **4. Adaptive Time-frequency Analysis, Hilbert-Huang Transform (HHT)**
 
 
 
