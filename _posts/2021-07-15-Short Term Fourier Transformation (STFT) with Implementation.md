@@ -25,18 +25,18 @@ typora-root-url: ..
   - **continuous** time, **periodic**.
   - **discrete** frequency, **aperiodic**.
 
-  $$
-  \begin{equation}
-  \begin{split}
-  x(t)&=\sum_{k=-\infty}^{+\infty}a_ke^{\mathrm{j}k\omega_0t}
-  =\sum_{k=-\infty}^{+\infty}a_ke^{\mathrm{j}k(2\pi/T)t},\\
-  a_k&=\frac1T\int_Tx(t)e^{-\mathrm{j}k\omega_0t}{\rm d}t=\frac1T\int_Tx(t)e^{-\mathrm{j}k(2\pi/T)t}{\rm d}t,
-  \end{split}
-  \end{equation}
-  $$
+$$
+\begin{equation}
+\begin{split}
+x(t)&=\sum_{k=-\infty}^{+\infty}a_ke^{\mathrm{j}k\omega_0t}
+=\sum_{k=-\infty}^{+\infty}a_ke^{\mathrm{j}k(2\pi/T)t},\\
+a_k&=\frac1T\int_Tx(t)e^{-\mathrm{j}k\omega_0t}{\rm d}t=\frac1T\int_Tx(t)e^{-\mathrm{j}k(2\pi/T)t}{\rm d}t,
+\end{split}
+\end{equation}
+$$
 
   ​	Parseval's theorem for it yields $1/T\int_T|x(t)|^2{\rm d}t=\sum_{k=-\infty}^{+\infty}|a_k|^2$. Lead to an overshoot of $\sim9\%$ at jump discontinuity (the Gibbs phenomenon). Equivalently, there exists the **trigonometric Fourier series representation** as
-  $$
+$$
   \begin{equation}
   \begin{split}
   x(t)&\xlongequal{\omega_0=2\pi/T}a_0+\sum_{n=1}^{+\infty}(a_n\cos{n\omega_0t}+b_n\sin{n\omega_0t})\\
@@ -46,68 +46,70 @@ typora-root-url: ..
   A_n&=\sqrt{a_n^2+b_n^2},\ \ \varphi_n=-\tan^{-1}\frac{b_n}{a_n},
   \end{split}
   \end{equation}
-  $$
+$$
 
 - **Fourier transform**: most common used, the idea of domain (linear space, basis, ...)
 
   - **continuous** time, **aperiodic**.
   - **continuous** frequency, **aperiodic**.
 
-  $$
-  \begin{equation}
-  \begin{split}
-  x(t)&=\frac1{2\pi}\int_{-\infty}^{+\infty}X(\mathrm{j}\omega)e^{\mathrm{j}\omega t}{\rm d}\omega,\\
-  X(\mathrm{j}\omega)&=\mathscr{F}\{x(t)\}=\int_{-\infty}^{+\infty}x(t)e^{-\mathrm{j}\omega t}{\rm d}t,
-  \end{split}
-  \end{equation}
-  $$
+$$
+\begin{equation}
+\begin{split}
+x(t)&=\frac1{2\pi}\int_{-\infty}^{+\infty}X(\mathrm{j}\omega)e^{\mathrm{j}\omega t}{\rm d}\omega,\\
+X(\mathrm{j}\omega)&=\mathscr{F}\{x(t)\}=\int_{-\infty}^{+\infty}x(t)e^{-\mathrm{j}\omega t}{\rm d}t,
+\end{split}
+\end{equation}
+$$
 
 - **discrete Fourier transform**: always used in computation (sampling in both the time and the frequency), implemented by FFT
 
   - **discrete** time, **periodic**.
   - **discrete** frequency, **periodic**.
 
-  $$
-  \begin{equation}
-  \begin{split}
-  x[n]&=\frac1N\sum_{k=0}^{N-1}a_k\cdot e^{\mathrm{j}k(2\pi /N)n},\\
-  a_k&=\mathcal{DFT}\{x[n]\}=\sum_{n=0}^{N-1}x[n]\cdot e^{-\mathrm{j}k(2\pi /N)n},
-  \end{split}
-  \end{equation}
-  $$
+$$
+\begin{equation}
+\begin{split}
+x[n]&=\frac1N\sum_{k=0}^{N-1}a_k\cdot e^{\mathrm{j}k(2\pi /N)n},\\
+a_k&=\mathcal{DFT}\{x[n]\}=\sum_{n=0}^{N-1}x[n]\cdot e^{-\mathrm{j}k(2\pi /N)n},
+\end{split}
+\end{equation}
+$$
 
   ​	in form of twiddle factor (in FFT) $W_N^k=e^{-i2\pi k/N}$, can also be written as
-  $$
+
+$$
   \begin{equation}
   \begin{split}
   \mathcal{DFT}\{x[n]\}=\sum_{n=0}^{N-1}x[n]\cdot W_N^{kn},
   \end{split}
   \end{equation}
-  $$
+$$
+
   ​	Equivalently, the discrete cosine transform, with higher energy compaction (most of the signal information is concentrated in the low-frequency component) is as
-  $$
-  \begin{equation}
+
+$$
+\begin{equation}
   \begin{split}
   x[n]&=\sum_{k=0}^{N-1}a_k\cdot \cos\bigg[\frac{(2n+1)\pi k}{2N}\bigg]\cdot c_k,\\
   a_k&=\mathcal{DCT}\{x[n]\}=\sum_{n=0}^{N-1}x[n]\cdot \cos\bigg[\frac{(2n+1)\pi k}{2N}\bigg]\cdot c_k,\\
   c_0&=\sqrt{\frac{1}{N}},\ \ c_k=\sqrt{\frac{2}{N}}\ \ \text{for }k>0,
   \end{split}
   \end{equation}
-  $$
+$$
 
 - **discrete time Fourier transform**: the discrete sampling in time domain after FT
-
   - **discrete** time, **aperiodic**.
   - **continuous** frequency, **periodic**.
-
-  $$
-  \begin{equation}
-  \begin{split}
-  x[n]&=\frac1{2\pi}\int_{2\pi}X(e^{\mathrm{j}\omega})e^{\mathrm{j}\omega n}{\rm d}\omega,\\
-  X(e^{\mathrm{j}\omega})&=\sum_{n=-\infty}^{+\infty}x[n]e^{-\mathrm{j}\omega n},
-  \end{split}
-  \end{equation}
-  $$
+  
+$$
+\begin{equation}
+\begin{split}
+x[n]&=\frac1{2\pi}\int_{2\pi}X(e^{\mathrm{j}\omega})e^{\mathrm{j}\omega n}{\rm d}\omega,\\
+X(e^{\mathrm{j}\omega})&=\sum_{n=-\infty}^{+\infty}x[n]e^{-\mathrm{j}\omega n},
+\end{split}
+\end{equation}
+$$
 
 ​	Obviously, all these methods take in a bunch of time series and throw out a sequence of their global frequency property, act as a $\mathscr{X}\{\cdot\}$, which yields that the information in frequency domain is of no relation with their time domain counterparts. The so called "instantaneous frequency" does not exists here.
 
@@ -118,6 +120,7 @@ typora-root-url: ..
 ​	Based on naïve consideration, it maybe useful **to directly apply the Fourier transform for a extremely short time signal to derive its instantaneous frequency** (it maybe seems that for an infinitesimal time, the real instantaneous frequency can be obtained, however, this is not correct), i.e., the short term Fourier transform (STFT).
 
 ​	To a certain extent, the short time Fourier transform, as kind of commonly used technology in audio and music processing, reflects the transient characteristics of the signal, especially the time-varying characteristics of its frequency. In this algorithm, a window $w(t)$ with appropriate width is introduced to realize the interception of signal fragments, hence, its analyze equation is as shown below (convolution in time domain is equivalent to sliding window operation)
+
 $$
 \begin{equation}
 \begin{split}
@@ -126,7 +129,12 @@ X(t,\omega)&=\int_{-\infty}^\infty x(\tau)w(\tau-t)e^{-j\omega(\tau-t)}\mathrm{d
 \end{split}
 \end{equation}
 $$
+
 ​	This result is, of course, a 2D function that links the time $t$ and frequency $\omega$ domains of a signal, and the square of it is $S(t,\omega)=|X(t,\omega)|^2$ is often be of great usage as the spectrogram of an speech signal. Note that different lengths of window naturally correspond to different spectrograms, which are generally divided into narrow-band spectrograms and broadband spectrograms. The former one has high frequency resolution but extremely low time resolution, which can make each harmonic component of speech be identified more easily. On the contrary, broadband spectrogram has higher temporal resolution, and it is suitable for the analysis of speech signal.
+
+
+
+a true time-frequency representation (TFR) of the signal.
 
 ### **2.1. **
 
@@ -137,6 +145,7 @@ $$
 ​	Note that the Hanning window realized here can maintain the horizontal phase property of FFT results, so it is more suitable for the application scenarios of FFT. Of course, it is an asymmetric window, and the sequence length is taken as the denominator in the generation formula (hence it includes the first zero-weighted window sample).
 
 ​	Take the `varargin` as the input, firstly, the symmetric Hanning window is realized by the equation as below
+
 $$
 \begin{equation}
 \begin{split}
@@ -149,6 +158,7 @@ w(\cdot)=\left\{
 \end{split}
 \end{equation}
 $$
+
 ​	Hence, the calculation is realized by
 
 ```julia

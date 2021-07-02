@@ -4,7 +4,7 @@ title:  "Discrete Wavelet Transform (DWT) with Implementation"
 author: Li Jinzhao
 categories: [signal processing]
 image: ....jpg
-tags: [time-frequency analysis]
+tags: [harmonic analysis, Julia]
 typora-root-url: ..
 ---
 > **Abstract**/**Snippet**.
@@ -16,7 +16,8 @@ typora-root-url: ..
 {:toc}
 ## **1. Semi-Adaptive within Gabor Limit, Continuous Wavelet Transform (CWT)**
 
-​	The short term Fourier transform can be also denoted as form of base function using $\phi(t)=e^{\mathrm{j}\omega t}w(t)$ (which yields $\phi(\tau-t)=e^{\mathrm{j}\omega(\tau-t)}w(\tau-t)$), this is also the formal implementation of the so-called "transform". (it is also worth noting here that the only thing STFT is different form FT is that it uses a different base function, hence change the property of its action)
+​	The short term Fourier transform can also be denoted as form of basis function using $\phi(t)=e^{\mathrm{j}\omega t}w(t)$ (which yields $\phi(\tau-t)=e^{\mathrm{j}\omega(\tau-t)}w(\tau-t)$), this is also the formal implementation of the so-called "transform". (it is also worth noting here that the only thing STFT is different form FT is that it uses a different basis function, hence change the property of its action)
+
 $$
 \begin{equation}
 \begin{split}
@@ -24,25 +25,23 @@ X(t,\omega)&=\int_{-\infty}^\infty x(\tau)\phi(\tau-t)\mathrm{d}t,
 \end{split}
 \end{equation}
 $$
-​	STFT has a compactly supported base function, which provide a good performance compared with FT, while this is not useful for its adaptability, i.e., the width/type of the window $w(t)$ is constant for variant frequency of an unstable signal, and need the user to have a great understanding for the signal to adapt it by parameters (window width, ...)
 
-​	The process of controlling the parameters to gain suitable time-frequency resolution is not always easy, and is limited by the so-called Gabor limit (the signal processing edition of the Heisenberg one...) of $\Delta t\Delta f>\mathrm{const}$, the uncertainty here are the time resolution and the frequency resolution respectively.
+​	STFT has a compactly supported basis function, which provide a good performance compared with FT, while this is not useful for its adaptability, i.e., the width/type of the window $w(t)$ is constant for variant frequency of an unstable signal, and need the user to have a great understanding for the signal to adapt it by parameters (window width, ...)
 
-​	A solution with self-adaptive resolution is the continuous wavelet transform (CWT), which introduce suitable base function with following properties.
+​	The process of controlling the parameters to gain suitable time-frequency resolution is not always easy, and is limited by the so-called **Gabor limit** (the signal processing edition of the Heisenberg one...) of $\Delta t\Delta f>\mathrm{const}$, the uncertainty here are the time resolution and the frequency resolution respectively.
 
- 
+​	A solution with self-adaptive resolution is the continuous wavelet transform (CWT), kind of technique to perform signal analysing by using an alternative approach called the multiresolution analysis (MRA), which introduce suitable basis functions $\psi(t)$ with following properties.
 
+- Compactly supported condition, $\exist a>0,\forall|t|>a,\psi(t)=0$, to provide sliding window in convolution operation as shown below in the wavelet analysis equation, which is a measure of similarity between the basis functions (wavelets) and the signal itself. Here the similarity is in the sense of similar frequency content. The calculated CWT coefficients refer to the closeness of the signal to the wavelet at the current scale.
 
+$$
+\begin{equation}
+\begin{split}
+\Psi_{x\psi}(\tau,s)=\big\langle x(t),\psi_{\tau,s}(t)\big\rangle=\int x(t)\psi_{\tau,s}^*(t)\mathrm{d}t,
+\end{split}
+\end{equation}
+$$
 
-
-
-
-
-
-
-
-
-- Compactly supported condition, $\exist a>0,\forall|t|>a,\psi(t)=0$,
 - Admissibility condition, which also yields $\displaystyle{\int}_{-\infty}^\infty\psi(t)\mathrm{d}t=0$, and limit the wavelet to be a "wave".
 
 $$
@@ -53,7 +52,7 @@ c_\psi=2\pi\int_{-\infty}^\infty\frac{|\mathscr{F}\{\psi(\xi)\}^*|^2}{|\xi|}\mat
 \end{equation}
 $$
 
-- Orthogonality, to ensure the existence of its inverse transform, which is in the form
+- Orthogonality/Orthonormal, to ensure the existence of its inverse transform, which is in the form
 
 $$
 \begin{equation}
@@ -63,8 +62,7 @@ x(t)=\frac1{c^2}\int_s\int_\tau\Psi_{x\psi}(\tau,s)\frac1{s^2}\psi\bigg(\frac{t-
 \end{equation}
 $$
 
-
-
+​	There exists multiple types of wavelet basis, with the common form as shown below, they have a range of frequencies, which is different from Fourier basis (of basis function in STFT), with two degree of freedom, $s$ as the scaling factor and $\tau$ as the shifting factor ($1/\sqrt{s}$ is a factor for energy conservation)
 
 $$
 \begin{equation}
@@ -73,16 +71,6 @@ $$
 \end{split}
 \end{equation}
 $$
-
-$$
-\begin{equation}
-\begin{split}
-\Psi_{x\psi}(\tau,s)=\int x(t)\psi_{\tau,s}^*(t)\mathrm{d}t,
-\end{split}
-\end{equation}
-$$
-
-
 
 
 
@@ -143,7 +131,7 @@ $\psi(t)$ 称作母小波或基本小波，满足 $\psi(\pm\infty)=0$, $\psi(0)=
 
 
 
-## **2. (DWT)**
+## **2. Discrete Wavelet Transform (DWT)**
 
 
 
