@@ -38,3 +38,7 @@ menu:
 
 # Mathematical formula support
 extMath: true
+
+# set default tab size in highlighted code
+pygments_options:
+  tabsize: 4
