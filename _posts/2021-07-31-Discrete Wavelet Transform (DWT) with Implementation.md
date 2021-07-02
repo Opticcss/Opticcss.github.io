@@ -32,7 +32,7 @@ $$
 
 ​	A solution with self-adaptive resolution is the continuous wavelet transform (CWT), kind of technique to perform signal analysing by using an alternative approach called the multiresolution analysis (MRA), which introduce suitable basis functions $\psi(t)$ with following properties.
 
-- Compactly supported condition, i.e., $∃a>0$, $∀|t|>a$, $\psi(t)=0$, to provide sliding window in convolution operation as shown below in the wavelet analysis equation, which is a measure of similarity between the basis functions (wavelets) and the signal itself. Here the similarity is in the sense of similar frequency content. The calculated CWT coefficients refer to the closeness of the signal to the wavelet at the current scale.
+- Compactly supported condition, i.e., $∃a>0,∀|t|>a,\psi(t)=0$, to provide sliding window in convolution operation as shown below in the wavelet analysis equation, which is a measure of similarity between the basis functions (wavelets) and the signal itself. Here the similarity is in the sense of similar frequency content. The calculated CWT coefficients refer to the closeness of the signal to the wavelet at the current scale.
 
 $$
 \begin{equation}
