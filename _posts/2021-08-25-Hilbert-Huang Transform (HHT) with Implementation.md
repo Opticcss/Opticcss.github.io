@@ -86,7 +86,7 @@ $$
 H(\omega)=-\mathrm{j}\cdot\text{sgn}(\omega)=
 \left\{
 \begin{split}
-&e^{{-\rm j}\pi/2},\text{ }&\omega\geq0,\\
+&e^{{-\mathrm{j}}\pi/2},\text{ }&\omega\geq0,\\
 &e^{\mathrm{j}\pi/2},\text{ }&\omega<0,
 \end{split}
 \right.
