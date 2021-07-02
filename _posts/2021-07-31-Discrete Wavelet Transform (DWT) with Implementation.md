@@ -32,7 +32,7 @@ $$
 
 ​	A solution with self-adaptive resolution is the continuous wavelet transform (CWT), kind of technique to perform signal analysing by using an alternative approach called the multiresolution analysis (MRA), which introduce suitable basis functions $\psi(t)$ with following properties.
 
-- Compactly supported condition, $\exist a>0,\forall|t|>a,\psi(t)=0$, to provide sliding window in convolution operation as shown below in the wavelet analysis equation, which is a measure of similarity between the basis functions (wavelets) and the signal itself. Here the similarity is in the sense of similar frequency content. The calculated CWT coefficients refer to the closeness of the signal to the wavelet at the current scale.
+- Compactly supported condition, i.e., $\exist a>0$, $\forall |t|>a$, $\psi(t)=0$, to provide sliding window in convolution operation as shown below in the wavelet analysis equation, which is a measure of similarity between the basis functions (wavelets) and the signal itself. Here the similarity is in the sense of similar frequency content. The calculated CWT coefficients refer to the closeness of the signal to the wavelet at the current scale.
 
 $$
 \begin{equation}
@@ -106,6 +106,7 @@ $$
 
 
 任意能量有限信号 $f(t)$ 的连续小波变换 (CWT)
+
 $$
 \begin{equation}
 \begin{split}
@@ -113,6 +114,7 @@ W_f(a,b)=\frac1{\sqrt{a}}\int_{-\infty}^{+\infty}f(t)\psi^*\bigg(\frac{t-b}a\big
 \end{split}
 \end{equation}
 $$
+
 $\psi(t)$ 称作母小波或基本小波，满足 $\psi(\pm\infty)=0$, $\psi(0)=0$, $\int_{-\infty}^{+\infty}\psi(t){\rm d}t=0$，也即 $\psi(t)$ 在时域为有限长的函数，最后一个条件则表明 $\psi(t)$ 必须时正时负地波动，否则它的积分结果不会为零，因此它在频域上也是有限的。小波变换的基函数是一个经过衰减处理的有限长小波，小波基函数在时域和频域上都是局部化的
 
 小波变换的基函数族为 $\psi(t)$ 伸缩平移后的结果 $\psi_{a,b}(t)$，称为分析小波，$a$ 为伸缩参数，$1/\sqrt{a}$ 是为了保持伸缩之后能量不变，$b$ 为平移参数
