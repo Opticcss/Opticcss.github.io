@@ -186,3 +186,4 @@ $$
 
 [^1]: The Wavelet Tutorial, http://feihu.eng.ua.edu/NSF_TUES/w7_2.pdf
 [^2]: Boggess A, Narcowich F J. A first course in wavelets with Fourier analysis[M]. John Wiley & Sons, 2015.
+
