@@ -1,6 +1,6 @@
 ---
 layout: optics_post
-title:  "Quantum Fourier Transform for Factoring"
+title:  "Principle of Quantum Fourier Transform (QFT)"
 author: Li Jinzhao
 categories: [quantum information]
 image: ....jpg
