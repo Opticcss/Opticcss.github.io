@@ -183,7 +183,7 @@ function hanning_stft(x_::Vector{ComplexF64}, fs_::Float64)::Tuple{Matrix{Float6
     f_axis = fs_.*[0:row_ - 1]./nfft_ # generate the frequency axis
     t_axis = (0.5*nsection_:step_col_:(step_col_*(col_ - 1) + 0.5*step_col_))./fs_ # generate the time axis
     
-    return X_, f_axis, t_axis # output as tuple
+    X_, f_axis, t_axis # output as tuple
 end
 ```
 
@@ -268,17 +268,14 @@ function sym_hanning(n_)
     if(rem(n_, 2) == 0) # for the cindition of the even number
         w_ = calc_hanning(n_/2, n_)
         w_ = [w_; w_[end:-1:1]]
-        else # for the cindition of the odd length window
+    else # for the cindition of the odd length window
         w_ = calc_hanning((n_ + 1)/2, n_)
         w_ = [w_; w_[end - 1:-1:1]]
     end
-    return w_
+    w_
 end
 # for periodic hanning window samples generation
-function prd_hanning(n_)
-    w_ = [0; sym_hanning(n_ - 1)]
-    return w_
-end
+prd_hanning(n_) = [0; sym_hanning(n_ - 1)]
 ```
 
 ​	As one of the visualization, a Hanning window can be calculated and plotted using `Gadfly` as shown below.
