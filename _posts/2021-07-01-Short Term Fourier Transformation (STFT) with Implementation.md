@@ -156,7 +156,7 @@ $$
 
 ​	This is hence the number of column in the final result, broadcast `*` to the corresponding elements in window function and the signal, the apply the FFT to these column elements, the spectrogram can be hence obtained.
 
-​	Realize this procedure with `Julia`, the source code is shown as below. One for the self-defined parameters (`noverlap_`, `nsection_`) and the other multiple dispatch function for the automatic choice for these parameters, but the sampling frequency is always needed for the context. Additionally, it is also worth that all of them take a tuple as ` Tuple{Matrix{Float64}, Vector{Any}, Vector{Any}}`, which contains a STFT matrix, a time ticks (as `Vector{StepRangeLen{Float64, Base.TwicePrecision{Float64}, Base.TwicePrecision{Float64}}}`, which is same for the frequency) and a frequency ticks, as their output.
+​	Realize this procedure with `Julia`, the source code is shown as below. One for the self-defined parameters (`noverlap_`, `nsection_`) and the other multiple dispatch function for the automatic choice for these parameters, but the sampling frequency is always needed for the context. Additionally, it is also worth that all of them take a tuple as `Tuple{Matrix{Float64}, Vector{Any}, Vector{Any}}`, which contains a STFT matrix, a time ticks (as `Vector{StepRangeLen{Float64, Base.TwicePrecision{Float64}, Base.TwicePrecision{Float64}}}`, which is same for the frequency) and a frequency ticks, as their output.
 
 ```Julia
 # multiple dispatch of the hanning STFT algorithm with undefined parameters

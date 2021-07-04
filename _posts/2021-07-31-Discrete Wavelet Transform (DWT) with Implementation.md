@@ -37,7 +37,7 @@ $$
 $$
 \begin{equation}
 \begin{split}
-\psi_{\tau,s}=\frac1{\sqrt{s}}\psi\bigg(\frac{t-\tau}{s}\bigg),
+\psi_{\tau,s}^*=\frac1{\sqrt{s}}\psi\bigg(\frac{t-\tau}{s}\bigg),
 \end{split}
 \end{equation}
 $$
@@ -59,7 +59,7 @@ $$
 $$
 \begin{equation}
 \begin{split}
-\Psi_{x\psi}(\tau,s)=\big\langle x(t),\psi_{\tau,s}(t)\big\rangle=\int x(t)\psi_{\tau,s}^*(t)\mathrm{d}t,
+\Psi_{x\psi}(\tau,s)=\big\langle x(t),\psi_{\tau,s}(t)\big\rangle=\int x(t)\psi_{\tau,s}^*(t)\mathrm{d}t=\frac1{\sqrt{s}}\int_{-\infty}^\infty x(t)\psi\bigg(\frac{t-\tau}{s}\bigg)\mathrm{d}t,
 \end{split}
 \end{equation}
 $$
@@ -166,9 +166,13 @@ $$
 
 ## **2. The Discrete Wavelet Transform for Computing**
 
-​	Discrete signal cannot be transformed by CWT, which is the only thing the computer can deal with, hence the **discrete wavelet transform (DWT)** are designed to replace the infinite number of operations in CWT, one of them is called the **Mallet algorithm**.
+​	Discrete signal cannot be transformed by CWT, while is the only thing the computer can deal with, hence the **discrete wavelet transform (DWT)** are designed to replace the infinite number of operations (integral from $-\infty$ to $\infty$) in CWT, one of them is called the **Mallet algorithm**. Mallet algorithm focus on adaptive resolution but not the width of window.
 
-​	Mallet algorithm is 
+​	Take sights of the wavelet mother function as kind of bandpass filter, which is composed by a high-pass filter and a low-pass filter, and call it the **semi-sub-band filtering**. This semi-sub-band filtering, with a down sampling (which diluted the sampling points for $2$ times), is treated as a wavelet decomposition operation.
+
+
+
+
 
 
 
