@@ -168,11 +168,35 @@ $$
 
 ​	Discrete signal cannot be transformed by CWT, while is the only thing the computer can deal with, hence the **discrete wavelet transform (DWT)** are designed to replace the infinite number of operations (integral from $-\infty$ to $\infty$) in CWT, one of them is called the **Mallet algorithm**. Mallet algorithm focus on adaptive resolution but not the width of window.
 
-​	Take sights of the wavelet mother function as kind of bandpass filter, which is composed by a high-pass filter and a low-pass filter, and call it the **semi-sub-band filtering**. This semi-sub-band filtering, with a down sampling (which diluted the sampling points for $2$ times), is treated as a wavelet decomposition operation.
+​	Take sights of the wavelet mother function as kind of bandpass filter, which is composed by a high-pass filter (gives $(f_{\text{sampling}}/2,f_{\text{sampling}})$) and a low-pass filter (gives $(0,f_{\text{sampling}}/2)$), and call it the **semi-sub-band filtering**. This semi-sub-band filtering, with a down sampling (which diluted the sampling points for $2$ times), is treated as a wavelet decomposition operation. A wavelet decomposition will gives $N/2$ points for the high frequency wavelet coefficients and  $N/2$ points for the low frequency wavelet coefficients, hence the total points is unchanged, i.e., the $N$, as following
 
+- $(0,f_{\text{sampling}})$, $N$, original signal
 
+  1st wavelet decomposition
 
+  - $(0,f_{\text{sampling}}/2)$, $N/2$, low frequency wavelet coefficients
 
+  - $(f_{\text{sampling}}/2,f_{\text{sampling}})$, $N/2$, high frequency wavelet coefficients
+
+    2nd wavelet decomposition
+
+    - $(0,f_{\text{sampling}}/4)$, $N/4$, low frequency wavelet coefficients
+
+    - $(f_{\text{sampling}}/4,f_{\text{sampling}}/2)$, $N/4$, high frequency wavelet coefficients
+
+    - $(f_{\text{sampling}}/2,3f_{\text{sampling}}/4)$, $N/4$, low frequency wavelet coefficients
+
+    - $(3f_{\text{sampling}}/4,f_{\text{sampling}})$, $N/4$, high frequency wavelet coefficients
+
+      ... ... ... ...
+
+      $\log_2N$ wavelet decomposition
+
+      - 
+
+​	from which it can be seen that like the `radix_2_fft`, the length of original signals decomposed by the wavelet needs to be a power of 2. If the input is not a power of 2, zero will be automatically padded to the nearest length.
+
+![img](https://pic4.zhimg.com/80/v2-245a290abed4a909522312c6cc841a0f_1440w.jpg)
 
 
 
