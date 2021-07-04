@@ -386,7 +386,7 @@ function radix_2_fft(x_::Vector{ComplexF64})::Vector{ComplexF64}
             end
         end
     end
-    return X_
+    X_
 end
 ```
 
@@ -434,7 +434,6 @@ function radix_2_ifft(x_::Vector{ComplexF64})::Vector{ComplexF64}
         end
     end
     X_ /= N_
-    return X_
 end
 ```
 
@@ -604,7 +603,7 @@ function radix_2_fft2(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
         X_[x_index, :] = radix_2_fft(Ax_temp[x_index, :]); # FFT in row
     end
     
-    return X_
+    X_
 end
 # the iFFT2 function based on radix_2_ifft
 function radix_2_ifft2(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
@@ -622,7 +621,7 @@ function radix_2_ifft2(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
         X_[x_index, :] = radix_2_ifft(Ax_temp[x_index, :]); # iFFT in row
     end
     
-    return X_
+    X_
 end
 ```
 
@@ -642,7 +641,7 @@ function fft2shift(x_::Matrix{ComplexF64})::Matrix{ComplexF64}
     X_[half_shift:nfft, 1:(nfft - half_shift + 1)] = x_[1:(nfft - half_shift + 1), half_shift:nfft]
     X_[1:(nfft - half_shift + 1), half_shift:nfft] = x_[half_shift:nfft, 1:(nfft - half_shift + 1)]
     
-    return X_
+    X_
 end
 ```
 
