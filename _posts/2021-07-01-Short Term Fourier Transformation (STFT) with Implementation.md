@@ -131,15 +131,109 @@ X(t,\omega)&=\int_{-\infty}^\infty x(\tau)w(\tau-t)e^{-j\omega(\tau-t)}\mathrm{d
 \end{equation}
 $$
 
-​	This result is, of course, a 2D function that links the time $t$ and frequency $\omega$ domains of a signal, and the square of it is $S(t,\omega)=\|X(t,\omega)\|^2$ is often be of great usage as the spectrogram of an speech signal. Note that different lengths of window naturally correspond to different spectrograms, which are generally divided into narrow-band spectrograms and broadband spectrograms. The former one has high frequency resolution but extremely low time resolution, which can make each harmonic component of speech be identified more easily. On the contrary, broadband spectrogram has higher temporal resolution, and it is suitable for the analysis of speech signal.
+​	This result is, of course, a 2D function that links the time $t$ and frequency $\omega$ domains of a signal, and the square of it is $S(t,\omega)=\|X(t,\omega)\|^2$ is often be of great usage as the spectrogram of an speech signal. Note that different lengths of window naturally correspond to different spectrograms, which are generally divided into narrow-band spectrograms and broadband spectrograms. The former one has **high frequency resolution but extremely low time resolution, which can make each harmonic component of speech be identified more easily**. On the contrary, **broadband spectrogram has higher temporal resolution**. Hence, STFT provide a true time-frequency representation (TFR) of the signal compared with DFT.
 
+### **2.1. Implementation of the STFT**
 
+​	The implementation provided here is based on `hanning` window, for others, users can define their own window type and treat them as one of the parameter to perform the multiple dispatch in `Julia`. There are three predefined parameters in total, as shown below.
 
-a true time-frequency representation (TFR) of the signal.
+- width of each window, denoted by the length of each section `nsection_`.
+- number of overlapping points for each adjacent window `noverlap_`.
+- FFT sampling points for each window `nfft_`, which is used in the Fourier transform (here, the self-defined FFT is used in the code, which is equivalent to the `FFTW` standard).
+- sampling frequency `fs_`, which should always be predefined.
 
-### **2.1. **
+![[OPTSx84a3]_Sliding_Windows_STFT_Parameters](/assets/images/[OPTSx84a3]_Sliding_Windows_STFT_Parameters.svg)
 
+​	After defining related parameters, using zero padding to let signal goes to $2^{(\cdot)}$, and calculate the number of window slides (number of slices the signal is divided), as
+$$
+\begin{equation}
+\begin{split}
+\text{col_}=\frac{\text{length}(x(\tau))-\text{nsection}}{\text{nsection}-\text{noverlap}},
+\end{split}
+\end{equation}
+$$
+​	This is hence the number of column in the final result, broadcast `*` to the corresponding elements in window function and the signal, the apply the FFT to these column elements, the spectrogram can be hence obtained.
 
+​	Realize this procedure with `Julia`, the source code is shown as below. One for the self-defined parameters (`noverlap_`, `nsection_`) and the other multiple dispatch function for the automatic choice for these parameters, but the sampling frequency is always needed for the context. Additionally, it is also worth that all of them take a tuple as ` Tuple{Matrix{Float64}, Vector{Any}, Vector{Any}}`, which contains a STFT matrix, a time ticks (as `Vector{StepRangeLen{Float64, Base.TwicePrecision{Float64}, Base.TwicePrecision{Float64}}}`, which is same for the frequency) and a frequency ticks, as their output.
+
+```Julia
+# multiple dispatch of the hanning STFT algorithm with undefined parameters
+function hanning_stft(x_::Vector{ComplexF64}, fs_::Float64)::Tuple{Matrix{Float64}, Vector{Any}, Vector{Any}}
+    nsection_ = floor(Int64, fs_/8) # nsection_ = Int64(floor((length(x_)/4.5))) # the width of hanning window
+    noverlap_ = floor(Int64, 0.9*(floor(fs_/8))) # noverlap_ = Int64(floor(nsection_/3)) # the number of points for overlaping
+    nfft_ = max(256, 2^(nextpow(2, nsection_))) # number of points of FFT
+    
+    Hanning_ = prd_hanning(nsection_) # hanning weight function (periodic)
+    step_col_ = nsection_ - noverlap_ # number of step per column
+    col_ = round(Int64, ((length(x_) - nsection_)/step_col_), RoundToZero) + 1 # number of column
+    row_ = Int64(nfft_/2 + 1) # number of row
+    X_ = ComplexF64.(zeros(row_, col_)) # pre-allocated memory for pre-processed signal
+    
+    x_n_index = 1
+    for n_index = 1:col_
+        temp_X = radix_2_fft([x_[x_n_index:x_n_index + nsection_ - 1] .* Hanning_; zeros(nfft_ - nsection_)]); # weighting the signal using the window and take its FFT
+        X_[:,n_index] = temp_X[1:row_]; # take half of the temporary value
+        x_n_index = x_n_index + (nsection_ - noverlap_); # sliding window...
+    end
+
+    X_ = abs.(X_./nfft_) # if want to convert the result into a real matrix
+    
+    f_axis = fs_.*[0:row_ - 1]./nfft_ # generate the frequency axis
+    t_axis = (0.5*nsection_:step_col_:(step_col_*(col_ - 1) + 0.5*step_col_))./fs_ # generate the time axis
+    
+    return X_, f_axis, t_axis # output as tuple
+end
+```
+
+​	while the other multiple dispatch has the different signature as
+
+```julia
+# multiple dispatch of the hanning STFT algorithm with self-defined parameters
+function hanning_stft(x_::Vector{ComplexF64}, nsection_::Int64, noverlap_::Int64, nfft_::Int64, fs_::Float64)::Tuple{Matrix{Float64}, Vector{Any}, Vector{Any}}
+	# ...
+end
+```
+
+​	where the `f_axis` are determined by following equation, and the `t_axis` is obtained by sliding window.
+$$
+\begin{equation}
+\begin{split}
+\text{f_aixs}&=i\times\frac{\text{fs_}}{\text{nff_}}, i\in(0,\text{nff_}),
+\end{split}
+\end{equation}
+$$
+​	As one of the test of this self-define STFT function, the time-frequency representation of the two-channel sweeping signal in the figure below (left) is shown in the image on the right, which indicates that STFT has certain time and frequency resolution ability (as if the parameters are properly defined), from which one can learn the information of signal frequency variation with time.
+
+![[OPTSx84a3]_Chirp_STFT_Test](/assets/images/[OPTSx84a3]_Chirp_STFT_Test.svg)
+
+​	the source code used to produce this test for STFT algorithm is as following shown, it is clear that two chirp signal are produced for completely inverse changes in their frequencies, by switching the $\varphi$ parameter to a minus one.
+
+```julia
+k_nor = 60
+fs_ = 500.0
+time_vec = 0:1/fs_:(0.002*(2^10-1)) # make f = kt, φ = 2π.*k.*t.^2
+w_o_p = cos.(2π.*k_nor.*time_vec.^2) .+ (sin.(2π.*k_nor.*time_vec.^2))im
+w_o_p += cos.(-2π.*k_nor.*(0.002*(2^10-1) .- time_vec).^2) .+ (sin.(-2π.*k_nor.*(0.002*(2^10-1) .- time_vec).^2))im
+s_o_p, f_axis, t_axis = hanning_stft(w_o_p, fs_)
+w_o_p = abs.(w_o_p)
+# palettef = Scale.lab_gradient("#cb997e", "#ddbea9", "#ffe8d6", "#b7b7a4", "#a5a58d", "#6b705c")
+# palettef = Scale.lab_gradient("#1d3557", "#457b9d", "#a8dadc", "#f1faee", "#e63946")
+# palettef = Scale.lab_gradient("#277da1", "#577590", "#4d908e", "#43aa8b", "#90be6d", "#f9c74f", "#f9844a", "#f8961e", "#f3722c", "#f94144")
+palettef = Scale.lab_gradient("#fffcf2", "#ccc5b9", "#403d39", "#252422", "#eb5e28", "darkred")
+# palettef = Scale.lab_gradient("#ffbe0b", "#fb5607", "#ff006e", "#8338ec", "#3a86ff")
+# palettef = Scale.lab_gradient("#264653", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51")
+Gadfly.with_theme(:default) do
+    spacer = Int64(round(max(size(s_o_p, 1), size(s_o_p, 2))/200))
+    Nia_draw = Gadfly.spy(20s_o_p[1:spacer:end, 1:spacer:end], alpha = [0.9],
+        Scale.color_continuous(colormap = palettef, minvalue=minimum(20s_o_p[1:spacer:end, 1:spacer:end]), maxvalue=maximum(20s_o_p[1:spacer:end, 1:spacer:end]))
+    )
+    ori_ = plot(x=1:length(w_o_p), y=w_o_p, Geom.line,
+        style(line_width=.1mm, line_style=[:solid]),
+        Coord.cartesian(xmin=1, xmax=length(w_o_p), ymin=minimum(w_o_p), ymax=maximum(w_o_p)))
+    Gfspy = SVG("C:/Users/a1020/Desktop/Nia02.svg")
+    Gadfly.draw(Gfspy, hstack(ori_, Nia_draw))
+end
+```
 
 ### **2.2. Realization of N-Points Periodic Hanning Window**
 
@@ -160,7 +254,7 @@ w(\cdot)=\left\{
 \end{equation}
 $$
 
-​	Hence, the calculation is realized by
+​	Hence, the calculation is realized by following functions, which includes the periodic and symmetric Hanning window, note that for the periodic one, the results should include a $0$ term as its head, as shown in the equation.
 
 ```julia
 # for calculating the hanning window samples
@@ -176,11 +270,6 @@ function sym_hanning(n_)
     end
     return w_
 end
-```
-
-
-
-```julia
 # for periodic hanning window samples generation
 function prd_hanning(n_)
     w_ = [0; sym_hanning(n_ - 1)]
@@ -188,12 +277,33 @@ function prd_hanning(n_)
 end
 ```
 
+​	As one of the visualization, a Hanning window can be calculated and plotted using `Gadfly` as shown below.
 
+![[OPTSx84a3]_Hanning_Window_Function](/assets/images/[OPTSx84a3]_Hanning_Window_Function.svg)
 
+​	the source code used to produce this Hanning window is as following shown.
 
+```julia
+using Gadfly
+w_o_p = prd_hanning(60)
+set_default_plot_size(20cm, 8cm)
+Gadfly.with_theme(:default) do
+    ori_ = plot(x=1:length(w_o_p), color = 1:length(w_o_p), y=w_o_p, Geom.point, Geom.bar, # Geom.line,
+        alpha = [0.5],
+        Theme(bar_spacing=-0.2mm, key_position=:none),
+        style(line_width=.5mm, line_style=[:solid]), size=[2.5pt],
+        Guide.xlabel("number of indices"), Guide.ylabel("hanning window"),
+        Guide.title("hanning window"),
+        # Scale.color_continuous(colormap = palettef, minvalue=1, maxvalue=length(w_o_p)),
+        Guide.xticks(ticks=1:15:length(w_o_p), label=true, orientation=:horizontal), Guide.yticks(ticks=minimum(w_o_p):0.1:maximum(w_o_p)),
+        Coord.cartesian(xmin=1, xmax=length(w_o_p), ymin=minimum(w_o_p), ymax=maximum(w_o_p)));
+    Gfspy = SVG("C:/Users/a1020/Desktop/Nia01.svg")
+    Gadfly.draw(Gfspy, ori_)
+end
+```
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx84a3]**
 
 [^1]:https://ww2.mathworks.cn/help/signal/ref/hann.html
-[^2]:
-[^3]:
+[^2]: Oppenheim, Alan V., Ronald W. Schafer, and John R. Buck. *Discrete-Time Signal Processing*. 2nd Ed. Upper Saddle River, NJ: Prentice Hall, 1999.
+[^3]: Fulop, Sean A., and Kelly Fitz. “Algorithms for computing the time-corrected instantaneous frequency (reassigned) spectrogram, with applications.” *Journal of the Acoustical Society of America*. Vol. 119, January 2006, pp. 360–371.
