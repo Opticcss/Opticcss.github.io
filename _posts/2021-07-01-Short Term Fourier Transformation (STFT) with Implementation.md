@@ -164,13 +164,13 @@ function hanning_stft(x_::Vector{ComplexF64}, fs_::Float64)::Tuple{Matrix{Float6
     nsection_ = floor(Int64, fs_/8) # nsection_ = Int64(floor((length(x_)/4.5))) # the width of hanning window
     noverlap_ = floor(Int64, 0.9*(floor(fs_/8))) # noverlap_ = Int64(floor(nsection_/3)) # the number of points for overlaping
     nfft_ = max(256, 2^(nextpow(2, nsection_))) # number of points of FFT
-    
+
     Hanning_ = prd_hanning(nsection_) # hanning weight function (periodic)
     step_col_ = nsection_ - noverlap_ # number of step per column
     col_ = round(Int64, ((length(x_) - nsection_)/step_col_), RoundToZero) + 1 # number of column
     row_ = Int64(nfft_/2 + 1) # number of row
     X_ = ComplexF64.(zeros(row_, col_)) # pre-allocated memory for pre-processed signal
-    
+
     x_n_index = 1
     for n_index = 1:col_
         temp_X = radix_2_fft([x_[x_n_index:x_n_index + nsection_ - 1] .* Hanning_; zeros(nfft_ - nsection_)]); # weighting the signal using the window and take its FFT
@@ -179,10 +179,10 @@ function hanning_stft(x_::Vector{ComplexF64}, fs_::Float64)::Tuple{Matrix{Float6
     end
 
     X_ = abs.(X_./nfft_) # if want to convert the result into a real matrix
-    
+
     f_axis = fs_.*[0:row_ - 1]./nfft_ # generate the frequency axis
     t_axis = (0.5*nsection_:step_col_:(step_col_*(col_ - 1) + 0.5*step_col_))./fs_ # generate the time axis
-    
+
     X_, f_axis, t_axis # output as tuple
 end
 ```
