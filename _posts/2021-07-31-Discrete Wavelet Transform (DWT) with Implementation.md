@@ -112,7 +112,7 @@ $$
 
 ​	There are several families of wavelet functions, and this article is trying to list someone commonly used here.
 
-- **Haar wavelet** (1^st^ order Daubechies wavelet) and corresponding frequency representation as following, which has the simplest structure. It orthogonal to itself and its own integer displacement, with vanishing moment of $1$.
+- **Haar wavelet** (1st order Daubechies wavelet) and corresponding frequency representation as following, which has the simplest structure. It orthogonal to itself and its own integer displacement, with vanishing moment of $1$.
 
 $$
 \begin{equation}
@@ -128,6 +128,7 @@ $$
 $$
 
 ​	where the Haar scaling function/father function is as
+
 $$
 \begin{equation}
 \begin{split}
