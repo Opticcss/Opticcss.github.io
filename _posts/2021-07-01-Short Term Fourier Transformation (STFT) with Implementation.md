@@ -7,7 +7,7 @@ image: ....jpg
 tags: [harmonic analysis, Julia]
 typora-root-url: ..
 ---
-> **Abstract**/**Snippet**.
+> **Abstract**/**Snippet**. Short term Fourier transform as an effective method to obtain the time-frequency representation of signals, was proposed in the early stage and is still active in audio processing tasks today[^1]. The basic principle and implementation scheme based on `Julia` are introduced here, and an example result is presented.
 
 
 **Contents**
@@ -135,7 +135,7 @@ $$
 
 ### **2.1. Implementation of the STFT**
 
-​	The implementation provided here is based on `hanning` window, for others, users can define their own window type and treat them as one of the parameter to perform the multiple dispatch in `Julia`. There are three predefined parameters in total, as shown below.
+​	The implementation provided here[^2] is based on `hanning` window, for others, users can define their own window type and treat them as one of the parameter to perform the multiple dispatch in `Julia`. There are three predefined parameters in total, as shown below.
 
 - width of each window, denoted by the length of each section `nsection_`.
 - number of overlapping points for each adjacent window `noverlap_`.
@@ -145,6 +145,7 @@ $$
 ![[OPTSx84a3]_Sliding_Windows_STFT_Parameters](/assets/images/[OPTSx84a3]_Sliding_Windows_STFT_Parameters.svg)
 
 ​	After defining related parameters, using zero padding to let signal goes to $2^{(\cdot)}$, and calculate the number of window slides (number of slices the signal is divided), as
+
 $$
 \begin{equation}
 \begin{split}
@@ -152,6 +153,7 @@ $$
 \end{split}
 \end{equation}
 $$
+
 ​	This is hence the number of column in the final result, broadcast `*` to the corresponding elements in window function and the signal, the apply the FFT to these column elements, the spectrogram can be hence obtained.
 
 ​	Realize this procedure with `Julia`, the source code is shown as below. One for the self-defined parameters (`noverlap_`, `nsection_`) and the other multiple dispatch function for the automatic choice for these parameters, but the sampling frequency is always needed for the context. Additionally, it is also worth that all of them take a tuple as ` Tuple{Matrix{Float64}, Vector{Any}, Vector{Any}}`, which contains a STFT matrix, a time ticks (as `Vector{StepRangeLen{Float64, Base.TwicePrecision{Float64}, Base.TwicePrecision{Float64}}}`, which is same for the frequency) and a frequency ticks, as their output.
@@ -195,6 +197,7 @@ end
 ```
 
 ​	where the `f_axis` are determined by following equation, and the `t_axis` is obtained by sliding window.
+
 $$
 \begin{equation}
 \begin{split}
@@ -202,6 +205,7 @@ $$
 \end{split}
 \end{equation}
 $$
+
 ​	As one of the test of this self-define STFT function, the time-frequency representation of the two-channel sweeping signal in the figure below (left) is shown in the image on the right, which indicates that STFT has certain time and frequency resolution ability (as if the parameters are properly defined), from which one can learn the information of signal frequency variation with time.
 
 ![[OPTSx84a3]_Chirp_STFT_Test](/assets/images/[OPTSx84a3]_Chirp_STFT_Test.svg)
@@ -239,7 +243,7 @@ end
 
 ​	Note that the Hanning window realized here can maintain the horizontal phase property of FFT results, so it is more suitable for the application scenarios of FFT. Of course, it is an asymmetric window, and the sequence length is taken as the denominator in the generation formula (hence it includes the first zero-weighted window sample).
 
-​	Take the `varargin` as the input, firstly, the symmetric Hanning window is realized by the equation as below
+​	Take the `varargin` as the input, firstly, the symmetric Hanning window is realized by the equation as below[^3]
 
 $$
 \begin{equation}
@@ -304,6 +308,7 @@ end
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx84a3]**
 
-[^1]:https://ww2.mathworks.cn/help/signal/ref/hann.html
-[^2]: Oppenheim, Alan V., Ronald W. Schafer, and John R. Buck. *Discrete-Time Signal Processing*. 2nd Ed. Upper Saddle River, NJ: Prentice Hall, 1999.
-[^3]: Fulop, Sean A., and Kelly Fitz. “Algorithms for computing the time-corrected instantaneous frequency (reassigned) spectrogram, with applications.” *Journal of the Acoustical Society of America*. Vol. 119, January 2006, pp. 360–371.
+[^1]: Oppenheim, Alan V., Ronald W. Schafer, and John R. Buck. *Discrete-Time Signal Processing*. 2nd Ed. Upper Saddle River, NJ: Prentice Hall, 1999.
+[^2]: Fulop, Sean A., and Kelly Fitz. “Algorithms for computing the time-corrected instantaneous frequency (reassigned) spectrogram, with applications.” *Journal of the Acoustical Society of America*. Vol. 119, January 2006, pp. 360–371.
+[^3]: https://ww2.mathworks.cn/help/signal/ref/hann.html
+
