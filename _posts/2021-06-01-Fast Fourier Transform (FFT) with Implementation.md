@@ -653,7 +653,7 @@ end
 
 ```julia
 using Gadfly, Images
-Nia_img = load("C:/Users/a1020/Desktop/Nia_Teppelin.png")
+Nia_img = load("C:/Users/a1020/Desktop/[OPTSx84a2]_Nia_Teppelin.png")
 Nia_img = Gray.(Nia_img)
 Nia_img = convert(Array{Float64, }, Nia_img)
 Nia_img = ComplexF64.(Nia_img)
