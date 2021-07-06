@@ -193,7 +193,7 @@ $$
 
       $\log_2N$ wavelet decomposition
 
-      - 
+      - $(kf_{\text{sampling}}/N,(k+1)f_{\text{sampling}}/N)$, $1$, ... wavelet coefficients
 
 ​	from which it can be seen that like the `radix_2_fft`, the length of original signals decomposed by the wavelet needs to be a power of 2. If the input is not a power of 2, zero will be automatically padded to the nearest length.
 
