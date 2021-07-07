@@ -133,7 +133,7 @@ $$
 \begin{equation}
 \begin{split}
 &\phi(t)=\left\{\begin{split}
-&1,\text{ }&0< t\leq1,\\
+&1,\text{ }&0\leq t<1,\\
 &0,\text{ }&\text{others},
 \end{split}\right.
 \end{split}
@@ -169,7 +169,58 @@ $$
 
 ​	Discrete signal cannot be transformed by CWT, while is the only thing the computer can deal with, hence the **discrete wavelet transform (DWT)** are designed to replace the infinite number of operations (integral from $-\infty$ to $\infty$) in CWT, one of them is called the **Mallet algorithm**. Mallet algorithm focus on adaptive resolution but not the width of window.
 
-​	Take sights of the wavelet mother function as kind of bandpass filter, which is composed by a high-pass filter (gives $(f_{\text{sampling}}/2,f_{\text{sampling}})$) and a low-pass filter (gives $(0,f_{\text{sampling}}/2)$), and call it the **semi-sub-band filtering**. This semi-sub-band filtering, with a down sampling (which diluted the sampling points for $2$ times), is treated as a wavelet decomposition operation. A wavelet decomposition will gives $N/2$ points for the high frequency wavelet coefficients and  $N/2$ points for the low frequency wavelet coefficients, hence the total points is unchanged, i.e., the $N$, as following
+​	Take the Haar wavelet transform as an example, the Haar scaling function $\phi(x)$ (father wavelet) is defined and hence derive the Haar wavelet as [1.1.](# 11-a-little-wavelet-zoo), they satisfied the following expressions.
+$$
+\begin{equation}
+\begin{split}
+&\phi(t)+\psi(t)=2\phi(2t)&\to\phi(2t)=\frac{\phi(t)+\psi(t)}2,\\
+&\phi(t)-\psi(t)=2\phi(2t-1)\text{ }&\to\phi(2t-1)=\frac{\phi(t)-\psi(t)}2,
+\end{split}
+\end{equation}
+$$
+![[OPTSx84a4]_Scaling_Function_and_Wavelet_Function](/assets/images/[OPTSx84a4]_Scaling_Function_and_Wavelet_Function.svg)
+
+​	Now consider the space $V_0$ constructed by $\sum_{k\in\mathbb{Z}}a_k\phi(t-k),a_k\in\mathbb{R}$ as the compactly supported piecewise constant function, this space could be generalized to $j$ order step function space $V_j$ with elements of $\sum_{k\in\mathbb{Z}}a_k\phi(2^jt-k),a_k\in\mathbb{R}$, all these spaces satisfies
+$$
+\begin{equation}
+\begin{split}
+V_0\subset V_1\subset \cdots\subset V_{j-1}\subset V_j\subset V_{j+1}\subset\cdots,
+\end{split}
+\end{equation}
+$$
+​	and have discontinuities of $k/2^j (k\in\mathbb{Z})$, obviously, these spaces have their orthonormal basis $\{2^{j/2}\phi(2^jt-k),k\in\mathbb{Z}\}$, and their orthogonal complement is, function space $W_j$ with elements $\sum_{k\in\mathbb{Z}}a_k\psi(2^jt-k),a_k\in\mathbb{R}$, hence, have that $V_{j+1}=V_j\oplus W_j$. Furthermore, have that $\psi(t)\in V_1,\psi(t)\notin V_0$, which is the orthogonal complement of $V_0$.
+
+> It is worth noting here the so-called "wavelet function $\psi(t)$" should satisfy the following two properties,
+>
+> - $\psi(t)$ is element of $V_1$, and $\psi(t)=\sum_{\ell\in\mathbb{Z}}a_\ell\phi(2t-1),a_\ell\in\mathbb{R}$.
+> - $\psi(t)$ is orthogonal to $V_0$, i.e., the condition $\displaystyle\int\psi(t)\phi(t-k)\mathrm{d}x=0$ holds for all $k$.
+
+​	From the orthogonal complement as shown above, i.e., $V_{j+1}=V_j\oplus W_j$, one space could be decompose in a recurrent way, as
+$$
+\begin{equation}
+\begin{split}
+V_j=W_{j-1}\oplus W_{j-2}\oplus\cdots\oplus W_{0}\oplus V_{0},
+\end{split}
+\end{equation}
+$$
+​	in element form, which yields that
+$$
+\begin{equation}
+\begin{split}
+&f_j=w_{j-1}+w_{j-2}+\cdots+w_0+f_0,\\
+&\left\{
+\begin{split}
+&f_j\in V_j,\\
+&w_j\in W_j,\\
+&f_0\in V_0,
+\end{split}
+\right.
+\end{split}
+\end{equation}
+$$
+### **2.1. Mallat Algorithm for Discrete Wavelet Transform**
+
+​	Based on the space decomposition, take sights of the wavelet mother function as kind of bandpass filter, which is composed by a high-pass filter (gives $(f_{\text{sampling}}/2,f_{\text{sampling}})$) and a low-pass filter (gives $(0,f_{\text{sampling}}/2)$), and call it the **semi-sub-band filtering**. This semi-sub-band filtering, with a down sampling (which diluted the sampling points for $2$ times), is treated as a wavelet decomposition operation. A wavelet decomposition will gives $N/2$ points for the high frequency wavelet coefficients and  $N/2$ points for the low frequency wavelet coefficients, hence the total points is unchanged, i.e., the $N$, as following
 
 - $(0,f_{\text{sampling}})$, $N$, original signal
 
@@ -195,17 +246,70 @@ $$
 
       - $(kf_{\text{sampling}}/N,(k+1)f_{\text{sampling}}/N)$, $1$, ... wavelet coefficients
 
-​	from which it can be seen that like the `radix_2_fft`, the length of original signals decomposed by the wavelet needs to be a power of 2. If the input is not a power of 2, zero will be automatically padded to the nearest length.
+​	from which it can be seen that, like the `radix_2_fft`, the length of original signals decomposed by the wavelet needs to be a power of 2. If the input is not a power of 2, zero will be automatically padded to the nearest length.
 
-![img](https://pic4.zhimg.com/80/v2-245a290abed4a909522312c6cc841a0f_1440w.jpg)
+​	Hence, the origin signal is sampled at $\cdots,-1/s^j,0,1/2^j,\cdots$, and denoted as $a_k=f(k/2^j),k\in\mathbb{Z}$, form a linear space $V_j$, the signal after sampling is represented by the $j$ order scaling function,
+$$
+\begin{equation}
+\begin{split}
+f_j(t)=\sum_{k\in\mathbb{Z}}a_k^j\phi(2^jt-k),
+\end{split}
+\end{equation}
+$$
+​	Then the decomposition process could be derived by substituting $t$ in $(13)$ by $2^{j-1}t-k$, which yields
+$$
+\begin{equation}
+\begin{split}
+&\phi(2^{j}t-2k)=\frac{\phi(2^{j-1}t-k)+\psi(2^{j-1}t-k)}2,\\
+&\phi(2^{j}t-2k-1)=\frac{\phi(2^{j-1}t-k)-\psi(2^{j-1}t-k)}2,
+\end{split}
+\end{equation}
+$$
+​	from this method, the wavelet decomposition can be represented as
+$$
+\begin{equation}
+\begin{split}
+f_j(t)&=\sum_{k\in\mathbb{Z}}a_{2k}^{j}\phi(2^jt-2k)+a_{2k+1}^{j}\phi(2^jt-2k-1)\\
+&=\sum_{k\in\mathbb{Z}}a_{2k}^{j}\bigg[\frac{\phi(2^{j-1}t-k)+\psi(2^{j-1}t-k)}2\bigg]+a_{2k+1}^{j}\bigg[\frac{\phi(2^{j-1}t-k)-\psi(2^{j-1}t-k)}2\bigg]\\
+&=\sum_{k\in\mathbb{Z}}\bigg(\frac{a_{2k}^j-a_{2k+1}^j}{2}\bigg)\psi(2^{j-1}t-k)+\bigg(\frac{a_{2k}^j+a_{2k+1}^j}{2}\bigg)\phi(2^{j-1}t-k)\\
+&=\overbrace{\sum_{k\in\mathbb{Z}}b_k^{j-1}\psi(2^{j-1}t-k)}^{\in W_{j-1}}+\overbrace{\sum_{k\in\mathbb{Z}}a_k^{j-1}\phi(2^{j-1}t-k)}^{\in V_{j-1}}\\
+&=w_{j-1}+f_{j-1}\\
+&=w_{j-1}+w_{j-2}+\cdots+w_0+f_0,
+\end{split}
+\end{equation}
+$$
 
+### **2.2. Filter as the Convolution Operator**
 
+​	Filters used in above DWT are totally two types, which provide $(a_{2k}^j-a_{2k+1}^j)/2$ and $(a_{2k}^j+a_{2k+1}^j)/2$, hence denoted then as $H(\cdot)$ and $L(\cdot)$ (high frequency wavelet coefficient and low frequency wavelet coefficient)
+$$
+\begin{equation}
+\begin{split}
+&H(\mathfrak{x})_k&=(h*\mathfrak{x})_k&=(\mathfrak{x}_{2k}^j-\mathfrak{x}_{2k+1}^j)/2,\\
+&L(\mathfrak{x})_k&=(l*\mathfrak{x})_k&=(\mathfrak{x}_{2k}^j+\mathfrak{x}_{2k+1}^j)/2,
+\end{split}
+\end{equation}
+$$
+​	also note the subsampling operator as $D(\cdot)$, have that
+$$
+\begin{equation}
+\begin{split}
+&DH(\mathfrak{x})_k&=(\mathfrak{x}_{2k}-\mathfrak{x}_{2k+1})/2,\\
+&DL(\mathfrak{x})_k&=(\mathfrak{x}_{2k}+\mathfrak{x}_{2k+1})/2,
+\end{split}
+\end{equation}
+$$
+​	hence the $j-1$ order wavelet coefficient and $j-1$ scaling factor are
+$$
+\begin{equation}
+\begin{split}
+&b_k^{j-1}&=DH(\mathfrak{x})_k,\\
+&a_k^{j-1}&=DL(\mathfrak{x})_k.
+\end{split}
+\end{equation}
+$$
 
-
-
-
-
-
+### **2.3. Filter Bank Representation for DWT**
 
 
 
