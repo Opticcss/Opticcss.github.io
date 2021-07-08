@@ -337,4 +337,29 @@ $$
 
 [^1]: The Wavelet Tutorial, http://feihu.eng.ua.edu/NSF_TUES/w7_2.pdf
 [^2]: Boggess A, Narcowich F J. A first course in wavelets with Fourier analysis[M]. John Wiley & Sons, 2015.
+[^3]: Smith, Steven. *Digital signal processing: a practical guide for engineers and scientists*. Elsevier, 2013.
+
+
+
+​	There are several parameters commonly used to balance the performance of filter in time domain, as
+
+- transition speed/rising time (过渡速度/上升时间), in order to accurately distinguish the adjacent steady-state signals, the transition in step response should be as short as possible, that is, the transition speed should be as fast as possible.
+- overshoot (过冲), the ideal time domain filter should avoid overshoot as much as possible because it changes the amplitude of sampling in the signal.
+- linear phase (线性相位), wanted the upper and lower halves of the step to be symmetrical.
+
+​	the other commonly used performance parameters of filter in frequency domain are, correspondingly,
+
+- roll-off (滚降速度), to separate frequencies that are closely spaced, the filter must have a fast roll-off.
+- passband ripple (通带波纹), for the passband frequency to pass through the filter without any significant changes, the passband ripple must be suppressed as much as possible.
+- stopband attenuation (阻带衰减), it is also necessary to have good stopband attenuation to adequately block the stopband frequency.
+
+​	several filters with their applications and the domain in which they are realized are listed in a table
+
+|              Applications/Domain              | Convolution, Finite Impulse Response (FIR) | Recursion, Infinite Impulse Response (IIR) |
+| :-------------------------------------------: | :----------------------------------------: | :----------------------------------------: |
+|    Time Domain (Smoothing, DC, Filtering)     |           Moving Average Filters           |       Single Pole Recursive Filters        |
+|    Frequency Domain (Frequency Separation)    |           Windowed-Sinc Filters            |             Chebyshev Filters              |
+| Arbitrary Frequency Responses (Deconvolution) |             FIR Custom Filters             |              Iterative Design              |
+
+ 
 
