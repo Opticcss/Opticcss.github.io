@@ -1,11 +1,2 @@
-_site
-.sass-cache
-.jekyll-metadata
-node_modules
-Gemfile.lock
 _drafts
 _mater
-/_site
-/dist
-/dist.tar.gz
-/.jekyll-cache
