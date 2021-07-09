@@ -331,15 +331,7 @@ $$
 
 
 
-
-
-> <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx84a4]**
-
-[^1]: The Wavelet Tutorial, http://feihu.eng.ua.edu/NSF_TUES/w7_2.pdf
-[^2]: Boggess A, Narcowich F J. A first course in wavelets with Fourier analysis[M]. John Wiley & Sons, 2015.
-[^3]: Smith, Steven. *Digital signal processing: a practical guide for engineers and scientists*. Elsevier, 2013.
-
-
+#### **<span id="jump01">Addendum 1^st^ </span>——Small Note for Filters**
 
 ​	There are several parameters commonly used to balance the performance of filter in time domain, as
 
@@ -361,5 +353,9 @@ $$
 |    Frequency Domain (Frequency Separation)    |           Windowed-Sinc Filters            |             Chebyshev Filters              |
 | Arbitrary Frequency Responses (Deconvolution) |             FIR Custom Filters             |              Iterative Design              |
 
- 
+> <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx84a4]**
+
+[^1]: The Wavelet Tutorial, http://feihu.eng.ua.edu/NSF_TUES/w7_2.pdf
+[^2]: Boggess A, Narcowich F J. A first course in wavelets with Fourier analysis[M]. John Wiley & Sons, 2015.
+[^3]: Smith, Steven. *Digital signal processing: a practical guide for engineers and scientists*. Elsevier, 2013.
 
