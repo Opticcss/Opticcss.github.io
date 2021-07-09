@@ -335,8 +335,8 @@ $$
 
 ​	There are several parameters commonly used to balance the performance of filter in time domain, as
 
-- transition speed/rising time <u>**过渡速度/上升时间**</u>, in order to accurately distinguish the adjacent steady-state signals, the transition in step response should be as short as possible, that is, the transition speed should be as fast as possible.
-- overshoot <u>**过冲**</u>, the ideal time domain filter should avoid overshoot as much as possible because it changes the amplitude of sampling in the signal.
+- transition speed/rising time **<u>过渡速度/上升时间</u>**, in order to accurately distinguish the adjacent steady-state signals, the transition in step response should be as short as possible, that is, the transition speed should be as fast as possible.
+- overshoot **过冲**, the ideal time domain filter should avoid overshoot as much as possible because it changes the amplitude of sampling in the signal.
 - linear phase <u>**线性相位**</u>, wanted the upper and lower halves of the step to be symmetrical.
 
 ​	the other commonly used performance parameters of filter in frequency domain are, correspondingly,
