@@ -113,24 +113,11 @@ dimensional code
 
 
 
-By allocating the memory in
-a helper function, the algorithm also improves efficiency by reusing memory within the actual convolu-
-tion function. Additionally, we use @inbounds to
-eliminate array bounds checking, further increasing
-performance speedups.
-Our implementation covers a wide variety of
-signal types (real, complex, boolean, irrational, un-
-signed integers, etc) through native Julia multiple
-dispatch. Furthermore, we utilize the Cartesian pack-
-age to create auto generative code that can compute
-convolutions in any dimension. The process by the
-compiler is as follows:
-1) The dimensionality of the inputs is identified
-(let’s say both inputs are of dimension k)
-2) The k-dimensional convolution code is gener-
-ated (if it has never been before)
-3) The inputs are processed by the auto-generated
-code.
+By allocating the memory in a helper function, the algorithm also improves efficiency by reusing memory within the actual convolution function. Additionally, we use @inbounds to eliminate array bounds checking, further increasing performance speedups.
+Our implementation covers a wide variety of signal types (real, complex, Boolean, irrational, unsigned integers, etc) through native Julia multiple dispatch. Furthermore, we utilize the Cartesian package to create auto generative code that can compute convolutions in any dimension. The process by the compiler is as follows:
+1) The dimensionality of the inputs is identified (let’s say both inputs are of dimension k)
+2) The k-dimensional convolution code is generated (if it has never been before)
+3) The inputs are processed by the auto-generated code.
 
 `using Base.Cartesian`
 
