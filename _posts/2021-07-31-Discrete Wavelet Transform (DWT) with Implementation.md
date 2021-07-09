@@ -336,14 +336,14 @@ $$
 ​	There are several parameters commonly used to balance the performance of filter in time domain, as
 
 - transition speed/rising time **<u>过渡速度/上升时间</u>**, in order to accurately distinguish the adjacent steady-state signals, the transition in step response should be as short as possible, that is, the transition speed should be as fast as possible.
-- overshoot **过冲**, the ideal time domain filter should avoid overshoot as much as possible because it changes the amplitude of sampling in the signal.
-- linear phase <u>**线性相位**</u>, wanted the upper and lower halves of the step to be symmetrical.
+- overshoot **<u>过冲</u>**, the ideal time domain filter should avoid overshoot as much as possible because it changes the amplitude of sampling in the signal.
+- linear phase **<u>线性相位</u>**, wanted the upper and lower halves of the step to be symmetrical.
 
 ​	the other commonly used performance parameters of filter in frequency domain are, correspondingly,
 
-- roll-off <u>**滚降速度**</u>, to separate frequencies that are closely spaced, the filter must have a fast roll-off.
-- passband ripple <u>**通带波纹**</u>, for the passband frequency to pass through the filter without any significant changes, the passband ripple must be suppressed as much as possible.
-- stopband attenuation <u>**阻带衰减**</u>, it is also necessary to have good stopband attenuation to adequately block the stopband frequency.
+- roll-off **<u>滚降速度</u>**, to separate frequencies that are closely spaced, the filter must have a fast roll-off.
+- passband ripple **<u>通带波纹</u>**, for the passband frequency to pass through the filter without any significant changes, the passband ripple must be suppressed as much as possible.
+- stopband attenuation **<u>阻带衰减</u>**, it is also necessary to have good stopband attenuation to adequately block the stopband frequency.
 
 ​	several filters with their applications and the domain in which they are realized are listed in a table
 
