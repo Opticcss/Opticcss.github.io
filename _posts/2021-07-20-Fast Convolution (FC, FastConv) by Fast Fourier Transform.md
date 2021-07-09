@@ -1,6 +1,6 @@
 ---
 layout: optics_post
-title:  "Fast Convolution by Fast Fourier Transform"
+title:  "Fast Convolution (FC, FastConv) by Fast Fourier Transform"
 author: Li Jinzhao
 categories: [signal processing]
 image: ....jpg
