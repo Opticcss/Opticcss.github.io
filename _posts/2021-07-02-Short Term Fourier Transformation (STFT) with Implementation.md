@@ -163,7 +163,7 @@ $$
 function hanning_stft(x_::Vector{ComplexF64}, fs_::Float64)::Tuple{Matrix{Float64}, Vector{Any}, Vector{Any}}
     nsection_ = floor(Int64, fs_/8) # nsection_ = Int64(floor((length(x_)/4.5))) # the width of hanning window
     noverlap_ = floor(Int64, 0.9*(floor(fs_/8))) # noverlap_ = Int64(floor(nsection_/3)) # the number of points for overlaping
-    nfft_ = max(256, 2^(nextpow(2, nsection_))) # number of points of FFT
+    nfft_ = max(256, nextpow(2, nsection_)) # number of points of FFT
 
     Hanning_ = prd_hanning(nsection_) # hanning weight function (periodic)
     step_col_ = nsection_ - noverlap_ # number of step per column
