@@ -683,6 +683,3 @@ end
 [^3]:http://fftw.org/fftw-3.3.9.tar.gz
 
 
-
-
-
