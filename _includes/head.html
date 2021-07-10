@@ -52,4 +52,41 @@
       });
     }
   </script>
+	<style type="text/css">
+	/*Fontawesome Iconfont*/
+	@import url(https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css);
+	@import url(http://fonts.googleapis.com/css?family=Montserrat);
+		* {margin: 0; padding: 0;}
+		li {list-style-type: none;}
+		.grid {float: left; width:100%; height:100%; margin: 0 auto;}
+		.grid > li { width: 100%; height: 100%; overflow: hidden; float: left; position: relative; }
+		.grid>li section {position: relative; transition: all 0.25s; width:100%; height:100%; background-size: cover; background-image: url(img/mb3.jpg); }
+		.sidenav { position: absolute; top: 0; left: 0; bottom: 0; background: linear-gradient(rgba(50,60,60, 1), rgba(50,60,60, 0.7)); width: 3em; transition: all 0.25s; overflow: hidden;}
+		.sidenav li { _overflow: hidden; width: 150px; }
+		.sidenav a { text-decoration: none; color: #eee;  display: block; line-height: 48px;  }
+		.sidenav span {display: block;}
+		.sidenav b { padding-left 10px; display: block; color: white; font-family: Montserrat; font-size: 12px; line-height: 4; opacity: 0; }
+		.sidenav a i { display: block; float: left; font-size: 16px; line-height: 48px; width: 50px; text-align: center; }
+
+		/*All instances*/
+		.grid>li:hover .sidenav {width: 100%;}
+		.grid>li:hover section {margin-left: 15%;}
+		.grid>li:hover b {opacity: 1;}
+
+		.sidenav li:nth-child(1) b, .sidenav li:nth-child(1) a {transition-delay: .08s;}
+		.sidenav li:nth-child(2) b, .sidenav li:nth-child(2) a {transition-delay: .16s;}
+		.sidenav li:nth-child(3) b, .sidenav li:nth-child(3) a {transition-delay: .24s;}
+		.sidenav li:nth-child(4) b, .sidenav li:nth-child(4) a {transition-delay: .32s;}
+		.sidenav li:nth-child(5) b, .sidenav li:nth-child(5) a {transition-delay: .40s;}
+		.sidenav li:nth-child(6) b, .sidenav li:nth-child(6) a {transition-delay: .48s;}
+
+		/*Three*/
+		.three .w {transform: perspective(100px) translateZ(-24px);}
+		.three b {transform: perspective(100px) rotateY(180deg) translateZ(24px) scale(0.5); }
+		.three:hover b {transform: perspective(100px) rotateY(0) translateZ(24px) scale(1); transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: transparent;}
+		.three .sidenav {width: 5em;}
+	</style>
+	<!--[if IE]>
+		<script src="http://libs.googleapis.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
 </head>
