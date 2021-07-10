@@ -360,7 +360,6 @@ input:-webkit-autofill {
 }
 .header .menu {
   font-family: FiraMono;
-  margin-right: -9px;
   text-align: right;
   user-select: none;
   border: solid;
