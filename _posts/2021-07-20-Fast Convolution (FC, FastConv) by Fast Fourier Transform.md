@@ -113,11 +113,13 @@ dimensional code
 
 
 
-By allocating the memory in a helper function, the algorithm also improves efficiency by reusing memory within the actual convolution function. Additionally, we use @inbounds to eliminate array bounds checking, further increasing performance speedups.
+By allocating the memory in a helper function, the algorithm also improves efficiency by reusing memory within the actual convolution function. Additionally, we use `@inbounds` to eliminate array bounds checking, further increasing performance speedups.
 Our implementation covers a wide variety of signal types (real, complex, Boolean, irrational, unsigned integers, etc) through native Julia multiple dispatch. Furthermore, we utilize the Cartesian package to create auto generative code that can compute convolutions in any dimension. The process by the compiler is as follows:
 1) The dimensionality of the inputs is identified (let’s say both inputs are of dimension k)
 2) The k-dimensional convolution code is generated (if it has never been before)
 3) The inputs are processed by the auto-generated code.
+
+implement a fast N-dimensional convolution algorithm, optimized specifically for machine vision applications, and integrate into the high performance computing `Julia` platform
 
 `using Base.Cartesian`
 
@@ -172,10 +174,6 @@ println(a1 ≈ an) # true
 
 
 
-
-#### **<span id="jump01">Addendum 1st </span>——**
-
-​	write something...
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx84a6]**
 
