@@ -1,5 +1,10 @@
 body {
-  width: 50%
+  width: 50%;
+  background-size: cover;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  border-left: outset;
+  border-radius: .5em .5em .5em .5em;
 }
 .page-post {
   font-size: 14px;
