@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
 {% include head.html -%}
+<script language="javascript">
+	// 这个脚本是 ie6和ie7 通用的脚本
+	function custom_close(){
+		if(confirm("您确定要关闭本页吗？")){
+			window.opener=null;
+			window.open('','_self');
+			window.close();
+		}
+		else{
+		}
+	}
+</script>
 <body ondragstart="return false;">
 			<ul class="grid">
 				<li class="three">
@@ -10,9 +22,9 @@
 						<li><a><i class="fa fa-pencil"></i><span class="w"><b>New Post</b></span></a></li>
 						<li><a><i class="fa fa-cog"></i><span class="w"><b>Settings</b></span></a></li>
 						<li><a><i class="fa fa-star"></i><span class="w"><b>Starred</b></span></a></li>
-						<li><a><i class="fa fa-power-off"></i><span class="w"><b>Logout</b></span></a></li>
+						<li><a><i class="fa fa-power-off"></i><span class="w" onClick="custom_close()"><b>Logout</b></span></a></li>
 					</ul>
-<div class="sectionimg"></div>
+					<div class="sectionimg"></div>
 					<section>
 {% include header.html -%}
 {{ content }}
