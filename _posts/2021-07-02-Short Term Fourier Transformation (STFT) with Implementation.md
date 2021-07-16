@@ -223,16 +223,15 @@ w_o_p = abs.(w_o_p)
 # palettef = Scale.lab_gradient("#cb997e", "#ddbea9", "#ffe8d6", "#b7b7a4", "#a5a58d", "#6b705c")
 # palettef = Scale.lab_gradient("#1d3557", "#457b9d", "#a8dadc", "#f1faee", "#e63946")
 # palettef = Scale.lab_gradient("#277da1", "#577590", "#4d908e", "#43aa8b", "#90be6d", "#f9c74f", "#f9844a", "#f8961e", "#f3722c", "#f94144")
-palettef = Scale.lab_gradient("#fffcf2", "#ccc5b9", "#403d39", "#252422", "#eb5e28", "darkred")
+# palettef = Scale.lab_gradient("#fffcf2", "#ccc5b9", "#403d39", "#252422", "#eb5e28", "darkred")
 # palettef = Scale.lab_gradient("#ffbe0b", "#fb5607", "#ff006e", "#8338ec", "#3a86ff")
-# palettef = Scale.lab_gradient("#264653", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51")
+palettef = Scale.lab_gradient("#264653", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51")
 Gadfly.with_theme(:default) do
     spacer = Int64(round(max(size(s_o_p, 1), size(s_o_p, 2))/200))
     Nia_draw = Gadfly.spy(20s_o_p[1:spacer:end, 1:spacer:end], alpha = [0.9],
         Scale.color_continuous(colormap = palettef, minvalue=minimum(20s_o_p[1:spacer:end, 1:spacer:end]), maxvalue=maximum(20s_o_p[1:spacer:end, 1:spacer:end]))
     )
-    ori_ = plot(x=1:length(w_o_p), y=w_o_p, Geom.line,
-        style(line_width=.1mm, line_style=[:solid]),
+    ori_ = plot(x=1:length(w_o_p), y=w_o_p, color=1:length(w_o_p), Geom.point, size=[1.5pt],
         Coord.cartesian(xmin=1, xmax=length(w_o_p), ymin=minimum(w_o_p), ymax=maximum(w_o_p)))
     Gfspy = SVG("C:/Users/a1020/Desktop/Nia02.svg")
     Gadfly.draw(Gfspy, hstack(ori_, Nia_draw))
