@@ -127,9 +127,9 @@ $$
 $$
 
 - few-shot learning: supervised meta-learning, mainstream methods are
-  - model based, manipulate model parameters to establish the mapping between input and prediction, $P_\theta(y|x,S)=f_\theta(x,S)$.
-  - metric based, the application of the nearest-neighbour, on the samples from batch and support set, $P_\theta(y|x,S)=\sum_{(x_i,y_i)\in{S}}k_\theta(x,x_i,S)y_i$.
-  - optimization based, adjust the optimization method to get the job done, $P_\theta(y|x,S)=f_{\theta(S)}(x)$.
+  - model based, manipulate model parameters to establish the mapping between input and prediction, $P_\theta(y\|x,S)=f_\theta(x,S)$.
+  - metric based, the application of the nearest-neighbour, on the samples from batch and support set, $P_\theta(y\|x,S)=\sum_{(x_i,y_i)\in{S}}k_\theta(x,x_i,S)y_i$.
+  - optimization based, adjust the optimization method to get the job done, $P_\theta(y\|x,S)=f_{\theta(S)}(x)$.
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSxa6b3]**
 
