@@ -149,7 +149,7 @@ $$
 $$
 \begin{equation}
 \begin{split}
-\text{col_}=\frac{\text{length}(x(\tau))-\text{nsection}}{\text{nsection}-\text{noverlap}},
+\text{col\_}=\frac{\text{length}(x(\tau))-\text{nsection}}{\text{nsection}-\text{noverlap}},
 \end{split}
 \end{equation}
 $$
@@ -201,7 +201,7 @@ end
 $$
 \begin{equation}
 \begin{split}
-\text{f_aixs}&=i\times\frac{\text{fs_}}{\text{nff_}}, i\in(0,\text{nff_}),
+\text{f\_aixs}&=i\times\frac{\text{fs\_}}{\text{nff\_}}, i\in(0,\text{nff\_}),
 \end{split}
 \end{equation}
 $$
