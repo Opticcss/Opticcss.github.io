@@ -18,10 +18,10 @@ typora-root-url: ..
 
 ​	One of valid ways for handling the visual comprehension task is CNN, which achieve a breakthrough for semantic segmentation (always be treated as an intensive forecasting task), now exposes the following problems.
 
--    Large-scale data sets are required to support intensive forecasting tasks, which portends high overhead.
--    Difficulties of model generalization, especially in the prediction of new classes.
+-    **Large-scale data sets** are required to support intensive forecasting tasks, which portends high overhead.
+-    Difficulties of **model generalization**, especially in the prediction of new classes.
 
-​	The design of few-shot segmentation (few-shot learning in semantic segmentation) is to achieve the segmentation of categories in the new sample, but only based on a support set containing $K$ training images.
+​	The design of few-shot segmentation (few-shot learning in semantic segmentation) is to **achieve the segmentation of categories in the new sample**, but **only based on a support set containing $K$** () **training images**.
 
 
 
@@ -30,7 +30,7 @@ typora-root-url: ..
 
 
 
-​	Up to present (2021. 07), some of the methods with good performances are concentrated on the embedding method and its derivatives. 
+​	Up to present (2021. 07), some of the methods with good performances are concentrated on the embedding function (**prototype network**) and its derivatives.
 
 文章的主要比较惊奇的一点是仅对原始图像做一些稀疏的标注（目标位置上点几个关键点，背景位置上点几个关键点）就却能够实现对目标的像素级的分割。网络结构和BMVC那篇paper设置类似，也是采用双分支结构，将标注信息与原始图像concate后输入conditioning branch得到输入图像的embedding。利用segmentation branch对qurey image进行特征提取，并将结果与conditioning branch得到的embedding进行concate，再进行像素级分割。
 
@@ -71,6 +71,12 @@ Prototype alignment regularization: 如果分割结果够好的话，那么从�
 采用注意机制有效地融合来自k-shot设置中的多个支持示例的信息，其优于单次结果的不可学习的融合方法。
 
 证明给定的支持集具有弱注释，即边界框，我们的模型仍然可以获得与昂贵的像素级注释支持集的结果相当的性能，这进一步减少了新类别对于少数镜头分割的标记工作量。
+
+
+
+
+
+
 
 ## **2. Methodological Approaches**
 
@@ -133,7 +139,8 @@ $$
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSxa6b3]**
 
-[^1]: Rakelly, Kate, et al. "Conditional networks for few-shot semantic segmentation." (2018).
-[^2]: Wang, Kaixin, et al. "Panet: Few-shot image semantic segmentation with prototype alignment." *Proceedings of the IEEE/CVF International Conference on Computer Vision*. 2019.
-[^3]: Zhang, Chi, et al. "Canet: Class-agnostic segmentation networks with iterative refinement and attentive few-shot learning." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2019.
-[^4]: Liu, Weide, et al. "Crnet: Cross-reference networks for few-shot segmentation." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2020.
+[^1]: Rakelly, Kate, et al. "Conditional networks for few-shot semantic segmentation." (2018). **CoNet**
+[^2]: Wang, Kaixin, et al. "Panet: Few-shot image semantic segmentation with prototype alignment." *Proceedings of the IEEE/CVF International Conference on Computer Vision*. 2019. **PANet**
+[^3]: Zhang, Chi, et al. "Canet: Class-agnostic segmentation networks with iterative refinement and attentive few-shot learning." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2019. **CANet**
+[^4]: Liu, Weide, et al. "Crnet: Cross-reference networks for few-shot segmentation." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2020. **CRNet**
+[^5]: Yang, Boyu, et al. "Prototype mixture models for few-shot semantic segmentation." *European Conference on Computer Vision*. Springer, Cham, 2020. 多原型
