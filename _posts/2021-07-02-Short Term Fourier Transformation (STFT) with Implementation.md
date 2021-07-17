@@ -149,7 +149,7 @@ $$
 $$
 \begin{equation}
 \begin{split}
-\text{col\_}=\frac{\text{length}(x(\tau))-\text{nsection}}{\text{nsection}-\text{noverlap}},
+\text{col_}=\frac{\text{length}(x(\tau))-\text{nsection}}{\text{nsection}-\text{noverlap}},
 \end{split}
 \end{equation}
 $$
@@ -201,7 +201,7 @@ end
 $$
 \begin{equation}
 \begin{split}
-\text{f\_aixs}&=i\times\frac{\text{fs\_}}{\text{nff\_}}, i\in(0,\text{nff\_}),
+\text{f_aixs}&=i\times\frac{\text{fs_}}{\text{nff_}}, i\in(0,\text{nff_}),
 \end{split}
 \end{equation}
 $$
@@ -249,8 +249,8 @@ $$
 \begin{split}
 w(\cdot)=\left\{
 \begin{split}
-\frac12\bigg[1-\cos\bigg(2\pi\frac{x}{N+1}\bigg)\bigg]\boxed{\circlearrowleft}&\text{, for }n\_\text{ is even,}\\
-\frac12\bigg[1-\cos\bigg(2\pi\frac{x-1}{N+1}\bigg)\bigg]\boxed{\circlearrowleft}&\text{, for }n\_\text{ is odd,}\\
+\frac12\bigg[1-\cos\bigg(2\pi\frac{x}{N+1}\bigg)\bigg]\boxed{\circlearrowleft}&\text{, for }n_\text{ is even,}\\
+\frac12\bigg[1-\cos\bigg(2\pi\frac{x-1}{N+1}\bigg)\bigg]\boxed{\circlearrowleft}&\text{, for }n_\text{ is odd,}\\
 \end{split}
 \right.
 \end{split}
