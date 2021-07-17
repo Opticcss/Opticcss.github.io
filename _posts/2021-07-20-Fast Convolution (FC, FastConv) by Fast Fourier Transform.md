@@ -16,6 +16,7 @@ typora-root-url: ..
 ## **1. Commonly Used Fast Convolution Algorithm**
 
 ​	Fast convolution as FFT convolution uses the overlap-add method together with the fast Fourier transform, allowing signals to be convolved by multiplying their frequency spectra, which can be summarized as following[^2]
+
 $$
 \begin{equation}
 \begin{split}
@@ -23,9 +24,11 @@ $$
 \end{split}
 \end{equation}
 $$
+
 ​	Take the a 2-D input, a image, as an example, the image is converted into the frequency domain (using FFT), multiply, and convert back to the time domain (using the IFFT).
 ​	Complexity analysis of this algorithm reveals that it
 exhibits $O(n\log n)$ asymptotic behaviour, which out-perform the direct summation method as following (which takes $O(n^2)$), note that here, both `E` and `k` have $n$ samples.
+
 $$
 \begin{equation}
 \begin{split}
@@ -33,6 +36,7 @@ $$
 \end{split}
 \end{equation}
 $$
+
 ​	Note that the $O(n\log n)$ is the easiest to implement, and can gain a comparably good performance for 1D array (which is noted as `Vector{Float64}` in `Julia`), as `fast_conv1` in the following source code.
 
 ```julia
