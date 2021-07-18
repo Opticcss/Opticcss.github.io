@@ -59,7 +59,7 @@ There are totally six canonical forms of the matrix differential as shown below.
 - Matrix with respect to scalar. ${\mathrm{d}\mathbf{Y}(x)}=\mathbf{A}\mathrm{d}x$
 - Scalar with respect to vector. ${\mathrm{d}y(\mathbf{x})}=\mathbf{a}\mathrm{d}\mathbf{x}$
 - Vector with respect to vector. ${\mathrm{d}\mathbf{y}(\mathbf{x})}=\mathbf{A}\mathrm{d}\mathbf{x}$
-- Scalar with respect to matrix. ${\mathrm{d}y(\mathbf{X})}=\mathrm{tr}(\mathbf{J}_{\mathbf{X}\to y}\mathrm{d}\mathbf{X})=(\mathbf{J}_{\mathbf{X}\to y}+\mathbf{J}_{\mathbf{X}\to y}^\mathrm{T})-(\mathbf{J}_{\mathbf{X}\to y}\circ\mathbf{I})$, this can be determined by the partial derivation, and denoted as the Jacobian $\mathbf{J}$
+- Scalar with respect to matrix. ${\mathrm{d}y(\mathbf{X})}=\mathrm{tr}(\mathbf{J}_{\mathbf{X}\to y}\mathrm{d}\mathbf{X})=(\mathbf{J}_{\mathbf{X}\to y}+\mathbf{J}_{\mathbf{X}\to y}^\mathrm{T})-(\mathbf{J}_{\mathbf{X}\to y}\circ\mathbf{I})$, this can be determined by the partial derivation, and denoted as the Jacobian
 
 $$
 \begin{equation}
