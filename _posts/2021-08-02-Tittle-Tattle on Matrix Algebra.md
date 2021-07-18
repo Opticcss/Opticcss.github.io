@@ -95,17 +95,13 @@ $$
 \end{equation}
 $$
 
-<font color = #ff6347>**symbols** $\Theta\omicron\lambda\omicron\rho\sigma\ \mathcal{H}\epsilon\rho\epsilon$</font>
+$\color{tomato}{\mathbf{X}}$
 
-crimson（深红）	<font color = #dc143c>**symbols** $\Theta\omicron\lambda\omicron\rho\sigma\ \mathcal{H}\epsilon\rho\epsilon$</font>
+$\color{crimson}{\mathbf{A}}$
 
- $\color{crimson}{s}$
-darkblue（深蓝）	<font color = #00008b>**symbols** $\Theta\omicron\lambda\omicron\rho\sigma\ \mathcal{H}\epsilon\rho\epsilon$</font>
+$\color{olivedrab}{\mathbf{B}}$
 
- $\color{darkblue}{s}$
-
- $\color{#00008b}{s}$
-darkcyan（深青）	<font color = #008b8b>**symbols** $\Theta\omicron\lambda\omicron\rho\sigma\ \mathcal{H}\epsilon\rho\epsilon$</font> $\color{darkcyan}{s}$
+$\color{darkcyan}{\mathbf{C}}$
 
 ## **2. Other Useful Operations in Matrix Algebra**
 
