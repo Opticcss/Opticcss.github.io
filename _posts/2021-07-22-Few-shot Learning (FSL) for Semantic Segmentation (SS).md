@@ -21,15 +21,29 @@ typora-root-url: ..
 -    **Large-scale data sets** are required to support intensive forecasting tasks, which portends high overhead.
 -    Difficulties of **model generalization**, especially in the prediction of new categories.
 
-​	The design of few-shot segmentation (few-shot learning in semantic segmentation) is to **achieve the segmentation of categories in the new sample**, but **only based on a support set containing $K$** (small sampling of data) **training images**.
+​	The design of few-shot segmentation (FSS, few-shot learning in semantic segmentation) is to **achieve the segmentation of categories in the new sample**, but **only based on a support set containing $K$** (small sampling of data) **training images**.
 
 ​	Up to present (2021. 07), an outright majority good performances are concentrated on the embedding function (which map small samples to $N$ vectors as prototypes, the key of **prototype network**, P-net[^1]) and its derivatives, the principle of which is mapping the samples (support set) and the detected image (query set) to vectors (one support prototype for each category), and identify the one with shortest mean point Euclidean distance (Bregman divergence) as the predicted category (query vector $\mapsto$ query prototype), some of them are summarized as following.
+
+- co-FCN[^2], in which the robustness of few-shot segmentation for sparse labels is explained, it is also feasible to use sparse labels to guide the FSS.
+- 
+
+## **2. Methodological Approaches**
+
+(HOW is your investigated problem addressed in prior works? We strongly encourage you to classify all methods you collected into several categories.)
+
+-    Key Idea of the method
+-    Justification of method
+-    Reflections on the methodology (eg. effectiveness, strengths and limitations of the methodology)
+-    (Optional) Your Idea to improve the prior works, if have
 
 ### **1.1. co-FCN**
 
 ​	An algorithm for semantic segmentation of small samples using sparse labels, which adopted the double branch network structure, one is the conditional branch for support set, the other is the segmentation branch for the query image.[^2]
 
-​	To be more precise, co-FCN feed the concatenation of labelled information with the origin image into the conditioning branch, after embedding, the output is used to concatenate with the embedding (feature) of query image, this will give a pixel-level segmentation.
+​	To be more precise, co-FCN feed the concatenation of labelled information with the origin image into the conditioning branch, after embedding, the output is used to concatenate with the embedding (feature) of query image, this will give a pixel-level segmentation, as following shows.
+
+![[OPTSxa6b3]_Co-FCN_Model](/assets/images/[OPTSxa6b3]_Co-FCN_Model.svg)
 
 ### **1.2. PANet**
 
@@ -47,18 +61,7 @@ typora-root-url: ..
 
 
 
-## **2. Methodological Approaches**
 
-(HOW is your investigated problem addressed in prior works? We strongly encourage you to classify all methods you collected into several categories.)
-
--    Key Idea of the method
--    Justification of method
--    Reflections on the methodology (eg. effectiveness, strengths and limitations of the methodology)
--    (Optional) Your Idea to improve the prior works, if have
-
-
-
-![[OPTSxa6b3]_Co-FCN_Model](/assets/images/[OPTSxa6b3]_Co-FCN_Model.svg)
 
 ## **3. Findings**
 
