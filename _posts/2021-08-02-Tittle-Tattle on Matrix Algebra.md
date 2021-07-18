@@ -15,7 +15,7 @@ typora-root-url: ..
 {:toc}
 ## **1. Partial Derivation in Matrix Algebra**
 
-​	Some basic law for matrix derivation are as following shows, the determination of a matrix is defined by the Laplace expansion $\|\mathbf{A}\|=\det[\mathbf{A}]=\sum_{i=1}^n(-1)^{i+j}\mathrm{A}_{ij}\|\mathbf{A}^{(i,j)}\|,i\in[1,n]$, and can also be calculated by the eigenvalue of $\mathbf{A}$ as $\prod_{i=1}^n\lambda_i$.
+​	Some basic law for matrix derivation are as following shows, the determination of a matrix is defined by the Laplace expansion $\|\mathbf{A}\|=\det[\mathbf{A}]=\sum_{i=1}^n(-1)^{i+j}\mathrm{A}_{ij}\|\mathbf{A}^{(i,j)}\|,i\in[1,n]$.
 
 $$
 \begin{equation}
