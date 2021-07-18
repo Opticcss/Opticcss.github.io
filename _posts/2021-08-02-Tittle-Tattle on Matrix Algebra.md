@@ -15,7 +15,7 @@ typora-root-url: ..
 {:toc}
 ## **1. Partial Derivation in Matrix Algebra**
 
-​	Some basic law for matrix derivation are as following shows, the determination of a matrix is defined by the Laplace expansion $\|\mathbf{A}\|=\det[\mathbf{A}]=\sum_{i=1}^n(-1)^{i+j}\mathrm{A}_{ij}\|\mathbf{A}^{(i,j)}\|=\prod_{i=1}^n\lambda_i,i\in[1,n]$, where $\lambda_i$ is the eigenvalue of $\mathbf{A}$.
+​	Some basic law for matrix derivation are as following shows, the determination of a matrix is defined by the Laplace expansion $\|\mathbf{A}\|=\det[\mathbf{A}]=\sum_{i=1}^n(-1)^{i+j}\mathrm{A}_{ij}\|\mathbf{A}^{(i,j)}\|,i\in[1,n]$, and can also be calculated by the eigenvalue of $\mathbf{A}$ as $\prod_{i=1}^n\lambda_i$.
 
 $$
 \begin{equation}
@@ -59,7 +59,7 @@ There are totally six canonical forms of the matrix differential as shown below.
 - Matrix with respect to scalar. ${\mathrm{d}\mathbf{Y}(x)}=\mathbf{A}\mathrm{d}x$
 - Scalar with respect to vector. ${\mathrm{d}y(\mathbf{x})}=\mathbf{a}\mathrm{d}\mathbf{x}$
 - Vector with respect to vector. ${\mathrm{d}\mathbf{y}(\mathbf{x})}=\mathbf{A}\mathrm{d}\mathbf{x}$
-- Scalar with respect to matrix. ${\mathrm{d}y(\mathbf{X})}=\mathrm{tr}(\mathbf{J}_{\mathbf{X}\to y}\mathrm{d}\mathbf{X})=(\mathbf{J}_{\mathbf{X}\to y}+\mathbf{J}_{\mathbf{X}\to y}^\mathrm{T})-(\mathbf{J}_{\mathbf{X}\to y}\circ\mathbf{I})$, this can be determined by the partial derivation, and denoted as the Jacobian
+- Scalar with respect to matrix. ${\mathrm{d}y(\mathbf{X})}=\mathrm{tr}(\mathbf{J}_{\mathbf{X}\to y}\mathrm{d}\mathbf{X})$, this can be determined by the partial derivation, and denoted as the Jacobian
 
 $$
 \begin{equation}
@@ -89,7 +89,8 @@ $$
 &\frac{\partial}{\partial\mathbf{X}}\mathrm{tr}(\mathbf{A}\mathbf{X}^{-1}\mathbf{B})=-\mathbf{X}^{-1}\mathbf{B}\mathbf{A}\mathbf{X}^{-1},\\
 &\frac{\partial}{\partial\mathbf{X}}|\mathbf{X}|=|\mathbf{X}|\mathbf{X}^{-1},\\
 &\frac{\partial}{\partial\mathbf{X}}|\mathbf{X}^\mathrm{T}\mathbf{X}|=2|\mathbf{X}^\mathrm{T}\mathbf{X}|(\mathbf{X}^\mathrm{T}\mathbf{X})^{-1}\mathbf{X}^\mathrm{T},\\
-&\frac{\partial}{\partial\mathbf{X}}f(\mathbf{X}\mathbf{z})=\mathbf{z}\frac{\partial}{\partial\mathbf{X}}f(\mathbf{x})|_{\mathbf{x}=\mathbf{X}\mathbf{z}},
+&\frac{\partial}{\partial\mathbf{X}}f(\mathbf{X}\mathbf{z})=\mathbf{z}\frac{\partial}{\partial\mathbf{X}}f(\mathbf{x})|_{\mathbf{x}=\mathbf{X}\mathbf{z}},\\
+&\frac{\partial}{\partial\mathbf{X}}\mathrm{d}y(\mathbf{X})=(\mathbf{J}_{\mathbf{X}\to y}+\mathbf{J}_{\mathbf{X}\to y}^\mathrm{T})-(\mathbf{J}_{\mathbf{X}\to y}\circ\mathbf{I}),
 \end{split}
 \right.
 \end{equation}
