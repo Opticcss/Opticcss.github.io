@@ -26,7 +26,7 @@ typora-root-url: ..
 ​	Up to present (2021. 07), an outright majority good performances are concentrated on the embedding function (which map small samples to $N$ vectors as prototypes, the key of **prototype network**, P-net[^1]) and its derivatives, the principle of which is mapping the samples (support set) and the detected image (query set) to vectors (one support prototype for each category), and identify the one with shortest mean point Euclidean distance (Bregman divergence) as the predicted category (query vector $\mapsto$ query prototype), some of them are summarized as following.
 
 - co-FCN[^2], in which the robustness of few-shot segmentation for **sparse labels** is explained, hence demonstrate that it is feasible to use sparse labels and comparably small samples to guide the FSS.
-- PANet[^3], 
+- PANet[^3], in which the prototype is optimized based on nonparametric metric learning, and the prototype alignment regularization between the support set and the query set is introduced, which makes full use of the knowledge from the support set, and provides better generalization performance in FSS.
 - CANet[^4], 
 - CRNet[^5],  
 
@@ -55,11 +55,44 @@ typora-root-url: ..
 
 ​	It finally achieve an <u>$\mathrm{IoU}$ metric of $60.1$ and $58.4$ for 1-Shot and 5-Shot sparse support annotations compared with the $52.6$ and $52.9$ by Global Parameter Prediction</u>, but needs the support from finetuning from ILSVRC pretraining to improve its stability and data efficiency.
 
+​	One of the obvious DISADVANTAGE of co-FCN is its **performance in dense support annotations**.
+
 ### **1.2. PANet**
 
-​	Prototypes alignment regularization was proposed in PANet to make full use of information in support set, and derive a metric learning without parameters, which performs the segmentation by matching the embedded space by each pixel.
+​	Prototypes alignment regularization[^3] was proposed in PANet to make full use of information in support set, and derive a metric learning without parameters, which performs the segmentation by matching the embedded space by each pixel.
 
-​	The formal procedure is to retrieve the depth feature from the support set and query image by the same backbone, and then adopt the masked average pooling to embed different categories into different prototypes. By the similar process of comparison as in co-FCN ($\mathrm{cosine}\to\mathrm{softmax}(\cdot)$), with the extra process of backward verification, which takes the predicted result (mask) and the query feature as support set, and the original support set as the query set, the final output as the lass will give further justification/optimization of the former segmentation.
+​	The formal procedure is to retrieve the depth feature from the support set and query image by the same backbone (convolutional layer from VGG-16, the maximum pooling step in $4\mathrm{th}$ layer is changed into $1$, and the $5\mathrm{th}$ layer is changed into a dilated convolution layer with an expansion of $2$ to enlarge the receptive field), and then adopt the masked average pooling to embed different categories into different prototypes. By the similar process of comparison as in the prototypical network ($\mathrm{cosine}\to\mathrm{softmax}(\cdot)$, to obtain the probability as the metric for decision), with the extra process of backward verification, which takes the predicted result (mask) and the query feature as support set, and the original support set as the query set, the final output as the lass will give further justification/optimization of the former segmentation.
+
+![[OPTSxa6b3]_PANet_Model](/assets/images/[OPTSxa6b3]_PANet_Model.svg)
+
+​	The explicit process of the feature retrieving in PANet is to adopt the late fusion mask method (extract the feature image first, then mask the feature image), the mask for the $k\mathrm{th}$ image ($F_{c,k}$) in category $c$ is denoted as $M_{c,k}$. For $K$ samples in each category, the prototype for category $c$ is obtained by the average pooling process
+$$
+\begin{equation}
+\begin{split}
+p_c=\frac1K\sum_k\frac{\sum_{x,y}F_{c,k}^{(x,y)}\mathbb{I}[M_{c,k}^{(x,y)}=c]}{\sum_{x,y}\mathbb{I}[M_{c,k}^{(x,y)}=c]},
+\end{split}
+\end{equation}
+$$
+​	The so-called prototype alignment regularization (PAR) is based on the maximum probability of query set $F_q$ in category $j$ and metric function (which is defined as  $\cos(\cdot)$ for stability), as shown below.
+$$
+\begin{equation}
+\begin{split}
+\hat{M}_q^{(x,y)}&=\mathop{\rm argmax}\limits_{j}\tilde{M}_{q,j}^{(x,y)}\\
+&=\mathop{\rm argmax}\limits_{j}\frac{\exp\big(-\alpha\mathrm{d}(F_q^{(x,y)},p_j)\big)}{\sum_{p_j\in\mathcal{P}}\exp\big(-\alpha\mathrm{d}(F_q^{(x,y)},p_j)\big)},
+\end{split}
+\end{equation}
+$$
+​	After this, PAR exchange the positions of query set and the support set, and the prediction is made again. The prediction result is compared with the foregoing result, and loss function is calculated as $\mathcal{L}_{\mathrm{PAR}}$ shown below, so as to obtain more information from support set (only used in training process but not the prediction).
+$$
+\begin{equation}
+\begin{split}
+\mathcal{L}&=\mathcal{L}_{\mathrm{SEG}}+\lambda\mathcal{L}_{\mathrm{PAR}},\\
+\mathcal{L}_{\mathrm{SEG}}&=-\frac1N\sum_{x,y}\sum_{p_j\in\mathcal{P}}\mathbb{I}[M_{q}^{(x,y)}=j]\log\tilde{M}_{q,j}^{(x,y)},\\
+\mathcal{L}_{\mathrm{PAR}}&=-\frac1{CKN}\sum_{c,k,x,y}\sum_{p_j\in\mathcal{P}}\mathbb{I}[M_{q}^{(x,y)}=j]\log\tilde{M}_{q,j}^{(x,y)},
+\end{split}
+\end{equation}
+$$
+​	The possible DISADVANTAGE of PANet is about the computation complexity, which is large when the prediction for each pixel is made.
 
 ### **1.3. CANet**
 
