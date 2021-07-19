@@ -27,8 +27,8 @@ typora-root-url: ..
 
 - co-FCN[^2], in which the robustness of few-shot segmentation for **sparse labels** is explained, hence demonstrate that it is feasible to use sparse labels and comparably small samples to guide the FSS.
 - PANet[^3], in which the prototype is optimized based on nonparametric metric learning, and the prototype alignment regularization between the support set and the query set is introduced, which makes full use of the knowledge from the support set, and provides **better generalization performance** in FSS.
-- CANet[^4], 
-- CRNet[^5],  
+- CANet[^4], introduced a pixelwise segmentation network independent of categories for FSL, which is based on iterative optimization modules and its support set as **bounding box annotations**.
+- CRNet[^5], 
 
 ## **2. Methodological Approaches**
 
@@ -106,15 +106,17 @@ $$
 
 ​	In CANet, a two-branch dense comparison module which adopt the multi-level feature from CNN effectively, with these features, it performs comparison between the support set and query image, and use an iterative optimization module which iteratively refines the predicted results. Its ability to refine the result to fine-grained iteratively can be generalized to imperceptible categories.
 
-​	The attention mechanism is also used in CANet to effectively fuse information from multiple support examples under the setting of $K$-shot learning, which reaches an $\mathrm{MIoU}$ of $55.4\%$ for 1-shot segmentation and $57.1\%$ for 5-shot segmentation.
+​	The attention mechanism is also used in CANet to effectively fuse information from multiple support examples under the setting of $K$-shot learning.
 
 
 
 ![[OPTSxa6b3]_CANet_Model](/assets/images/[OPTSxa6b3]_CANet_Model.svg)
 
-​	It achieve the <u>$\mathrm{MIoU}$ of $48.1$ and $55.7$ for 1-Shot and 5-Shot on PASCAL-5i dataset compared with the $41.1$ and $41.4$ by co-FCN</u>, note that these are the 1-way segmentation results, the 2-way results are $45.1$ and $53.1$ for 1-Shot and 5-Shot, which are far greater than other methods.
+​	The scheme above shows the network structure composed of the dense comparison module (DCM, adopt the Res-50 as its backbone) and an iterative optimization module (IOM), explicitly.
 
-​	The possible LIMITATION of PANet is about the **computation complexity**, which is large when the prediction for each pixel is made (time complexity as $O(n^\gamma)+$).
+​	Its performance measured by <u>$\mathrm{IoU}$ is $55.4\%$ and $57.1\%$ for 1-Shot and 5-Shot on PASCAL VOC 2012 dataset, which is larger than SOTA methods by $14.6\%$ and $13.2\%$</u>.
+
+​	The possible LIMITATION of CANet is 
 
 ### **1.4. CRNet**
 
@@ -151,7 +153,7 @@ $$
 \end{equation}
 $$
 
-​	several metrics for semantic segmentation are the intersection over union, mean intersection over union, pixel accuracy, category pixel accuracy, and the mean pixel accuracy.
+​	several metrics for semantic segmentation are the intersection over union $\mathrm{IoU}$, mean intersection over union $\mathrm{MIoU}$ (can help to see how effective the model is in different categories), pixel accuracy $\mathrm{PA}$, category pixel accuracy $\mathrm{CPA}$, and the mean pixel accuracy $\mathrm{MPA}$.
 
 $$
 \begin{equation}
