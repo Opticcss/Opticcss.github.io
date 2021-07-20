@@ -4,7 +4,7 @@ title:  "Tittle-Tattle on Matrix Algebra"
 author: Li Jinzhao
 categories: [Algebra]
 image: ....jpg
-tags: [Algebra, Analysis]
+tags: [Algebra]
 typora-root-url: ..
 ---
 > **Abstract**/**Snippet**.
