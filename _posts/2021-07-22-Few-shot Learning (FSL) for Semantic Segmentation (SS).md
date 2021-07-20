@@ -1,12 +1,14 @@
 ---
 layout: optics_post
-title:  "Few-shot Learning (FSL) for Semantic Segmentation (SS): Research Investigation Report (for USTC-IMCL Hiring only)"
+title:  "Few-shot Learning for Semantic Segmentation (FSS): Research Investigation Report (for USTC-IMCL Hiring only)"
 author: Li Jinzhao
 categories: [Computer Vision]
 image: ....jpg
 tags: [Few-shot Learning, Semantic Segmentation]
 typora-root-url: ..
 ---
+
+# **Few-shot Learning for Semantic Segmentation (FSS): Research Investigation Report (for USTC-IMCL Hiring only)**
 
 > **Summary**. Few-shot semantic segmentation is a method to handle the problem of the expensive and time consuming dataset in segmentation, and provide high generalization accuracy compared with former methods. This article provide summaries and comments for some of current approaches with relatively good performance or intuitive ideas. Based on this, some personal views on the development and possible future directions for FSS are provided.
 
@@ -103,7 +105,7 @@ $$
 
 ![[OPTSxa6b3]_CANet_Model](/assets/images/[OPTSxa6b3]_CANet_Model.svg)
 
-​	The whole network can handle both the $K$-Shot problem and the $1$-Shot problem, the attention mechanism is only used in $K$-Shot problem to obtain the weights of each sample.
+​	The whole network above (reproduced from[^4]) can handle both the $K$-Shot problem and the $1$-Shot problem, the attention mechanism is only used in $K$-Shot problem to obtain the weights of each sample.
 
 ​	The iterative optimization module is designed to handle the problem of segment accuracy when there exist variances in appearance within the same category. The ensemble process is in a residual form, as following shows, which takes the feature map $F(x,y_{t-1})$ (concatenation of feature $x$ and the prediction mask $y_{t-1}$) as input, and the output $M_t$ is used to capture the multi-scale information by ASPP ($4$ parallel branches that include three $3\times3$ convolutions with dilation rates of $6$, $12$, and $18$ respectively and a $1\times1$ convolution, see [**Addendum 2nd**](# jump02)). Finally , a $1\times1$ convolution is used to generate the final foreground and background masks.
 
@@ -121,7 +123,7 @@ $$
 
 ### **2.4. CRNet**
 
-​	CRNet can perform prediction in both the query set and the support set in the segmentation task[^5] (using the Siamese encoder, the cross-reference module, the condition module), and add a mask refinement module after the CR module and the condition module, to realize the finetuning for the $K$-Shot learning.
+​	CRNet can perform prediction in both the query set and the support set in the segmentation task[^5] (using the Siamese encoder, the cross-reference module, the condition module), and add a mask refinement module after the CR module and the condition module, to realize the finetuning for the $K$-Shot learning. (see the figure below, reproduced from[^5])
 
 ![[OPTSxa6b3]_CRNet_Model](/assets/images/[OPTSxa6b3]_CRNet_Model.svg)
 
