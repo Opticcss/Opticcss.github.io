@@ -1,6 +1,6 @@
 ---
 layout: optics_post
-title:  "Few-shot Learning for Semantic Segmentation (FSS): Research Investigation Report (for USTC-IMCL Hiring only)"
+title:  "Few-shot Learning for Semantic Segmentation (FSS)"
 author: Li Jinzhao
 categories: [Computer Vision]
 image: ....jpg
