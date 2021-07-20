@@ -2,7 +2,7 @@
 layout: optics_post
 title:  "Few-shot Learning (FSL) for Semantic Segmentation (SS): Research Investigation Report (for USTC-IMCL Hiring only)"
 author: Li Jinzhao
-categories: [Machine Learning]
+categories: [Intelligent Science]
 image: ....jpg
 tags: [Few-shot Learning, Semantic Segmentation]
 typora-root-url: ..
