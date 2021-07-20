@@ -2,13 +2,13 @@
 layout: optics_post
 title:  "Few-shot Learning (FSL) for Semantic Segmentation (SS): Research Investigation Report (for USTC-IMCL Hiring only)"
 author: Li Jinzhao
-categories: [Intelligence Science]
+categories: [Computer Vision]
 image: ....jpg
 tags: [Few-shot Learning, Semantic Segmentation]
 typora-root-url: ..
 ---
 
-> **Summary**. Briefly summarize your investigation report here.
+> **Summary**. Few-shot semantic segmentation is a method to handle the problem of the expensive and time consuming dataset in segmentation, and provide high generalization accuracy compared with former methods. This article provide summaries and comments for some of current approaches with relatively good performance or intuitive ideas. Based on this, some personal views on the development and possible future directions for FSS are provided.
 
 **Contents**
 
@@ -32,7 +32,7 @@ typora-root-url: ..
 
 ## **2. Methodological Approaches**
 
-​	Corresponding algorithms/method to handling the semantic segmentation task are noted below in detail.
+​	Corresponding algorithms/method to handling the semantic segmentation task are noted below in detail. These methods have achieved relatively high precision and generalization ability for semantic segmentation in FSL. Some of the commonly used data sets applicable to FSS are also largely fixed. Next, this field may need more suggestive methods with lower computational complexity and more sparse annotations to further improve its performance in applications.
 
 ### **2.1. co-FCN**
 
@@ -117,7 +117,7 @@ $$
 
 ​	Its performance measured by <u>$\mathrm{MIoU}$ is $52.0\%$ on PASCAL VOC 2012 dataset and SDS, it is worth noting that this performance is based on **bounding box** annotation support set, and is comparable to the result with expensive pixel-level annotated support set result as $54.0\%$. Compared with SOTA (ex. PL), by metric of $\mathrm{FB-IoU}$, is $66.2\%$ (CANet, $1$-Shot) to $61.2\%$ (PL, $1$-Shot) on PASCAL-5i dataset</u>.
 
-​	The possible LIMITATION of CANet is  
+​	CANet has similar performance as CRNet, but has its own LIMITATION, it cannot achieve the accurate segmentation for the hyper correlation works, compared with this, the HSNet has a more accurate performance in different datasets used in FSL tasks.
 
 ### **2.4. CRNet**
 
@@ -133,21 +133,23 @@ $$
 
 ​	Its performance measured by <u>$\mathrm{IoU}$ is $71.5$ for $5$-Shot on COCO 2014 dataset, which is larger than SOTA method (the CANet), which gives $69.6$, for the performance in $\mathrm{MIoU}$, it have $58.8\%$ compared with $57.1\%$ in CANet</u>.
 
+​	As for other recent related works, RePRI[^6] demonstrate that **embedding more accurate foreground-background proportion estimates** appears to be a very promising way of constraining the inference. HSNet[^7] (**Hypercorrelation Squeeze** for Few-Shot Segmentation), based on the **4D-convolutional pyramid encoder** and the 2D-convolutional context decoder, recently display its large improvement compared with all the methods in many datasets such as PASCAL-5i, COCO-20i and FSS-1000.
+
 ​	To conclude, above four ways of solving the segmentation tasks with support with small samples/sparse labels reveal following conclusions.
 
-> - The existence of effective solution to the dense semantic segmentation problem by sparse samples, pixelwise classification, encoder-decoder structure and double branch prototype network.
-> - Deep learning is significantly better than (in performance) non-learning method in segmenting problem.
-> - The iterative optimization which includes segmentation prediction results is similar to self-supervised, maybe the introduction of ResNet into this form will get a comparably good result.
-> - Both of the query set and support set have the same status in few-shot learning, thus can improve the segmentation accuracy through crossover/swapping of the two.
-> - Network fine-tuning can help achieve higher performance, especially in $K$-Shot condition.
+> - The existence of effective solution to the dense semantic segmentation problem by sparse samples, pixelwise classification, encoder-decoder structure and double branch **prototype network**.
+> - Deep **learning** is significantly better than (in performance) non-learning method in segmenting problem.
+> - The **iterative optimization** which includes segmentation prediction results is similar to **self-supervised**, maybe the introduction of ResNet into this form will get a comparably good result.
+> - Both of the query set and support set have the same status in few-shot learning, thus can improve the segmentation accuracy through **cross**over/**swap**ping of the two.
+> - Network **fine-tuning** can help achieve higher performance, especially in $K$-Shot condition.
 
-(Optional) Your Idea to improve the prior works, if have
+## **3. Some Possible New Directions/Further Steps in FSS**
 
-## **3. Some Possible New Directions/Further Steps**
+​	The FSS method can achieve nearly the same or higher accuracy as the previous dense segmentation methods while reducing the cost of the support set, and can even rely on extremely sparse annotation to achieve better performance. At present, there have been a lot of network structures and some corresponding results measured by $\mathrm{IoU}$, $\mathrm{MIoU}$ and other metrics in this field. The current relatively good segmentation results are shown in the following figure (from HSNET[^7]).
 
-Your comments on the development of your investigated topic/field
+![[OPTSxa6b3]_HSNet_Model_Result](/assets/images/[OPTSxa6b3]_HSNet_Model_Result.svg)
 
-
+​	Based on former different ways of applying FSL in SS tasks, I believe one of the direction that is worth deeper research is about "how to handle the **analysis of the hyper correlation** in semantic segmentation work", it is also good if the **segmentation task can be accomplished with fewer support sets with simpler annotations**.
 
 #### **<span id="jump01">Addendum 1st </span>—— Terminology for FSL and SS**
 
@@ -203,36 +205,29 @@ out = torch.cat([global_feature, self.layer6_1(out), self.layer6_2(out), self.la
 
 ```python
 class ASPP(nn.Module):
-    def __init__(self, in_channel=512, depth=256):
+    def __init__(self, in_channel = 512, depth = 256):
         super(ASPP,self).__init__()
-        # global average pooling : init nn.AdaptiveAvgPool2d ;also forward torch.mean(,,keep_dim=True)
+        # global average pooling: init nn.AdaptiveAvgPool2d;
+        # also forward torch.mean(, , keep_dim = True)
         self.mean = nn.AdaptiveAvgPool2d((1, 1))
         self.conv = nn.Conv2d(in_channel, depth, 1, 1)
-        # k=1 s=1 no pad
+        # k = 1 s = 1 no pad
         self.atrous_block1 = nn.Conv2d(in_channel, depth, 1, 1)
-        self.atrous_block6 = nn.Conv2d(in_channel, depth, 3, 1, padding=6, dilation=6)
-        self.atrous_block12 = nn.Conv2d(in_channel, depth, 3, 1, padding=12, dilation=12)
-        self.atrous_block18 = nn.Conv2d(in_channel, depth, 3, 1, padding=18, dilation=18)
-
-            self.conv_1x1_output = nn.Conv2d(depth * 5, depth, 1, 1)
+        self.atrous_block6 = nn.Conv2d(in_channel, depth, 3, 1, padding = 6, dilation = 6)
+        self.atrous_block12 = nn.Conv2d(in_channel, depth, 3, 1, padding = 12, dilation = 12)
+        self.atrous_block18 = nn.Conv2d(in_channel, depth, 3, 1, padding = 18, dilation = 18)
+        self.conv_1x1_output = nn.Conv2d(depth * 5, depth, 1, 1)
 
     def forward(self, x):
         size = x.shape[2:]
-
         image_features = self.mean(x)
         image_features = self.conv(image_features)
-        image_features = F.upsample(image_features, size=size, mode='bilinear')
-
+        image_features = F.upsample(image_features, size = size, mode = 'bilinear')
         atrous_block1 = self.atrous_block1(x)
-
         atrous_block6 = self.atrous_block6(x)
-
         atrous_block12 = self.atrous_block12(x)
-
         atrous_block18 = self.atrous_block18(x)
-
-        net = self.conv_1x1_output(torch.cat([image_features, atrous_block1, atrous_block6,
-                                              atrous_block12, atrous_block18], dim=1))
+        net = self.conv_1x1_output(torch.cat([image_features, atrous_block1, atrous_block6, atrous_block12, atrous_block18], dim = 1))
         return net
 ```
 
@@ -245,6 +240,5 @@ class ASPP(nn.Module):
 
 [^5]: Liu, Weide, et al. "Crnet: Cross-reference networks for few-shot segmentation." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2020.
 [^6]: Boudiaf, Malik, et al. "Few-Shot Segmentation Without Meta-Learning: A Good Transductive Inference Is All You Need?." *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*. 2021.
-
 [^7]: Min, Juhong, Dahyun Kang, and Minsu Cho. "Hypercorrelation squeeze for few-shot segmentation." *arXiv preprint arXiv:2104.01538* (2021).
 
