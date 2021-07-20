@@ -34,7 +34,7 @@ typora-root-url: ..
 
 ​	Corresponding algorithms/method to handling the semantic segmentation task are noted below in detail.
 
-### **1.1. co-FCN**
+### **2.1. co-FCN**
 
 ​	An algorithm for semantic segmentation of small samples using sparse labels, which adopted the **dual branch network** structure, one is the **conditional branch** (composed of the convolutional layer of VGG-16) for support set, the other is the **segmentation branch** (also composed of the convolutional layer of VGG-16) for the query image[^2].
 
@@ -50,7 +50,7 @@ typora-root-url: ..
 
 ​	One of the obvious LIMITATION of co-FCN is its **performance in dense support annotations**.
 
-### **1.2. PANet**
+### **2.2. PANet**
 
 ​	**Prototypes alignment regularization**[^3] was proposed in the training process PANet to make full use of information in support set (hence it dose not increase the computational cost of inference), and adopt **metric learning without any extra parameters**, which performs the segmentation by matching the embedded space by each pixel.
 
@@ -95,7 +95,7 @@ $$
 
 ​	The possible LIMITATION of PANet is about the **computation complexity**, which is large when the prediction for each pixel is made (time complexity as $O(n^\gamma)+$).
 
-### **1.3. CANet**
+### **2.3. CANet**
 
 ​	In CANet, a two-branch dense comparison module which adopt the multi-level feature from CNN effectively[^4], with this feature, it performs comparison between the support set and query image, and use an iterative optimization module which iteratively refines the predicted results. Its ability to refine the result to fine-grained iteratively can be generalized to imperceptible categories.
 
@@ -119,7 +119,7 @@ $$
 
 ​	The possible LIMITATION of CANet is  
 
-### **1.4. CRNet**
+### **2.4. CRNet**
 
 ​	CRNet can perform prediction in both the query set and the support set in the segmentation task[^5] (using the Siamese encoder, the cross-reference module, the condition module), and add a mask refinement module after the CR module and the condition module, to realize the finetuning for the $K$-Shot learning.
 
