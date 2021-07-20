@@ -2,9 +2,9 @@
 layout: optics_post
 title:  "Discrete Wavelet Transform (DWT) with Implementation"
 author: Li Jinzhao
-categories: [signal processing]
+categories: [Signal Processing]
 image: ....jpg
-tags: [harmonic analysis, Julia]
+tags: [Harmonic Analysis, Julia]
 typora-root-url: ..
 ---
 > **Abstract**/**Snippet**.

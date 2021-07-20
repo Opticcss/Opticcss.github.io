@@ -2,9 +2,9 @@
 layout: optics_post
 title:  "Short Term Fourier Transformation (STFT) with Implementation"
 author: Li Jinzhao
-categories: [signal processing]
+categories: [Signal Processing]
 image: ....jpg
-tags: [harmonic analysis, Julia]
+tags: [Harmonic Analysis, Julia]
 typora-root-url: ..
 ---
 > **Abstract**/**Snippet**. Short term Fourier transform as an effective method to obtain the time-frequency representation of signals, was proposed in the early stage and is still active in audio processing tasks today[^1]. The basic principle and implementation scheme based on `Julia` are introduced here, and an example result is presented.

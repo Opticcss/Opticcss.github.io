@@ -2,9 +2,9 @@
 layout: optics_post
 title:  "Fast Fourier Transform (FFT) with Implementation"
 author: Li Jinzhao
-categories: [signal processing]
+categories: [Signal Processing]
 image: ....jpg
-tags: [harmonic analysis, Julia]
+tags: [Harmonic Analysis, Julia]
 typora-root-url: ..
 ---
 > **Abstract**/**Snippet**. As the commonly use technic in video/audio compression, the fast Fourier transform (FFT) is a time-frequency analysis method of extreme important (also an implementation of the discrete Fourier transform, note that it is DFT instead of DTFT, which convert a periodic discrete time-domain signal into its periodic discrete frequency-domain representation). Principle and `Julia` realization of Radix-2 FFT are explained/made here. Furthermore, its fair property of making the $\Theta(N^2)$ complexity into a $\Theta(N\lg N)$ scheme for $N$ polynomial multiplication is verified.
@@ -681,5 +681,4 @@ end
 [^1]:Cormen T H, Leiserson C E, Rivest R L, et al. Introduction to algorithms[M]. MIT press, 2009.
 [^2]:https://github.com/JuliaMath/FFTW.jl, with docs in https://juliamath.github.io/FFTW.jl/stable
 [^3]:http://fftw.org/fftw-3.3.9.tar.gz
-
 

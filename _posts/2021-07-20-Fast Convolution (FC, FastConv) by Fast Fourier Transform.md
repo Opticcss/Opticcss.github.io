@@ -2,9 +2,9 @@
 layout: optics_post
 title:  "Fast Convolution (FC, FastConv) by Fast Fourier Transform"
 author: Li Jinzhao
-categories: [signal processing]
+categories: [Signal Processing]
 image: ....jpg
-tags: [harmonic analysis, Julia]
+tags: [Harmonic Analysis, Julia]
 typora-root-url: ..
 ---
 > **Abstract**/**Snippet**. FFT convolution, as kind of realization for fast convolution, using the multiplication of frequency spectra, with FFT, and inverse FFT, provide a faster speed and same results compared with the standard one for filter with kernels longer than about 64 points.[^1] This article is mainly about its implementation in `Julia`. 
