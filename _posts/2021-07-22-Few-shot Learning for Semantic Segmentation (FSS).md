@@ -8,8 +8,6 @@ tags: [Few-shot Learning, Semantic Segmentation]
 typora-root-url: ..
 ---
 
-# **Few-shot Learning for Semantic Segmentation (FSS): Research Investigation Report (for USTC-IMCL Hiring only)**
-
 > **Summary**. Few-shot semantic segmentation is a method to handle the problem of the expensive and time consuming dataset in segmentation, and provide high generalization accuracy compared with former methods. This article provide summaries and comments for some of current approaches with relatively good performance or intuitive ideas. Based on this, some personal views on the development and possible future directions for FSS are provided.
 
 **Contents**
