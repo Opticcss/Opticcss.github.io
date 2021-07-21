@@ -107,6 +107,7 @@ $\color{darkcyan}{\mathbf{C}}$
 ## **2. Sherman-Morrison Formula**
 
 ​	Also called the **matrix inversion lemma**, Woodbury's identity and the modified matrices formula[^2], it is commonly used in control, estimation theory and signal processing, for the invertible real square matrices $\mathbf{A}$ and $\mathbf{D}$, and analogy real matrix $\mathbf{B}$ and $\mathbf{C}$, have that (its origination form and some of the equivalent expressions)
+
 $$
 \begin{equation}
 \begin{split}
@@ -123,6 +124,7 @@ $$
 ## **3. Basic Rules for Determinants**
 
 ​	The **product rules for determinants**, which is given by Issai Schur as following, note that $\mathbf{A}$ and $\mathbf{D}$ real square matrices, and $\mathbf{B}$ and $\mathbf{C}$ are real matrix,
+
 $$
 \begin{equation}
 \left\{
