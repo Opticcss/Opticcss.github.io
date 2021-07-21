@@ -15,7 +15,7 @@ typora-root-url: ..
 {:toc}
 ## **1. Partial Derivation in Matrix Algebra**
 
-​	Some basic law for matrix derivation are as following shows, the determination of a matrix is defined by the Laplace expansion $\|\mathbf{A}\|=\det[\mathbf{A}]=\sum_{i=1}^n(-1)^{i+j}\mathrm{A}_{ij}\|\mathbf{A}^{(i,j)}\|,i\in[1,n]$.
+​	Some basic law for matrix derivation are as following shows[^1], the determination of a matrix is defined by the Laplace expansion $\|\mathbf{A}\|=\det[\mathbf{A}]=\sum_{i=1}^n(-1)^{i+j}\mathrm{A}_{ij}\|\mathbf{A}^{(i,j)}\|,i\in[1,n]$.
 
 $$
 \begin{equation}
@@ -104,23 +104,61 @@ $\color{olivedrab}{\mathbf{B}}$
 
 $\color{darkcyan}{\mathbf{C}}$
 
-## **2. Other Useful Operations in Matrix Algebra**
+## **2. Sherman-Morrison Formula**
+
+​	Also called the **matrix inversion lemma**, Woodbury's identity and the modified matrices formula[^2], it is commonly used in control, estimation theory and signal processing, for the invertible real square matrices $\mathbf{A}$ and $\mathbf{D}$, and analogy real matrix $\mathbf{B}$ and $\mathbf{C}$, have that (its origination form and some of the equivalent expressions)
+$$
+\begin{equation}
+\begin{split}
+&(\mathbf{A}-\mathbf{BD}^{-1}\mathbf{C})^{-1}=\mathbf{A}^{-1}+\mathbf{A}^{-1}\mathbf{B}(\mathbf{D}-\mathbf{CA}^{-1}\mathbf{B})^{-1}\mathbf{C}\mathbf{A}^{-1},\\
+&(\mathbf{A}+\mathbf{BD}^{-1}\mathbf{C})^{-1}=\mathbf{A}^{-1}-\mathbf{A}^{-1}\mathbf{B}(\mathbf{D}+\mathbf{CA}^{-1}\mathbf{B})^{-1}\mathbf{C}\mathbf{A}^{-1},
+\end{split}
+\end{equation}
+$$
+
+> to demonstrate this, define matrices $\mathbf{E}$ and $\mathbf{F}$ as $\mathbf{E}=\mathbf{D}-\mathbf{CA}^{-1}\mathbf{B}$, $\mathbf{F}=\mathbf{A}-\mathbf{BD}^{-1}\mathbf{C}$, the inverse of partitioned matrix $\begin{bmatrix}\mathbf{A}&\mathbf{B};\text{ }\mathbf{C}&\mathbf{D}\end{bmatrix}$leads to the equality $\mathbf{F}^{-1}=\mathbf{A}^{-1}+\mathbf{A}^{-1}\mathbf{BE}^{-1}\mathbf{CA}^{-1}$, which yields the Sherman-Morrison formula.
+
+​	This formula is always used to reduce the computation complexity for the calculation of the update inversion of matrix, it can be noted that, from left to right, the inversion is changed into $(\mathbf{D}+\mathbf{CA}^{-1}\mathbf{B})^{-1}$ but not $\mathbf{A}^{-1}$ (if $\mathbf{A}^{-1}$ is already known).
+
+## **3. Basic Rules for Determinants**
+
+​	The **product rules for determinants**, which is given by Issai Schur as following, note that $\mathbf{A}$ and $\mathbf{D}$ real square matrices, and $\mathbf{B}$ and $\mathbf{C}$ are real matrix,
+$$
+\begin{equation}
+\left\{
+\begin{split}
+&\left\|\begin{matrix}
+\mathbf{A}&\mathbf{B}\\\mathbf{C}&\mathbf{D}
+\end{matrix}\right\|=\|\mathbf{A}\|\|\mathbf{D}-\mathbf{CA}^{-1}\mathbf{B}\|,\\
+&\left\|\begin{matrix}
+\mathbf{A}&\mathbf{B}\\\mathbf{C}&\mathbf{D}
+\end{matrix}\right\|=\|\mathbf{D}\|\|\mathbf{A}-\mathbf{BD}^{-1}\mathbf{C}\|,
+\end{split}
+\right.
+\end{equation}
+$$
+
+
+
+
+> <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx0a2b]**
+
+[^1]: Minka, Thomas P. "Old and new matrix algebra useful for statistics." *See www. stat. cmu. edu/minka/papers/matrix. html* 4 (2000).
+
+[^2]: Simon, Dan. *Optimal state estimation: Kalman, H infinity, and nonlinear approaches*. John Wiley & Sons, 2006.
+
+[^3]:
+
+
+
+
+
 
 
 the $\mathrm{vec}(\cdot)$ operator
-
 $$
 \mathrm{vec}\bigg(\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}\bigg)=\begin{bmatrix}a_{11}\\a_{12}\\a_{21}\\a_{22}\end{bmatrix}
 $$
 
 
 
-
-
-
-
-> <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSxXXXX]**
-
-[^1]: Old and New Matrix Algebra Useful for Statistics
-[^2]:
-[^3]:
