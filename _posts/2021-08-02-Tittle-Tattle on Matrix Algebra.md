@@ -13,7 +13,50 @@ typora-root-url: ..
 
 * toc
 {:toc}
-## **1. Partial Derivation in Matrix Algebra**
+## **1. Identities for Determinants**
+
+​	This section is mainly for identities related to determinants. There is no doubt that the content will inevitably increase as my experience increases, so each section of this section (generally representing a specific topic) is arranged in chronological order, and search tools `Ctrl+F` can be used to realize random browsing.
+
+### **1.1. Product Rules for Determinants**
+
+​	The **product rules for determinants**, which is given by Issai Schur as following, note that ${\color{crimson}{\mathbf{A}}\color{black}{}}$ and $\mathbf{D}$ real square matrices, and ${\color{olivedrab}{\mathbf{B}}\color{black}{}}$ and ${\color{darkcyan}{\mathbf{C}}\color{black}{}}$ are real matrix,
+$$
+\begin{equation}
+\left\{
+\begin{split}
+&\left\|\begin{matrix}
+{\color{crimson}{\mathbf{A}}\color{black}{}}&{\color{olivedrab}{\mathbf{B}}\color{black}{}}\\{\color{darkcyan}{\mathbf{C}}\color{black}{}}&\mathbf{D}
+\end{matrix}\right\|=\|{\color{crimson}{\mathbf{A}}\color{black}{}}\|\|\mathbf{D}-\mathbf{CA}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}}\|,\\
+&\left\|\begin{matrix}
+{\color{crimson}{\mathbf{A}}\color{black}{}}&{\color{olivedrab}{\mathbf{B}}\color{black}{}}\\{\color{darkcyan}{\mathbf{C}}\color{black}{}}&\mathbf{D}
+\end{matrix}\right\|=\|\mathbf{D}\|\|{\color{crimson}{\mathbf{A}}\color{black}{}}-\mathbf{BD}^{-1}{\color{darkcyan}{\mathbf{C}}\color{black}{}}\|,
+\end{split}
+\right.
+\end{equation}
+$$
+
+## **2. Matrix Identities**
+
+​	This part is mainly for identities related to matrices. There is no doubt that the content will inevitably increase as my experience increases, so each section of this section (generally representing a specific topic) is arranged in chronological order, and search tools `Ctrl+F` can be used to realize random browsing.
+
+### **2.1. Sherman-Morrison Formula**
+
+​	Also called the **matrix inversion lemma**, Woodbury's identity and the modified matrices formula[^2], it is commonly used in control, estimation theory and signal processing, for the invertible real square matrices ${\color{crimson}{\mathbf{A}}\color{black}{}}$ and $\mathbf{D}$, and analogy real matrix ${\color{olivedrab}{\mathbf{B}}\color{black}{}}$ and ${\color{darkcyan}{\mathbf{C}}\color{black}{}}$, have that (its origination form and some of the equivalent expressions)
+
+$$
+\begin{equation}
+\begin{split}
+&({\color{crimson}{\mathbf{A}}\color{black}{}}-\mathbf{BD}^{-1}{\color{darkcyan}{\mathbf{C}}\color{black}{}})^{-1}={\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}+{\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}}(\mathbf{D}-\mathbf{CA}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}})^{-1}{\color{darkcyan}{\mathbf{C}}\color{black}{}}{\color{crimson}{\mathbf{A}}\color{black}{}}^{-1},\\
+&({\color{crimson}{\mathbf{A}}\color{black}{}}+\mathbf{BD}^{-1}{\color{darkcyan}{\mathbf{C}}\color{black}{}})^{-1}={\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}-{\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}}(\mathbf{D}+\mathbf{CA}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}})^{-1}{\color{darkcyan}{\mathbf{C}}\color{black}{}}{\color{crimson}{\mathbf{A}}\color{black}{}}^{-1},
+\end{split}
+\end{equation}
+$$
+
+> to demonstrate this, define matrices $\mathbf{E}$ and $\mathbf{F}$ as $\mathbf{E}=\mathbf{D}-\mathbf{CA}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}}$, $\mathbf{F}={\color{crimson}{\mathbf{A}}\color{black}{}}-\mathbf{BD}^{-1}{\color{darkcyan}{\mathbf{C}}\color{black}{}}$, the inverse of partitioned matrix $\begin{bmatrix}{\color{crimson}{\mathbf{A}}\color{black}{}}&{\color{olivedrab}{\mathbf{B}}\color{black}{}};\text{ }{\color{darkcyan}{\mathbf{C}}\color{black}{}}&\mathbf{D}\end{bmatrix}$leads to the equality $\mathbf{F}^{-1}={\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}+{\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}\mathbf{BE}^{-1}\mathbf{CA}^{-1}$, which yields the Sherman-Morrison formula.
+
+​	This formula is always used to reduce the computation complexity for the calculation of the update inversion of matrix, it can be noted that, from left to right, the inversion is changed into $(\mathbf{D}+\mathbf{CA}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}})^{-1}$ but not ${\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}$ (if ${\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}$ is already known).
+
+### **2.2. Partial Derivation in Matrix Algebra**
 
 ​	Some basic law for matrix derivation are as following shows[^1], the determination of a matrix is defined by the Laplace expansion $\|{\color{crimson}{\mathbf{A}}\color{black}{}}\|=\det[{\color{crimson}{\mathbf{A}}\color{black}{}}]=\sum_{i=1}^n(-1)^{i+j}\mathrm{A}_{ij}\|{\color{crimson}{\mathbf{A}}\color{black}{}}^{(i,j)}\|,i\in[1,n]$.
 
@@ -96,49 +139,11 @@ $$
 \end{equation}
 $$
 
-```latex
-{\color{darkcyan}{\mathbf{C}}\color{black}{}}
-{\color{olivedrab}{\mathbf{B}}\color{black}{}}
-{\color{crimson}{\mathbf{A}}\color{black}{}}
-```
+## **3. Tensor Identities & Operations**
 
-## **2. Sherman-Morrison Formula**
+​	This part is mainly for identities and operations related to tensors. There is no doubt that the content will inevitably increase as my experience increases, so each section of this section (generally representing a specific topic) is arranged in chronological order, and search tools `Ctrl+F` can be used to realize random browsing.
 
-​	Also called the **matrix inversion lemma**, Woodbury's identity and the modified matrices formula[^2], it is commonly used in control, estimation theory and signal processing, for the invertible real square matrices ${\color{crimson}{\mathbf{A}}\color{black}{}}$ and $\mathbf{D}$, and analogy real matrix ${\color{olivedrab}{\mathbf{B}}\color{black}{}}$ and ${\color{darkcyan}{\mathbf{C}}\color{black}{}}$, have that (its origination form and some of the equivalent expressions)
-
-$$
-\begin{equation}
-\begin{split}
-&({\color{crimson}{\mathbf{A}}\color{black}{}}-\mathbf{BD}^{-1}{\color{darkcyan}{\mathbf{C}}\color{black}{}})^{-1}={\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}+{\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}}(\mathbf{D}-\mathbf{CA}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}})^{-1}{\color{darkcyan}{\mathbf{C}}\color{black}{}}{\color{crimson}{\mathbf{A}}\color{black}{}}^{-1},\\
-&({\color{crimson}{\mathbf{A}}\color{black}{}}+\mathbf{BD}^{-1}{\color{darkcyan}{\mathbf{C}}\color{black}{}})^{-1}={\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}-{\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}}(\mathbf{D}+\mathbf{CA}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}})^{-1}{\color{darkcyan}{\mathbf{C}}\color{black}{}}{\color{crimson}{\mathbf{A}}\color{black}{}}^{-1},
-\end{split}
-\end{equation}
-$$
-
-> to demonstrate this, define matrices $\mathbf{E}$ and $\mathbf{F}$ as $\mathbf{E}=\mathbf{D}-\mathbf{CA}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}}$, $\mathbf{F}={\color{crimson}{\mathbf{A}}\color{black}{}}-\mathbf{BD}^{-1}{\color{darkcyan}{\mathbf{C}}\color{black}{}}$, the inverse of partitioned matrix $\begin{bmatrix}{\color{crimson}{\mathbf{A}}\color{black}{}}&{\color{olivedrab}{\mathbf{B}}\color{black}{}};\text{ }{\color{darkcyan}{\mathbf{C}}\color{black}{}}&\mathbf{D}\end{bmatrix}$leads to the equality $\mathbf{F}^{-1}={\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}+{\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}\mathbf{BE}^{-1}\mathbf{CA}^{-1}$, which yields the Sherman-Morrison formula.
-
-​	This formula is always used to reduce the computation complexity for the calculation of the update inversion of matrix, it can be noted that, from left to right, the inversion is changed into $(\mathbf{D}+\mathbf{CA}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}})^{-1}$ but not ${\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}$ (if ${\color{crimson}{\mathbf{A}}\color{black}{}}^{-1}$ is already known).
-
-## **3. Basic Rules for Determinants**
-
-​	The **product rules for determinants**, which is given by Issai Schur as following, note that ${\color{crimson}{\mathbf{A}}\color{black}{}}$ and $\mathbf{D}$ real square matrices, and ${\color{olivedrab}{\mathbf{B}}\color{black}{}}$ and ${\color{darkcyan}{\mathbf{C}}\color{black}{}}$ are real matrix,
-
-$$
-\begin{equation}
-\left\{
-\begin{split}
-&\left\|\begin{matrix}
-{\color{crimson}{\mathbf{A}}\color{black}{}}&{\color{olivedrab}{\mathbf{B}}\color{black}{}}\\{\color{darkcyan}{\mathbf{C}}\color{black}{}}&\mathbf{D}
-\end{matrix}\right\|=\|{\color{crimson}{\mathbf{A}}\color{black}{}}\|\|\mathbf{D}-\mathbf{CA}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}}\|,\\
-&\left\|\begin{matrix}
-{\color{crimson}{\mathbf{A}}\color{black}{}}&{\color{olivedrab}{\mathbf{B}}\color{black}{}}\\{\color{darkcyan}{\mathbf{C}}\color{black}{}}&\mathbf{D}
-\end{matrix}\right\|=\|\mathbf{D}\|\|{\color{crimson}{\mathbf{A}}\color{black}{}}-\mathbf{BD}^{-1}{\color{darkcyan}{\mathbf{C}}\color{black}{}}\|,
-\end{split}
-\right.
-\end{equation}
-$$
-
-## **4. Tensor Unfolding**
+### **3.1. Tensor Unfolding**
 
 ​	The tensor (of course, the parametric form, but not the multiple linear mapping form) $\chi\in\R^{n_1\times n_2\times\cdots\times n_d}$ unfolding is obtained by assembling $\chi$'s entries into a matrix $\mathbf{x}\in{N_1\times N_2}$ where $N_1N_2=n_1\cdots n_d$. There are many ways to unfold a tensor. An important family of tensor unfolding are the mode-$k$ unfolding. In a mode-$k$ unfolding, the mode-$k$ fibers are assembled to produce an $n_k$-by-$(N/n_k)$ matrix where $N=n_1\cdots n_d$. The function `tenmat` can be used to produce modal unfolding and other, more general unfolding, which is designed and shown following
 
