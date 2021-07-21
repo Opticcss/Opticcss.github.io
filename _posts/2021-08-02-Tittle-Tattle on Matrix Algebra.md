@@ -89,7 +89,7 @@ $$
 &\frac{\partial}{\partial\mathbf{X}}\mathrm{tr}({\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{X}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}})=-\mathbf{X}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}}{\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{X}^{-1},\\
 &\frac{\partial}{\partial\mathbf{X}}|\mathbf{X}|=|\mathbf{X}|\mathbf{X}^{-1},\\
 &\frac{\partial}{\partial\mathbf{X}}|\mathbf{X}^\mathrm{T}\mathbf{X}|=2|\mathbf{X}^\mathrm{T}\mathbf{X}|(\mathbf{X}^\mathrm{T}\mathbf{X})^{-1}\mathbf{X}^\mathrm{T},\\
-&\frac{\partial}{\partial\mathbf{X}}f(\mathbf{X}{\color{mediumslateblue}{\mathbf{z}}\color{black}{}})={\color{mediumslateblue}{\mathbf{z}}\color{black}{}}\frac{\partial}{\partial\mathbf{X}}f(\mathbf{x})|_{\mathbf{x}=\mathbf{X}{\color{mediumslateblue}{\mathbf{z}}\color{black}{}}},\\
+&\frac{\partial}{\partial\mathbf{X}}f(\mathbf{X}\mathbf{z})=\mathbf{z}\frac{\partial}{\partial\mathbf{X}}f(\mathbf{x})|_{\mathbf{x}=\mathbf{X}\mathbf{z}},\\
 &\frac{\partial}{\partial\mathbf{X}}\mathrm{d}y(\mathbf{X})=(\mathbf{J}_{\mathbf{X}\to y}+\mathbf{J}_{\mathbf{X}\to y}^\mathrm{T})-(\mathbf{J}_{\mathbf{X}\to y}\circ\mathbf{I}),
 \end{split}
 \right.
@@ -100,7 +100,6 @@ $$
 {\color{darkcyan}{\mathbf{C}}\color{black}{}}
 {\color{olivedrab}{\mathbf{B}}\color{black}{}}
 {\color{crimson}{\mathbf{A}}\color{black}{}}
-{\color{mediumslateblue}{{\color{mediumslateblue}{\mathbf{z}}\color{black}{}}}\color{black}{}}
 ```
 
 ## **2. Sherman-Morrison Formula**
