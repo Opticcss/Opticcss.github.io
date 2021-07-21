@@ -37,10 +37,10 @@
     }
   });
   window.MathJax = {
-    tex: {
-      tags: 'ams'
-    }
-  };
+  tex: {
+    tags: 'ams'
+  }
+};
 </script>
 <script
   type="text/javascript"
@@ -54,3 +54,8 @@
       }
   });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+  </script>
