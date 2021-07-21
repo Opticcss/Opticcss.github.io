@@ -138,6 +138,36 @@ $$
 \end{equation}
 $$
 
+## **4. Tensor Unfolding**
+
+​	The tensor (of course, the parametric form, but not the multiple linear mapping form) $\chi\in\R^{n_1\times n_2\times\cdots\times n_d}$ unfolding is obtained by assembling $\chi$'s entries into a matrix $\mathbf{x}\in{N_1\times N_2}$ where $N_1N_2=n_1\cdots n_d$. There are many ways to unfold a tensor. An important family of tensor unfolding are the mode-$k$ unfolding. In a mode-$k$ unfolding, the mode-$k$ fibers are assembled to produce an $n_k$-by-$(N/n_k)$ matrix where $N=n_1\cdots n_d$. The function `tenmat` can be used to produce modal unfolding and other, more general unfolding, which is designed and shown following
+
+```julia
+# tensor unfolding for χ with size of n₁*n₂*⋯*nd
+function tenmat(χ_, dimension_, k_)
+    # note that the dimension_ is as (n₁, n₂, ⋯, nd)
+    # k_ ∈ 1, 2, ⋯, d
+    mat_ = reshape(permutedims(χ_, (k_, 1:(k_ - 1)..., (k_ + 1):length(dimension_)...)), dimension_[k_], :)
+end
+```
+
+​	To test this function with its performance, use the test code as below.
+
+```julia
+χ = reshape(1:24, (4, 3, 2))
+χmat1, χmat2, χmat3 = tenmat(χ, [4, 3, 2], 1), tenmat(χ, [4, 3, 2], 2), tenmat(χ, [4, 3, 2], 3)
+```
+
+
+$$
+\begin{equation}
+\begin{split}
+e^{\mathbf{A}t}=\sum_{j=0}^\infty\frac{(\mathbf{A}t)^j}{j!}=\mathcal{L}^{-1}[(s\mathbf{I}-\mathbf{A})^{-1}]=\mathbf{Q}e^{\hat{\mathbf{A}}t}\mathbf{Q}^{-1},
+\end{split}
+\end{equation}
+$$
+
+
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx0a2b]**
 
