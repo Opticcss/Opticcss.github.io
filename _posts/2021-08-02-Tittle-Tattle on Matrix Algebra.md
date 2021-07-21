@@ -4,10 +4,10 @@ title:  "Tittle-Tattle on Matrix Algebra"
 author: Li Jinzhao
 categories: [Algebra]
 image: ....jpg
-tags: [Algebra]
+tags: [Algebra, Optimization, Sherman-Morrison Formula]
 typora-root-url: ..
 ---
-> **Abstract**/**Snippet**.
+> **Abstract**/**Snippet**. This is a compilation of some frequently used formulas, theorems and related topics on the basis of matrix algebra. It can also be treated as mathematics notes that can be consulted, which contains some necessary proof ideas and application places of conclusions.
 
 **Contents**
 
@@ -96,13 +96,12 @@ $$
 \end{equation}
 $$
 
-$\color{tomato}{\mathbf{X}}$
+$\color{tomato}{\mathbf{X}}$  $\color{crimson}{\mathbf{A}}$  $\color{olivedrab}{\mathbf{B}}$  $\color{darkcyan}{\mathbf{C}}$  
 
-$\color{crimson}{\mathbf{A}}$
-
-$\color{olivedrab}{\mathbf{B}}$
-
-$\color{darkcyan}{\mathbf{C}}$
+the $\mathrm{vec}(\cdot)$ operator
+$$
+\mathrm{vec}\bigg(\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}\bigg)=\begin{bmatrix}a_{11}\\a_{12}\\a_{21}\\a_{22}\end{bmatrix}
+$$
 
 ## **2. Sherman-Morrison Formula**
 
@@ -141,8 +140,6 @@ $$
 $$
 
 
-
-
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx0a2b]**
 
 [^1]: Minka, Thomas P. "Old and new matrix algebra useful for statistics." *See www. stat. cmu. edu/minka/papers/matrix. html* 4 (2000).
@@ -150,17 +147,5 @@ $$
 [^2]: Simon, Dan. *Optimal state estimation: Kalman, H infinity, and nonlinear approaches*. John Wiley & Sons, 2006.
 
 [^3]:
-
-
-
-
-
-
-
-the $\mathrm{vec}(\cdot)$ operator
-$$
-\mathrm{vec}\bigg(\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}\bigg)=\begin{bmatrix}a_{11}\\a_{12}\\a_{21}\\a_{22}\end{bmatrix}
-$$
-
 
 
