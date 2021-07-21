@@ -36,6 +36,11 @@
       all[i].SourceElement().parentNode.className += ' has-jax';
     }
   });
+  window.MathJax = {
+    tex: {
+      tags: 'ams'
+    }
+  };
 </script>
 <script
   type="text/javascript"
