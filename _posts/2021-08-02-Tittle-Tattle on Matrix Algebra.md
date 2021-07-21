@@ -20,6 +20,7 @@ typora-root-url: ..
 ### **1.1. Product Rules for Determinants**
 
 ​	The **product rules for determinants**, which is given by Issai Schur as following, note that ${\color{crimson}{\mathbf{A}}\color{black}{}}$ and $\mathbf{D}$ real square matrices, and ${\color{olivedrab}{\mathbf{B}}\color{black}{}}$ and ${\color{darkcyan}{\mathbf{C}}\color{black}{}}$ are real matrix,
+
 $$
 \begin{equation}
 \left\{
@@ -145,7 +146,7 @@ $$
 
 ### **3.1. Tensor Unfolding**
 
-​	The tensor (of course, the parametric form, but not the multiple linear mapping form) $\chi\in\R^{n_1\times n_2\times\cdots\times n_d}$ unfolding is obtained by assembling $\chi$'s entries into a matrix $\mathbf{x}\in{N_1\times N_2}$ where $N_1N_2=n_1\cdots n_d$. There are many ways to unfold a tensor. An important family of tensor unfolding are the mode-$k$ unfolding. In a mode-$k$ unfolding, the mode-$k$ fibers are assembled to produce an $n_k$-by-$(N/n_k)$ matrix where $N=n_1\cdots n_d$. The function `tenmat` can be used to produce modal unfolding and other, more general unfolding, which is designed and shown following
+​	The tensor (of course, the parametric form, but not the multiple linear mapping form) $\chi\in\mathbb{R}^{n_1\times n_2\times\cdots\times n_d}$ unfolding is obtained by assembling $\chi$'s entries into a matrix $\mathbf{x}\in{N_1\times N_2}$ where $N_1N_2=n_1\cdots n_d$. There are many ways to unfold a tensor. An important family of tensor unfolding are the mode-$k$ unfolding. In a mode-$k$ unfolding, the mode-$k$ fibers are assembled to produce an $n_k$-by-$(N/n_k)$ matrix where $N=n_1\cdots n_d$. The function `tenmat` can be used to produce modal unfolding and other, more general unfolding, which is designed and shown following
 
 ```julia
 # tensor unfolding for χ with size of n₁*n₂*⋯*nd
