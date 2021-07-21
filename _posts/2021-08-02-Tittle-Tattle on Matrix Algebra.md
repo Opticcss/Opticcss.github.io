@@ -159,16 +159,6 @@ end
 ```
 
 
-$$
-\begin{equation}
-\begin{split}
-e^{\mathbf{A}t}=\sum_{j=0}^\infty\frac{(\mathbf{A}t)^j}{j!}=\mathcal{L}^{-1}[(s\mathbf{I}-\mathbf{A})^{-1}]=\mathbf{Q}e^{\hat{\mathbf{A}}t}\mathbf{Q}^{-1},
-\end{split}
-\end{equation}
-$$
-
-
-
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx0a2b]**
 
 [^1]: Minka, Thomas P. "Old and new matrix algebra useful for statistics." *See www. stat. cmu. edu/minka/papers/matrix. html* 4 (2000).
