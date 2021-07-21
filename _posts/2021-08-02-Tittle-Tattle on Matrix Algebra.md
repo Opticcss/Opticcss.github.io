@@ -59,12 +59,12 @@ There are totally six canonical forms of the matrix differential as shown below.
 - Matrix with respect to scalar. ${\mathrm{d}\mathbf{Y}(x)}={\color{crimson}{\mathbf{A}}\color{black}{}}\mathrm{d}x$
 - Scalar with respect to vector. ${\mathrm{d}y(\mathbf{x})}=\mathbf{a}\mathrm{d}\mathbf{x}$
 - Vector with respect to vector. ${\mathrm{d}\mathbf{y}(\mathbf{x})}={\color{crimson}{\mathbf{A}}\color{black}{}}\mathrm{d}\mathbf{x}$
-- Scalar with respect to matrix. ${\mathrm{d}y(\mathbf{X})}=\mathrm{tr}(\color{tomato}{\mathbf{J}}\color{black}{}_{\mathbf{X}\to y}\mathrm{d}\mathbf{X})$, this can be determined by the partial derivation, and denoted as the Jacobian
+- Scalar with respect to matrix. ${\mathrm{d}y(\mathbf{X})}=\mathrm{tr}(\mathbf{J}_{\mathbf{X}\to y}\mathrm{d}\mathbf{X})$, this can be determined by the partial derivation, and denoted as the Jacobian
 
 $$
 \begin{equation}
 \begin{split}
-\color{tomato}{\mathbf{J}}\color{black}{}_{\mathbf{X}\to y}=\frac{\partial y}{\partial\mathbf{X}}=
+\mathbf{J}_{\mathbf{X}\to y}=\frac{\partial y}{\partial\mathbf{X}}=
 \begin{bmatrix}
 {\partial y}/{\partial\mathrm{X}_{11}}&\cdots&{\partial y}/{\partial\mathrm{X}_{1n}}\\
 \vdots&\ddots&\vdots\\
@@ -89,7 +89,7 @@ $$
 &\frac{\partial}{\partial\mathbf{X}}\mathrm{tr}({\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{X}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}})=-\mathbf{X}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}}{\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{X}^{-1},\\
 &\frac{\partial}{\partial\mathbf{X}}|\mathbf{X}|=|\mathbf{X}|\mathbf{X}^{-1},\\
 &\frac{\partial}{\partial\mathbf{X}}|\mathbf{X}^\mathrm{T}\mathbf{X}|=2|\mathbf{X}^\mathrm{T}\mathbf{X}|(\mathbf{X}^\mathrm{T}\mathbf{X})^{-1}\mathbf{X}^\mathrm{T},\\
-&\frac{\partial}{\partial\mathbf{X}}f(\mathbf{X}\mathbf{z})=\mathbf{z}\frac{\partial}{\partial\mathbf{X}}f(\mathbf{x})|_{\mathbf{x}=\mathbf{X}\mathbf{z}},\\
+&\frac{\partial}{\partial\mathbf{X}}f(\mathbf{X}{\color{mediumslateblue}{\mathbf{z}}\color{black}{}})={\color{mediumslateblue}{\mathbf{z}}\color{black}{}}\frac{\partial}{\partial\mathbf{X}}f(\mathbf{x})|_{\mathbf{x}=\mathbf{X}{\color{mediumslateblue}{\mathbf{z}}\color{black}{}}},\\
 &\frac{\partial}{\partial\mathbf{X}}\mathrm{d}y(\mathbf{X})=(\mathbf{J}_{\mathbf{X}\to y}+\mathbf{J}_{\mathbf{X}\to y}^\mathrm{T})-(\mathbf{J}_{\mathbf{X}\to y}\circ\mathbf{I}),
 \end{split}
 \right.
@@ -100,6 +100,7 @@ $$
 {\color{darkcyan}{\mathbf{C}}\color{black}{}}
 {\color{olivedrab}{\mathbf{B}}\color{black}{}}
 {\color{crimson}{\mathbf{A}}\color{black}{}}
+{\color{mediumslateblue}{{\color{mediumslateblue}{\mathbf{z}}\color{black}{}}}\color{black}{}}
 ```
 
 ## **2. Sherman-Morrison Formula**
