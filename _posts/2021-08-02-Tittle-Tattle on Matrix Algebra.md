@@ -124,6 +124,9 @@ $$
 \begin{equation}
 \left\{
 \begin{split}
+&\frac{\partial}{\partial\mathbf{x}}\mathrm{const}=\mathbf{0}^\mathrm{T},\\
+&\frac{\partial}{\partial\mathbf{x}}\mathrm{sum}(\mathbf{x})=\mathbf{1}^\mathrm{T},\\
+&\frac{\partial}{\partial\mathbf{x}}\|\mathbf{}x\|^2=2\mathbf{x}^\mathrm{T},\\
 &\frac{\partial}{\partial\mathbf{x}}(\mathbf{x}^\mathrm{T}{\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{x})=\mathbf{x}^\mathrm{T}{\color{crimson}{\mathbf{A}}\color{black}{}}+\mathbf{x}^\mathrm{T}{\color{crimson}{\mathbf{A}}\color{black}{}}^\mathrm{T},\\
 &\frac{\partial}{\partial\mathbf{X}}(\mathbf{X}^\mathrm{T}{\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{X})=\mathbf{X}^\mathrm{T}{\color{crimson}{\mathbf{A}}\color{black}{}}+\mathbf{X}^\mathrm{T}{\color{crimson}{\mathbf{A}}\color{black}{}}^\mathrm{T},\\
 &\frac{\partial}{\partial\mathbf{X}}\mathrm{tr}({\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{X}{\color{olivedrab}{\mathbf{B}}\color{black}{}})={\color{olivedrab}{\mathbf{B}}\color{black}{}}{\color{crimson}{\mathbf{A}}\color{black}{}},\\
