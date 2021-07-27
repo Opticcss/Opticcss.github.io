@@ -143,6 +143,30 @@ $$
 \end{equation}
 $$
 
+## **Topics on Gaussian (Normal)**
+
+​	For the random variable $\mathbf{X}$ which obeys Gaussian (normal) distribution, with its autocorrelation of $\mathbf{C}_\mathbf{X}$ and mean of $\bar{\mathbf{X}}$.
+
+$$
+\begin{equation}
+\begin{split}
+f_\mathbf{X}(\mathbf{X})&=\frac{1}{(2\pi)^{n/2}|\mathbf{C}_\mathbf{X}|^{1/2}}\exp\bigg[-\frac12(\mathbf{X}-\bar{\mathbf{X}})^\mathrm{T}\mathbf{C}_\mathbf{X}^{-1}(\mathbf{X}-\bar{\mathbf{X}})\bigg],\\
+&=\mathscr{N}(\bar{\mathbf{X}},\mathbf{C}_\mathbf{X}),
+\end{split}
+\end{equation}
+$$
+
+​	If the invertible constant $n\times n$ matrix ${\color{crimson}{\mathbf{A}}\color{black}{}}$ and a constant $n$-element vector $\mathbf{b}$ are acted on $\mathbf{X}$, as $\mathbf{Y}={\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{X}+\mathbf{b}$, have that (which shows that the normality is preserved in linear transformations of random vectors)
+
+$$
+\begin{equation}
+\begin{split}
+f_\mathbf{Y}(\mathbf{Y})=\mathscr{N}({\color{crimson}{\mathbf{A}}\color{black}{}}\bar{\mathbf{X}}+\mathbf{b},{\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{C}_\mathbf{X}{\color{crimson}{\mathbf{A}}\color{black}{}}^\mathrm{T}),
+\end{split}
+\end{equation}
+$$
+
+​	
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx0a2b]**
 
