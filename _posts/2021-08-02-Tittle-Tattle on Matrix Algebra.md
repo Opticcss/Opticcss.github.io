@@ -136,7 +136,7 @@ $$
 &\frac{\partial}{\partial\mathbf{X}}\mathrm{tr}({\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{X}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}})=-\mathbf{X}^{-1}{\color{olivedrab}{\mathbf{B}}\color{black}{}}{\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{X}^{-1},\\
 &\frac{\partial}{\partial\mathbf{X}}|\mathbf{X}|=|\mathbf{X}|\mathbf{X}^{-1},\\
 &\frac{\partial}{\partial\mathbf{X}}|\mathbf{X}^\mathrm{T}\mathbf{X}|=2|\mathbf{X}^\mathrm{T}\mathbf{X}|(\mathbf{X}^\mathrm{T}\mathbf{X})^{-1}\mathbf{X}^\mathrm{T},\\
-&\frac{\partial}{\partial\mathbf{X}}f(\mathbf{X}\mathbf{z})=\mathbf{z}\frac{\partial}{\partial\mathbf{X}}f(\mathbf{x})|_{\mathbf{x}=\mathbf{X}\mathbf{z}},\\
+&\frac{\partial}{\partial\mathbf{X}}f(\mathbf{X}{\color{olivedrab}{\mathbf{z}}\color{black}{}})={\color{olivedrab}{\mathbf{z}}\color{black}{}}\frac{\partial}{\partial\mathbf{X}}f(\mathbf{x})|_{\mathbf{x}=\mathbf{X}{\color{olivedrab}{\mathbf{z}}\color{black}{}}},\\
 &\frac{\partial}{\partial\mathbf{X}}\mathrm{d}y(\mathbf{X})=(\mathbf{J}_{\mathbf{X}\to y}+\mathbf{J}_{\mathbf{X}\to y}^\mathrm{T})-(\mathbf{J}_{\mathbf{X}\to y}\circ\mathbf{I}),
 \end{split}
 \right.
@@ -145,23 +145,23 @@ $$
 
 ## **Topics on Gaussian (Normal)**
 
-​	For the random variable $\mathbf{X}$ which obeys Gaussian (normal) distribution, with its autocorrelation of $\mathbf{C}_\mathbf{X}$ and mean of $\bar{\mathbf{X}}$.
+​	For the random variable $\mathbf{X}$ which obeys Gaussian (normal) distribution, with its autocorrelation of ${\color{darkcyan}{\mathbf{C}}\color{black}{}}_\mathbf{X}$ and mean of $\bar{\mathbf{X}}$.
 
 $$
 \begin{equation}
 \begin{split}
-f_\mathbf{X}(\mathbf{X})&=\frac{1}{(2\pi)^{n/2}|\mathbf{C}_\mathbf{X}|^{1/2}}\exp\bigg[-\frac12(\mathbf{X}-\bar{\mathbf{X}})^\mathrm{T}\mathbf{C}_\mathbf{X}^{-1}(\mathbf{X}-\bar{\mathbf{X}})\bigg],\\
-&=\mathscr{N}(\bar{\mathbf{X}},\mathbf{C}_\mathbf{X}),
+f_\mathbf{X}(\mathbf{X})&=\frac{1}{(2\pi)^{n/2}|{\color{darkcyan}{\mathbf{C}}\color{black}{}}_\mathbf{X}|^{1/2}}\exp\bigg[-\frac12(\mathbf{X}-\bar{\mathbf{X}})^\mathrm{T}{\color{darkcyan}{\mathbf{C}}\color{black}{}}_\mathbf{X}^{-1}(\mathbf{X}-\bar{\mathbf{X}})\bigg],\\
+&=\mathscr{N}(\bar{\mathbf{X}},{\color{darkcyan}{\mathbf{C}}\color{black}{}}_\mathbf{X}),
 \end{split}
 \end{equation}
 $$
 
-​	If the invertible constant $n\times n$ matrix ${\color{crimson}{\mathbf{A}}\color{black}{}}$ and a constant $n$-element vector $\mathbf{b}$ are acted on $\mathbf{X}$, as $\mathbf{Y}={\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{X}+\mathbf{b}$, have that (which shows that the normality is preserved in linear transformations of random vectors)
+​	If the invertible constant $n\times n$ matrix ${\color{crimson}{\mathbf{A}}\color{black}{}}$ and a constant $n$-element vector ${\color{olivedrab}{\mathbf{b}}\color{black}{}}$ are acted on $\mathbf{X}$, as $\mathbf{Y}={\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{X}+{\color{olivedrab}{\mathbf{b}}\color{black}{}}$, have that (which shows that the normality is preserved in linear transformations of random vectors)
 
 $$
 \begin{equation}
 \begin{split}
-f_\mathbf{Y}(\mathbf{Y})=\mathscr{N}({\color{crimson}{\mathbf{A}}\color{black}{}}\bar{\mathbf{X}}+\mathbf{b},{\color{crimson}{\mathbf{A}}\color{black}{}}\mathbf{C}_\mathbf{X}{\color{crimson}{\mathbf{A}}\color{black}{}}^\mathrm{T}),
+f_\mathbf{Y}(\mathbf{Y})=\mathscr{N}({\color{crimson}{\mathbf{A}}\color{black}{}}\bar{\mathbf{X}}+{\color{olivedrab}{\mathbf{b}}\color{black}{}},{\color{crimson}{\mathbf{A}}\color{black}{}}{\color{darkcyan}{\mathbf{C}}\color{black}{}}_\mathbf{X}{\color{crimson}{\mathbf{A}}\color{black}{}}^\mathrm{T}),
 \end{split}
 \end{equation}
 $$
