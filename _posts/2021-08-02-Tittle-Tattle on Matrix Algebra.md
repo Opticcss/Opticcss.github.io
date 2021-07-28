@@ -166,7 +166,7 @@ f_\mathbf{Y}(\mathbf{Y})=\mathscr{N}({\color{crimson}{\mathbf{A}}\color{black}{}
 \end{equation}
 $$
 
-​	
+
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx0a2b]**
 

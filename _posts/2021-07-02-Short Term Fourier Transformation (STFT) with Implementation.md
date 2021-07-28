@@ -49,7 +49,7 @@ $$
   \end{equation}
 $$
 
-- **Fourier transform**: most common used, the idea of domain (linear space, basis, ...)
+- **Fourier transform** ($\to$ **Laplace transform**): most common used, the idea of domain (linear space, basis, ...)
 
   - **continuous** time, **aperiodic**.
   - **continuous** frequency, **aperiodic**.
@@ -59,6 +59,8 @@ $$
 \begin{split}
 x(t)&=\frac1{2\pi}\int_{-\infty}^{+\infty}X(\mathrm{j}\omega)e^{\mathrm{j}\omega t}{\rm d}\omega,\\
 X(\mathrm{j}\omega)&=\mathscr{F}\{x(t)\}=\int_{-\infty}^{+\infty}x(t)e^{-\mathrm{j}\omega t}{\rm d}t,
+\\
+X(s)&=\mathscr{L}\{x(t)\}\bigg|_{s=\sigma_0+j\omega}=\int_{-\infty}^\infty x(t)e^{-st}{\rm d}t=X(\sigma_0,\omega)=\mathscr{F}\{x(t)e^{-\sigma_0t}\},
 \end{split}
 \end{equation}
 $$
@@ -99,7 +101,7 @@ $$
   \end{equation}
 $$
 
-- **discrete time Fourier transform**: the discrete sampling in time domain after FT
+- **discrete time Fourier transform** ($\to$ **Z-transform**): the discrete sampling in time domain after FT
   - **discrete** time, **aperiodic**.
   - **continuous** frequency, **periodic**.
 
@@ -107,7 +109,8 @@ $$
 \begin{equation}
 \begin{split}
 x[n]&=\frac1{2\pi}\int_{2\pi}X(e^{\mathrm{j}\omega})e^{\mathrm{j}\omega n}{\rm d}\omega,\\
-X(e^{\mathrm{j}\omega})&=\sum_{n=-\infty}^{+\infty}x[n]e^{-\mathrm{j}\omega n},
+X(e^{\mathrm{j}\omega})&=\sum_{n=-\infty}^{+\infty}x[n]e^{-\mathrm{j}\omega n},\\
+X(z)&=\sum_{n=-\infty}^\infty x(n)z^{-n}=\sum_{n=-\infty}^\infty (x(n)r^{-n})e^{-j\omega n},
 \end{split}
 \end{equation}
 $$
