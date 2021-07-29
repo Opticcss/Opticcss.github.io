@@ -143,7 +143,7 @@ $$
 \end{equation}
 $$
 
-## **Topics on Gaussian (Normal)**
+## **3. Topics on Gaussian (Normal)**
 
 ​	For the random variable $\mathbf{X}$ which obeys Gaussian (normal) distribution, with its autocorrelation of ${\color{darkcyan}{\mathbf{C}}\color{black}{}}_\mathbf{X}$ and mean of $\bar{\mathbf{X}}$.
 
