@@ -58,7 +58,7 @@ typora-root-url: ..
 
 ### **3.2. Small Tricks to Design Your Network**
 
-- Each time you reduce the spatial size by downsampling, you also need to increase the number of filters by two: $\text{spatial size}/2\to\#\text{ filters}\times2$ (this is from VGG)
+- Each time you reduce the spatial size by downsampling, you also need to increase the number of filters by two: $\mathrm{spatial}\  \mathrm{size}/2\to\#\ \mathrm{filters}\times2$ (this is from VGG)
 - 
 
 
