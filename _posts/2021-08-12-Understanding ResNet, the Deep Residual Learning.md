@@ -54,7 +54,11 @@ typora-root-url: ..
 
 
 
-### **3.1. **
+### **3.1. Torch Implementation of ResNet18**
+
+​	The following part is the implementation of ResNet18 as an example using `Pytorch` (`torch`),
+
+
 
 ### **3.2. Small Tricks to Design Your Network**
 
