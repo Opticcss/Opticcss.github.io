@@ -16,9 +16,15 @@ typora-root-url: ..
 {:toc}
 ## **1. Degradation Problem when Stacking More Layers**
 
-​	One of the possible way to learn better in ML tasks is to stack more layers, while simply increase the depth of network will lead to the degradation. Note that this degradation is not caused by overfitting, and adding more layers to a suitably deep model will lead to higher training error[^1].
+​	One of the possible way to learn better in ML tasks is to stack more layers, while simply increase the depth of network will lead to the **degradation**[^1]. As the results tested on CIFAR-10 with 2--layer and 56-layer plain network shown below (which is reproduced from [^1]), deeper network has higher training error and thus test error (note that this degradation is not caused by overfitting).
 
 ![[OPTSxa6b4]_Degradation_Problem](/assets/images/[OPTSxa6b4]_Degradation_Problem.svg)
+
+​	To further address this problem, an suitable analysis is needed, (1) the reason why deeper network perform worse than 
+
+​	Batch normalization is a method designed to mitigate the degradation problem, while the degree of mitigation fails to meet the demand, thus ResNet is mainly for this.
+
+## **2. Structure of Residual Network**
 
 
 
