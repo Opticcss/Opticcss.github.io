@@ -32,7 +32,7 @@ typora-root-url: ..
 
 ## **2. Structure of Residual Network**
 
-​	One residual network is always composed of three main parts, the input block, output block and the middle part as convolutional layers, different ResNet have different middle part, with different parameters and amounts, as shown below
+
 
 
 
@@ -62,9 +62,11 @@ typora-root-url: ..
 
 ### **3.1. Torch Implementation of ResNet18**
 
-​	The following part is the implementation of ResNet18 as an example using `Pytorch` (`torch`),
+​	The following part is the implementation of ResNet18 as an example using `Pytorch` (`torch`). Before this, it is also worth noting that the ResNet (ResNet18, ResNet34, ResNet50, ResNet101, ResNet152) is composed of three common blocks, the input block, output block and the middle block as convolutional layers, different ResNet have different middle part, with different parameters and amounts, the structure of ResNet34 is as shown below.
 
 ![[OPTSxa6b4]_Residual_Net_Structure](/assets/images/[OPTSxa6b4]_Residual_Net_Structure.svg)
+
+​	Based on the common design of the residual network, 
 
 ### **3.2. Small Tricks to Design Your Residual Network**
 
