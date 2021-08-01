@@ -112,10 +112,10 @@ ResNet 中其实是存在着很多路径的集合，整个ResNet类似于多个�
 
 - The input block contains a $\mathrm{conv}(\cdot)$ kernel of `size=`$7\times7$, `stride=2`, `padding=3` and a max pooling kernel of `size=`$3\times3$, `stride=2`, `padding=1` by default. This map a input image from $224\times224$ to a feature map of $56\times56$.
 - The convolutional block contains of four layers, for ResNet34,
-  - layer 1, $\begin{bmatrix}3\times3,&64\\3\times3,&64\end{bmatrix}\times3$.
-  - layer 2, $\begin{bmatrix}3\times3,&128\\3\times3,&128\end{bmatrix}\times4$.
-  - layer 3, $\begin{bmatrix}3\times3,&256\\3\times3,&256\end{bmatrix}\times6$.
-  - layer 4, $\begin{bmatrix}3\times3,&512\\3\times3,&512\end{bmatrix}\times3$.
+  - layer 1, $\begin{bmatrix}3\times3,&64 \\ 3\times3,&64\end{bmatrix}\times3$.
+  - layer 2, $\begin{bmatrix}3\times3,&128 \\ 3\times3,&128\end{bmatrix}\times4$.
+  - layer 3, $\begin{bmatrix}3\times3,&256 \\ 3\times3,&256\end{bmatrix}\times6$.
+  - layer 4, $\begin{bmatrix}3\times3,&512 \\ 3\times3,&512\end{bmatrix}\times3$.
 - The output block contains of a adaptive average pooling, which stretch the feature map into $1\times1$, and then the full connected layer will give out the final result of the network.
 
 ```python
@@ -189,5 +189,5 @@ def resnet34(pretrained: bool=False, progress: bool=True, **kwargs: Any) -> ResN
 [^2]: [The Video of Live Speech on ResNet, CVPR2016](https://zhuanlan.zhihu.com/p/54072011?utm_source=com.tencent.tim&utm_medium=social&utm_oi=41268663025664)
 [^3]: Balduzzi, David, et al. "The shattered gradients problem: If resnets are the answer, then what is the question?." *International Conference on Machine Learning*. PMLR, 2017.
 [^4]: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
-[^4]: 
+[^5]:
 
