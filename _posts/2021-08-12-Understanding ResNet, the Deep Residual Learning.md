@@ -30,6 +30,8 @@ typora-root-url: ..
 
 ![[OPTSxa6b4]_Residual_Block](/assets/images/[OPTSxa6b4]_Residual_Block.svg)
 
+​	Further analysis facing the degradation problem shows[^3], 
+
 ## **2. Structure of Residual Network**
 
 
