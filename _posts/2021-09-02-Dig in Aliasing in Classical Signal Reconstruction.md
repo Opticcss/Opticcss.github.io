@@ -80,8 +80,6 @@ $$
 - 首先将它采样，也就是在时域作乘积 $f(t)\times\text{comb}_T(t)$，在频域中这相当于一个 ${2\pi}\text{comb}_{2\pi/T}(\omega)/T$ 与 $\hat{f}(\omega)$ 作卷积，也就相当于将未采样信号的频谱进行幅值，把它当作采样信号的频谱
 - 然后使用一个低通滤波器将复制后的频谱进行切割/滤波，这次是在频域作乘积 $\hat{f}_d(\omega)\times\hat{\phi}_s(\omega)$，在时域中相当于函数 $f_d(t)$ 与滤波器系统的冲激响应作卷积，最终将这个时域卷积的结果作为重建后的信号
 
-
-
 ## **3. Things Happened at Aliasing**
 
 ​	After the basic theory of sampling and reconstruction, it is easy to conclude that 了解了采样和重建的基本知识后，自然就理解了为什么要求采样频率 $f_s$ 大于 $2B$，对一个不满足采样定理条件的函数进行插值就会发生混叠，那么什么叫混叠 (高频分量的信息混叠到低频分量中) 呢?
