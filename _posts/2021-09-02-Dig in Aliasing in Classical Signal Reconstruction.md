@@ -16,32 +16,32 @@ typora-root-url: ..
 {:toc}
 ## **1. Special Symmetry in Aliasing**
 
-​	The **Nyquist-Whittaker-Shannon-Kotelnikov sampling theorem**, which point out the condition to avoid aliasing in the effective reconstruction of one signal, implies that the sampling frequency should be the twice of the frequency of the maximum frequency component. To guarantee this, hence to reconstruct the original signal effectively, the system used is always designed by a unreasonable structure, which limited the signal in $1/2$ sampling frequency, and then apply the reconstruction. To be more precise, this make the signal a limited bandwidth signal, i.e., in $F(\xi)=0,\ |\xi|>f_s/2$​.
+​	The **Nyquist-Whittaker-Shannon-Kotelnikov sampling theorem**, which point out the condition to avoid aliasing in the effective reconstruction of one signal, implies that the sampling frequency should be the twice of the frequency of the maximum frequency component. To guarantee this, hence to reconstruct the original signal effectively, the system used is always designed by a unreasonable structure, which limited the signal in $1/2$ sampling frequency, and then apply the reconstruction. To be more precise, this make the signal a limited bandwidth signal, i.e., in $F(\xi)=0,\ |\xi|>f_s/2$.
 
 > input signal $\xrightarrow{\text{LPF (cut off frequency }f_s/2)}$ low pass filtered signal $\xrightarrow{\text{ADC}}$ sampled signal $\xrightarrow{\text{DAC}}$ output signal
 
-​	But the thing happened if the signal frequency (or the bandwidth, denoted as $B$) surpass the $f_s/2$​​​​​​​​​ is still unclear enough. This phenomenon, called **aliasing** in general, **means that the high frequency components are mixed with the low frequency components, hence the reconstruction signal is different with the original one**.
+​	But the thing happened if the signal frequency (or the bandwidth, denoted as $B$) surpass the $f_s/2$ is still unclear enough. This phenomenon, called **aliasing** in general, **means that the high frequency components are mixed with the low frequency components, hence the reconstruction signal is different with the original one**.
 
 ​	The detail of this phenomena is worth studying, and it implies a symmetry mixing in real application/condition.
 
-​	Most recently, the author ([@Opticcss](https://opticcss.github.io/)) was lucky to experience an experiment to perform the signal reconstruction using FM4 board, based on WM8731 codec (which is composed of an A/D convertor and a D/A convertor). As the result shows, when input a sinusoidal wave $7000{\rm\ Hz}$​ into the WM8731 codec, the reconstruction signal is a sinusoidal wave of $999.9869{\rm\ Hz}$​. On the other side, if give the sinusoidal wave of $4500{\rm\ Hz}$​, the system will output a $3500.097{\rm\ Hz}$​ wave. By the way, the sampling frequency is $8000{\rm\ Hz}$​, these analysed results are as shown below, and displayed a symmetrical with respect to $\sim4000{\rm\ Hz}$​​.
+​	Most recently, the author ([@Opticcss](https://opticcss.github.io/)) was lucky to experience an experiment to perform the signal reconstruction using FM4 board, based on WM8731 codec (which is composed of an A/D convertor and a D/A convertor). As the result shows, when input a sinusoidal wave $7000{\rm\ Hz}$ into the WM8731 codec, the reconstruction signal is a sinusoidal wave of $999.9869{\rm\ Hz}$. On the other side, if give the sinusoidal wave of $4500{\rm\ Hz}$, the system will output a $3500.097{\rm\ Hz}$ wave. By the way, the sampling frequency is $8000{\rm\ Hz}$, these analysed results are as shown below, and displayed a symmetrical with respect to $\sim4000{\rm\ Hz}$.
 
 ![[OPTSx0922]_Phenomenon_for_Aliasing](..\assets\images\[OPTSx0922]_Phenomenon_for_Aliasing.svg)
 
 ​	Summarization from the phenomenology is as following shows, they are some patterns included,
 
-- No aliasing if $B\leq f_s/2$​.
+- No aliasing if $B\leq f_s/2$.
 - Turnover the surpass components w.r.t. $f_s/2$ line, into the region of $[0,f_s/2]$, and superposition with the original components, if $f_s>B>f_s/2$.
 - ... ... ... ... ... ...
 - Turnover the surpass components w.r.t. $f_s(n-1)/2$ line, which make the components of $f_sn/2-B$ to be the frequencies of the reconstructed signal, if $f_sn/2>B>f_s(n-1)/2$.
 
-​	Of course these are just bits of assumptions/derivations based on the observations. There must be some theoretical thing underlaying them.
+	Of course these are just bits of assumptions/derivations based on the observations. There must be some theoretical thing underlaying them.
 
 ## **2. Basic Theory About Shah Function Sampling/Impulse Train Sampling, the Theory of Reconstruction**
 
-​	The main character of this part, the Shah function/Dirac comb $\mathrm{Ш}_T[t]$​​, is defined as following.
+​	The main character of this part, the Shah function/Dirac comb $\mathrm{Ш}_T[t]$, is defined as following.
 
-> ​	The impulse train (or namely Dirac comb) is a bunch of translated Dirac(s), as $\mathrm{Ш}(t)=\sum_{n=-\infty}^\infty\delta(t-nT)$​，with its Fourier transform,
+> ​	The impulse train (or namely Dirac comb) is a bunch of translated Dirac(s), as $\mathrm{Ш}(t)=\sum_{n=-\infty}^\infty\delta(t-nT)$，with its Fourier transform,
 
 $$
 \begin{equation}
@@ -55,12 +55,12 @@ $$
 
 ​	The second equivalence is deduced by the Poisson (summation) formula, for more details, see [Addendum 1st](#jump01).
 
-​	This demonstrate a splendid property of the Dirac comb that the Fourier transform of a comb is still a Dirac comb, with its frequency changed into the inverse of original frequency divided by $2\pi$, i.e.,  $\mathscr{F}\{\mathrm{Ш}_T(t)\}={2\pi}\mathrm{Ш}_{2\pi/T}(\omega)/T$​.
+​	This demonstrate a splendid property of the Dirac comb that the Fourier transform of a comb is still a Dirac comb, with its frequency changed into the inverse of original frequency divided by $2\pi$, i.e.,  $\mathscr{F}\{\mathrm{Ш}_T(t)\}={2\pi}\mathrm{Ш}_{2\pi/T}(\omega)/T$.
 
 ​	Hence, the formal process in rigorous implementation is as
 
 - Sampling, in which the multiplication is taken for the signal and Dirac comb in the time domain, which is equivalent to the convolution of impulses and original signal.
-- Reconstruction, the window function $\Pi(\omega)$ in frequency domain (or the $\text{sinc}(t)$ in time domain, the lowpass filter) is used to perform convolution in time domain as following (which is called the Whittaker-Shannon interpolation formula, and have extreme importance in reconstruction, note that  $M=1/2B=1/W$, and the bandwidth satisfy  $B>f_s/2$​).
+- Reconstruction, the window function $\Pi(\omega)$ in frequency domain (or the $\text{sinc}(t)$ in time domain, the lowpass filter) is used to perform convolution in time domain as following (which is called the Whittaker-Shannon interpolation formula, and have extreme importance in reconstruction, note that  $M=1/2B=1/W$, and the bandwidth satisfy  $B>f_s/2$).
 
 $$
 \begin{equation}
@@ -75,7 +75,7 @@ $$
 
 ![[OPTSx0922]_Reconstruction_Process_of_a_Signal](..\assets\images\[OPTSx0922]_Reconstruction_Process_of_a_Signal.svg)
 
-​	It can be seen that for the original signal $f(t)$​​, 
+​	It can be seen that for the original signal $f(t)$,
 
 - 首先将它采样，也就是在时域作乘积 $f(t)\times\text{comb}_T(t)$，在频域中这相当于一个 ${2\pi}\text{comb}_{2\pi/T}(\omega)/T$ 与 $\hat{f}(\omega)$ 作卷积，也就相当于将未采样信号的频谱进行幅值，把它当作采样信号的频谱
 - 然后使用一个低通滤波器将复制后的频谱进行切割/滤波，这次是在频域作乘积 $\hat{f}_d(\omega)\times\hat{\phi}_s(\omega)$，在时域中相当于函数 $f_d(t)$ 与滤波器系统的冲激响应作卷积，最终将这个时域卷积的结果作为重建后的信号
@@ -94,7 +94,7 @@ $$
 > $$
 > \begin{equation}
 > \begin{split}
-> \int_{-\infty}^\infty d_1(t)\phi(t){\rm d}t=\int_{-\infty}^\infty d_2(t)\phi(t){\rm d}t,
+> \int_{-\infty}^\infty d_1(t)\phi(t){\mathrm{d}}t=\int_{-\infty}^\infty d_2(t)\phi(t){\mathrm{d}}t,
 > \end{split}
 > \end{equation}
 > $$
@@ -102,7 +102,7 @@ $$
 > $$
 > \begin{equation}
 > \begin{split}
-> \langle\mathscr{F}\{\text{comb}_T(t)\},\hat\theta\rangle=\lim_{N\to+\infty}\int_{-\infty}^\infty\sum_{n=-N}^{N}e^{inT\omega}\hat\theta(\omega){\rm d}\omega=\frac{2\pi}T\hat\theta(0),
+> \langle\mathscr{F}\{\text{comb}_T(t)\},\hat\theta\rangle=\lim_{N\to+\infty}\int_{-\infty}^\infty\sum_{n=-N}^{N}e^{inT\omega}\hat\theta(\omega){\mathrm{d}}\omega=\frac{2\pi}T\hat\theta(0),
 > \end{split}
 > \end{equation}
 > $$
@@ -119,8 +119,8 @@ $$
 > \begin{equation}
 > \begin{split}
 > &\begin{split}
-> \langle\mathscr{F}\{\text{comb}_T(t)\},\hat\theta\rangle&=\lim_{N\to+\infty}\frac{2\pi}T\int_{-\pi/T}^{\pi/T}\frac{\sin[(N+1/2)T\omega]}{\pi\omega}\frac{T\omega/2}{\sin[T\omega/2]}\hat\theta(\omega){\rm d}\omega\\
-> &=\lim_{N\to+\infty}\frac{2\pi}T\int_{-\infty}^\infty\frac{\sin[(N+1/2)T\omega]}{\pi\omega}\hat\psi(\omega){\rm d}\omega,
+> \langle\mathscr{F}\{\text{comb}_T(t)\},\hat\theta\rangle&=\lim_{N\to+\infty}\frac{2\pi}T\int_{-\pi/T}^{\pi/T}\frac{\sin[(N+1/2)T\omega]}{\pi\omega}\frac{T\omega/2}{\sin[T\omega/2]}\hat\theta(\omega){\mathrm{d}}\omega\\
+> &=\lim_{N\to+\infty}\frac{2\pi}T\int_{-\infty}^\infty\frac{\sin[(N+1/2)T\omega]}{\pi\omega}\hat\psi(\omega){\mathrm{d}}\omega,
 > \end{split}\\
 > &\text{where }\hat\psi(\omega)=\left\{
 > \begin{split}
@@ -136,17 +136,17 @@ $$
 > \begin{equation}
 > \begin{split}
 > \langle\mathscr{F}\{\text{comb}_T(t)\},\hat\theta\rangle
-> =\lim_{N\to+\infty}\frac{2\pi}T\int_{-(N+1/2)T}^{(N+1/2)T}\psi(\omega){\rm d}t,
+> =\lim_{N\to+\infty}\frac{2\pi}T\int_{-(N+1/2)T}^{(N+1/2)T}\psi(\omega){\mathrm{d}}t,
 > \end{split}
 > \end{equation}
 > $$
 > ​	证毕，可以看到当 $N\to+\infty$ 时，积分收敛到 $\hat\psi(0)=\hat\theta(0)$
->
+>	
 > ​	这里顺带再强调一下这个 Poisson (Summation) formula，它在信号处理理论中有很多应用，其含义为一个信号可以和它的 Fourier 变换联系起来，表述为
 > $$
 > \begin{equation}
 > \begin{split}
-> \sum_{n=-\infty}^\infty f(t+nT)=\sum_{k=-\infty}^\infty\frac1T\mathscr{F}\{f(t)\}\bigg(\frac kT\bigg)e^{{\rm j}2\pi kt/T},
+> \sum_{n=-\infty}^\infty f(t+nT)=\sum_{k=-\infty}^\infty\frac1T\mathscr{F}\{f(t)\}\bigg(\frac kT\bigg)e^{{\mathrm{j}}2\pi kt/T},
 > \end{split}
 > \end{equation}
 > $$
