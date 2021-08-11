@@ -9,14 +9,13 @@ typora-root-url: ..
 ---
 > **Abstract**/**Snippet**.
 
-
 **Contents**
 
 * toc
 {:toc}
 ## **1. Special Symmetry in Aliasing**
 
-​	The **Nyquist-Whittaker-Shannon-Kotelnikov sampling theorem**, which point out the condition to avoid aliasing in the effective reconstruction of one signal, implies that the sampling frequency should be the twice of the frequency of the maximum frequency component. To guarantee this, hence to reconstruct the original signal effectively, the system used is always designed by a unreasonable structure, which limited the signal in $1/2$ sampling frequency, and then apply the reconstruction. To be more precise, this make the signal a limited bandwidth signal, i.e., in $F(\xi)=0,\ |\xi|>f_s/2$.
+​	The **Nyquist-Whittaker-Shannon-Kotelnikov sampling theorem**, which point out the condition to avoid aliasing in the effective reconstruction of one signal, implies that the sampling frequency should be the twice of the frequency of the maximum frequency component. To guarantee this, hence to reconstruct the original signal effectively, the system used is always designed by a unreasonable structure, which limited the signal in $1/2$​ sampling frequency, and then apply the reconstruction. To be more precise, this make the signal a limited bandwidth signal, i.e., in $F(\xi)=0,\|\xi\|>f_s/2$​.
 
 - input signal $\xrightarrow{\text{LPF (cut off frequency }f_s/2)}$ low pass filtered signal $\xrightarrow{\text{ADC}}$ sampled signal $\xrightarrow{\text{DAC}}$ output signal.
 
