@@ -18,7 +18,7 @@ typora-root-url: ..
 
 ​	The **Nyquist-Whittaker-Shannon-Kotelnikov sampling theorem**, which point out the condition to avoid aliasing in the effective reconstruction of one signal, implies that the sampling frequency should be the twice of the frequency of the maximum frequency component. To guarantee this, hence to reconstruct the original signal effectively, the system used is always designed by a unreasonable structure, which limited the signal in $1/2$ sampling frequency, and then apply the reconstruction. To be more precise, this make the signal a limited bandwidth signal, i.e., in $F(\xi)=0,\ |\xi|>f_s/2$.
 
-> input signal $\xrightarrow{\text{LPF (cut off frequency }f_s/2)}$ low pass filtered signal $\xrightarrow{\text{ADC}}$ sampled signal $\xrightarrow{\text{DAC}}$ output signal
+- input signal $\xrightarrow{\text{LPF (cut off frequency }f_s/2)}$ low pass filtered signal $\xrightarrow{\text{ADC}}$ sampled signal $\xrightarrow{\text{DAC}}$ output signal.
 
 ​	But the thing happened if the signal frequency (or the bandwidth, denoted as $B$) surpass the $f_s/2$ is still unclear enough. This phenomenon, called **aliasing** in general, **means that the high frequency components are mixed with the low frequency components, hence the reconstruction signal is different with the original one**.
 
@@ -75,10 +75,10 @@ $$
 
 ![[OPTSx0922]_Reconstruction_Process_of_a_Signal](..\assets\images\[OPTSx0922]_Reconstruction_Process_of_a_Signal.svg)
 
-​	It can be seen that for the original signal $f(t)$,
+​	It can be seen that for the original signal $f(t)$​, in this chart,
 
-- 首先将它采样，也就是在时域作乘积 $f(t)\times\text{comb}_T(t)$，在频域中这相当于一个 ${2\pi}\text{comb}_{2\pi/T}(\omega)/T$ 与 $\hat{f}(\omega)$ 作卷积，也就相当于将未采样信号的频谱进行幅值，把它当作采样信号的频谱
-- 然后使用一个低通滤波器将复制后的频谱进行切割/滤波，这次是在频域作乘积 $\hat{f}_d(\omega)\times\hat{\phi}_s(\omega)$，在时域中相当于函数 $f_d(t)$ 与滤波器系统的冲激响应作卷积，最终将这个时域卷积的结果作为重建后的信号
+- The sampling use the $f(t)\times\mathrm{Ш}_T(t)$ in time domain, which is just the convolution operation $\hat{f}(\omega)\star2\pi\mathrm{Ш}_{2\pi/T}(t)$​ in frequency domain, which is then equivalent to **construct multiple copies for the frequency spectrum of original signal**.
+- Then the lowpass filter is used to **cut/filtering the copied frequency spectrum**, which is simply the $\hat{f}_d(\omega)\times\hat{\phi}_s(\omega)$ operation in frequency domain, and $f_d(t)\star h(t)$ in the time domain.
 
 ## **3. Things Happened at Aliasing**
 
