@@ -274,7 +274,7 @@ $$
 
 > ​	Finally, have that $n/2^x=1$ ($n=2^x\to x=\lg n$), this subsequently yields the factor of $\lg n$.
 
-​	To conclude, the complexity is largely reduced by the periodicity and symmetric properties of the twiddle factor $\omega_N^{km}$, and then **calculate the new results by adopting the calculated results** (i.e., $X^{[\cdots]}_k$s).
+​	To conclude, the complexity is largely reduced by the periodicity and symmetric properties of the twiddle factor $\omega_N^{km}$​, and then **calculate the new results by adopting the calculated results** (i.e., $X^{[\cdots]}_k$​s), there are finally $N\log_2N/2$ times of multiplication and $N\log_2N$ times of addition of complex numbers.
 
 ### **2.2. DIT and Bit-Reversal Permutation**
 
