@@ -3,7 +3,7 @@ layout: optics_post
 title:  "Fast Convolution (FC, FastConv) by Fast Fourier Transform"
 author: Li Jinzhao
 categories: [Signal Processing]
-image: ....jpg
+image: .jpg
 tags: [Harmonic Analysis, Julia]
 typora-root-url: ..
 ---
@@ -13,6 +13,7 @@ typora-root-url: ..
 
 * toc
 {:toc}
+
 ## **1. Commonly Used Fast Convolution Algorithm**
 
 ​	Fast convolution as FFT convolution uses the overlap-add method together with the fast Fourier transform, allowing signals to be convolved by multiplying their frequency spectra, which can be summarized as following[^2]
@@ -28,7 +29,6 @@ $$
 ​	Take the a 2-D input, a image, as an example, the image is converted into the frequency domain (using FFT), multiply, and convert back to the time domain (using the IFFT).
 ​	Complexity analysis of this algorithm reveals that it
 exhibits $O(n\log n)$ asymptotic behaviour, which out-perform the direct summation method as following (which takes $O(n^2)$), note that here, both `E` and `k` have $n$ samples.
-
 $$
 \begin{equation}
 \begin{split}
@@ -109,25 +109,9 @@ end
 
 ## **2. Special Treatment for Small Kernel in Image/Neural Network**
 
+​	In the convolutional neural network, the convolution with extremely small kernel is been a lot of used. One of the method that could help boosting the efficiency of  convolution is to use the metaprogramming, this especially simple in `Julia`, which has its multiple dispatch, efficient memory allocations, and macros to generate multi-dimensional code.
 
-
-multiple dispatch, efficient
-memory allocations, and macros to generate multi-
-dimensional code
-
-
-
-By allocating the memory in a helper function, the algorithm also improves efficiency by reusing memory within the actual convolution function. Additionally, we use `@inbounds` to eliminate array bounds checking, further increasing performance speedups.
-Our implementation covers a wide variety of signal types (real, complex, Boolean, irrational, unsigned integers, etc) through native Julia multiple dispatch. Furthermore, we utilize the Cartesian package to create auto generative code that can compute convolutions in any dimension. The process by the compiler is as follows:
-1) The dimensionality of the inputs is identified (let’s say both inputs are of dimension k)
-2) The k-dimensional convolution code is generated (if it has never been before)
-3) The inputs are processed by the auto-generated code.
-
-implement a fast N-dimensional convolution algorithm, optimized specifically for machine vision applications, and integrate into the high performance computing `Julia` platform
-
-`using Base.Cartesian`
-
-
+​	As for the implementation of the fast convolution `fast_conv_n(·)`, it is mainly realized by allocating the memory in a helper function, the algorithm also improves efficiency by reusing memory within the actual convolution function. Additionally, `@inbounds` is used to eliminate array bounds checking, which further increasing performance speedups. It can be seen in the following code, mostly of the process are moved into the compiler, and it is optimized specifically for machine vision applications, and integrate into the high performance computing `Julia` platform (note that `using Base.Cartesian` should be previously included).
 
 ```julia
 # direct version (do not check if threshold is satisfied)
@@ -136,17 +120,17 @@ implement a fast N-dimensional convolution algorithm, optimized specifically for
         retsize = [size(E)...] + [size(k)...] .- 1
         retsize = tuple(retsize...)
         ret = zeros(T, retsize)
-        conv_n!(ret,E,k)
+        conv_n!(ret, E, k)
         return ret
     end
 end
 ```
 
-
+​	where the `conv_n!(·)` function is realized by the definition of the convolution directly (the formal expression is as $(\mathrm{E}*\mathrm{k})(x,y)=\sum_{i=0}^{m-1}\sum_{j=0}^{n-1}\mathrm{E}(x+i,y+j)\mathrm{k}(i,j)$​​​, to emphasis, the function is nothing more this equation in code but without bounds checking and the generation of other code in runtime, hence will be more faster in the condition of small kernel used in machine learning).
 
 ```julia
 # in place helper operation to speedup memory allocations
-@generated function conv_n!(out::Array{T}, E::Array{T,N}, k::Array{T,N}) where {T,N}
+@generated function conv_n!(out::Array{T}, E::Array{T, N}, k::Array{T, N}) where {T, N}
     quote
         @inbounds begin
             @nloops $N x E begin
@@ -160,11 +144,7 @@ end
 end
 ```
 
-
-
-
-
-
+​	A test is provided for the fast convolution using metaprogramming in `Julia`, with the convolution kernel of `1000×1` and `1000×1`, `4×4` and `4×4`, `1000×1000` and `10×10`, it is obvious that the fast convolution is absolutely suitable for the convolution involving a small kernel and an image (it only takes $0.126845\text{ sec}$ for `1000×1000` and `10×10` random matrices).
 
 ```julia
 # @profview fast_conv([1 3 4 6], [2 4 7 9])
@@ -174,10 +154,6 @@ end
 @time fast_conv_n(rand(1000, 1000), rand(10, 10)) # 0.126845 seconds (12 allocations: 15.398 MiB)
 println(a1 ≈ an) # true
 ```
-
-
-
-
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx84a6]**
 
