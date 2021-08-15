@@ -29,6 +29,7 @@ $$
 ​	Take the a 2-D input, a image, as an example, the image is converted into the frequency domain (using FFT), multiply, and convert back to the time domain (using the IFFT).
 ​	Complexity analysis of this algorithm reveals that it
 exhibits $O(n\log n)$ asymptotic behaviour, which out-perform the direct summation method as following (which takes $O(n^2)$), note that here, both `E` and `k` have $n$ samples.
+
 $$
 \begin{equation}
 \begin{split}
@@ -109,9 +110,9 @@ end
 
 ## **2. Special Treatment for Small Kernel in Image/Neural Network**
 
-​	In the convolutional neural network, the convolution with extremely small kernel is been a lot of used. One of the method that could help boosting the efficiency of  convolution is to use the metaprogramming, this especially simple in `Julia`, which has its multiple dispatch, efficient memory allocations, and macros to generate multi-dimensional code.
+​	In the convolutional neural network, the convolution with extremely small kernel is been a lot of used. One of the method that could help boosting the efficiency of  convolution is to use the metaprogramming[^3], this is especially simple in `Julia`, which has its multiple dispatch, efficient memory allocations, and macros to generate multi-dimensional code.
 
-​	As for the implementation of the fast convolution `fast_conv_n(·)`, it is mainly realized by allocating the memory in a helper function, the algorithm also improves efficiency by reusing memory within the actual convolution function. Additionally, `@inbounds` is used to eliminate array bounds checking, which further increasing performance speedups. It can be seen in the following code, mostly of the process are moved into the compiler, and it is optimized specifically for machine vision applications, and integrate into the high performance computing `Julia` platform (note that `using Base.Cartesian` should be previously included).
+​	As for the implementation of the fast convolution `fast_conv_n(·)`, it is mainly realized by allocating the memory in a helper function, the algorithm also improves efficiency by reusing memory within the actual convolution function. Additionally, `@inbounds` is used to eliminate array bounds checking, which further increasing performance speedups. It can be seen in the following code, mostly of the process are moved into the compiler, and it is optimized specifically for machine vision applications, and integrate into the high performance computing `Julia` platform[^4] (note that `using Base.Cartesian` should be previously included).
 
 ```julia
 # direct version (do not check if threshold is satisfied)
