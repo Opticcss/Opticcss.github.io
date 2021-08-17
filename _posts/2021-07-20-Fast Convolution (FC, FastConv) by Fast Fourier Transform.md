@@ -188,7 +188,7 @@ $$
 \end{equation}
 $$
 
-​	Note that when $n\to\infty$, $\lim_{n\to\infty}\big(1-\frac{2\pi^2\omega^2}{n}\big)^n=\exp(-2\pi^2\omega^2)$, hence the conclusion of CLT is proved by the $\mathscr{F}^{-1}$ operation.
+​	Note that when $n\to\infty$​, $\lim_{n\to\infty}\big(1-\frac{2\pi^2\omega^2}{n}\big)^n=\exp(-2\pi^2\omega^2)$​, hence the conclusion of CLT is proved by the $\mathscr{F}^{-1}\{\cdot\}$​ operation.
 
 
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx84a6]**
