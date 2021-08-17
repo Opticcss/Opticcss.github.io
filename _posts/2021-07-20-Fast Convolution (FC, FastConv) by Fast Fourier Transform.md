@@ -156,6 +156,39 @@ end
 println(a1 ≈ an) # true
 ```
 
+## **3. Assertion of Central Limit Theorem**
+
+​	As an indispensable application, convolution is used to prove the central limit theorem, and fast convolution can also play a big role here. A relatively simple simulation proves as follows. We use the combination of $20$​​ random variables with probability distribution function $\Pi$​​​ to carry out the experiment. Due to the small complexity of fast convolution, the simulation experiment can be completed in a extreme few seconds.
+
+![[OPTSx84a6]_Simu_for_Central_Limit_Theorem](/assets/images/[OPTSx84a6]_Simu_for_Central_Limit_Theorem.svg)
+
+​	This phenomenon is called the central limit theorem, which is strictly expressed as following (for the i.i.d variable, with $n$​ times measuring $\{x_1,x_2,\cdots,x_n\}$, $S_n$ is the sum as $\sum_i^nx_i$, which has its probability density function as $f^{*n}=f_1*f_2\cdots*f_n$​​).
+
+$$
+\begin{equation}
+\begin{split}
+P\bigg(\frac{S_n-n\mu}{\sqrt{\sigma}}\leq x\bigg)\to\Phi(x)=\frac1{\sqrt{2\pi}}\exp\bigg({-\frac{x^2}2}\bigg),n\to\infty,
+\end{split}
+\end{equation}
+$$
+​	It can also be demonstrate by simple theoretical treatment, after normalization, the Fourier transform is used to evaluate the convolution in the probability density function of $S_n$​ as below,
+$$
+\begin{equation}
+\begin{split}
+\mathscr{F}\{\sqrt{n}(f^{*n})(\sqrt{n}x)\}&=\sqrt{n}\frac{1}{\sqrt{n}}\mathscr{F}\{f^{*n}\}\bigg(\frac{\omega}{\sqrt{n}}\bigg)\\
+&=\mathscr{F}\{f^{*n}\}\bigg(\frac{\omega}{\sqrt{n}}\bigg)\\
+&=\mathscr{F}\{f\}^n\bigg(\frac{\omega}{\sqrt{n}}\bigg)\\
+&=\bigg(\int_{-\infty}^{\infty}e^{-2\pi{\mathrm{j}}\big(\frac{\omega}{\sqrt{n}}\big)x}f(x){\mathrm{d}}x\bigg)^n\\ &=\bigg(\int_{-\infty}^{\infty}\bigg[1-\frac{2\pi{\mathrm{j}}\omega x}{\sqrt{n}}+\frac{1}{2}\bigg(\frac{2\pi{\mathrm{j}}\omega x}{\sqrt{n}}\bigg)^2+\cdots\bigg]f(x){\mathrm{d}}x\bigg)^n\\
+&=\bigg(\int_{-\infty}^{\infty}f(x){\mathrm{d}}x-\frac{2\pi{\mathrm{j}}\omega}{\sqrt{n}}\int_{-\infty}^{\infty}xf(x){\mathrm{d}}x-\frac{2\pi^2\omega^2}{n}\int_{-\infty}^{\infty}x^2f(x){\mathrm{d}}x+\cdots\bigg)^n\\
+&=\bigg(1-0-\frac{2\pi^2\omega^2}n+\cdots\bigg)^n\\
+&\approx\bigg(1-\frac{2\pi^2\omega^2}{n}\bigg)^n,
+\end{split}
+\end{equation}
+$$
+
+​	Note that when $n\to\infty$, $\lim_{n\to\infty}\big(1-\frac{2\pi^2\omega^2}{n}\big)^n=\exp(-2\pi^2\omega^2)$, hence the conclusion of CLT is proved by the $\mathscr{F}^{-1}$ operation.
+
+
 > <span id="jump0">**[0.0]**</span> Noodle Security Number - **[OPTSx84a6]**
 
 [^1]: Smith, Steven. *Digital signal processing: a practical guide for engineers and scientists*. Elsevier, 2013.
