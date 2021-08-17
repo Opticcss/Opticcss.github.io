@@ -162,7 +162,7 @@ println(a1 ≈ an) # true
 
 ![[OPTSx84a6]_Simu_for_Central_Limit_Theorem](/assets/images/[OPTSx84a6]_Simu_for_Central_Limit_Theorem.svg)
 
-​	This phenomenon is called the central limit theorem, which is strictly expressed as following (for the i.i.d variable, with $n$ times measuring $\{x_1,x_2,\cdots,x_n\}$, $S_n$ is the sum as $\sum_i^nx_i$, which has its probability density function as $f^{*n}=f_1*f_2\cdots*f_n$).
+​	This phenomenon is called the central limit theorem, which is strictly expressed as following (for the i.i.d. variable, with $n$ times measuring $\{x_1,x_2,\cdots,x_n\}$, $S_n$ is the sum as $\sum_i^nx_i$, which has its probability density function as $f^{{*}n}=f_1{*}f_2\cdots{*}f_n$).
 
 $$
 \begin{equation}
