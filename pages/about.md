@@ -47,3 +47,5 @@ title: About LI JINZHAO
 | :------------: | :----------------------------------------------------------: |
 |    May 2021    | The website moved from "Jianshu" to "CNBlog",<br />and finally here, the GitHub Page |
 |   June 2021    | CSS-based blog beautification scheme,<br />referencing the network of individual/personal blogs |
+
+​	Other tools related to site building are also listed here for thanks, but I am not so sure they are all of them... [Google Analytics](https://analytics.google.com/analytics/web/?authuser=0#/p278856874/realtime/overview?params=_u..nav%3Dmaui&collectionId=life-cycle), [XML Sitemap](https://www.xml-sitemaps.com/details-opticcss.github.io-495aa287d.html), etc.
