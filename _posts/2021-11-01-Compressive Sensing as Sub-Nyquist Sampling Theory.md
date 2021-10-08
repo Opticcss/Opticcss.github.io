@@ -91,7 +91,7 @@ $$
 
 ​	Assume a sparsity signal $\boldsymbol{x}$​ (transformed by sparse matrix $\boldsymbol{\Psi}$​ and hence gives the $K$​-sparse parameters $\boldsymbol{s}$​) with incoherence measurement matrix $\boldsymbol{\Phi}$​, compressive sensing solve the reconstruction problem of $\boldsymbol{x}$​ given $\boldsymbol{y}$​​ as shown below.
 
-![[OPTSx0011]_Compressive_Sensing_Sensing_Matrix](C:\Users\a1020\Desktop\Opticcss.github.io\assets\images\[OPTSx0011]_Compressive_Sensing_Sensing_Matrix.svg)
+![[OPTSx0011]_Compressive_Sensing_Sensing_Matrix](..\assets\images\[OPTSx0011]_Compressive_Sensing_Sensing_Matrix.svg)
 
 $$
 \begin{equation}
@@ -104,7 +104,7 @@ $$
 
 ​	Obviously, this is an **ill-posed linear inverse problem** (also called, the **underdetermined system of linear equation**), which is a $\ell_0$ minimization problem (NP hard), to make it more explicitly, write $\boldsymbol{\Theta}:=\boldsymbol{\Phi}\boldsymbol{\Psi}$​​, which yields,
 
-![[OPTSx0011]_Compressive_Sensing_Observation_Matrix](C:\Users\a1020\Desktop\Opticcss.github.io\assets\images\[OPTSx0011]_Compressive_Sensing_Observation_Matrix.svg)
+![[OPTSx0011]_Compressive_Sensing_Observation_Matrix](..\assets\images\[OPTSx0011]_Compressive_Sensing_Observation_Matrix.svg)
 
 $$
 \begin{equation}
