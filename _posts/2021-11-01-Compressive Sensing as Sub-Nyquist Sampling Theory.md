@@ -41,9 +41,9 @@ $$
 
 ### **1.2. Prerequisite 2nd, Incoherence**
 
-​	**Incoherence** of the problem is measured by the **restricted isometry property** (**RIP**, which is stated by the uncertainty prociple) of the measurement matrix $\boldsymbol{\Phi}$​.
+​	**Incoherence** of the problem is measured by the **restricted isometry property** (**RIP**, which is stated by the uncertainty principle) of the measurement matrix $\boldsymbol{\Phi}$​​.
 
-​	This condition (RIP) yields for all vector $\boldsymbol{c}$​ sharing same $K$​ nonzero entris as $\boldsymbol{x}$​, and let $\boldsymbol{\Phi}_T, T\subset\set{1,\cdots,N}$​, be the $M\times|T|$​ submatrix obtained by extracting the columns of $\boldsymbol{\Phi}$​ corresponding to the indices in $T$​, then for the S-restricted isometry constant $\delta_S$​ of $\boldsymbol{\Phi}$​ which is the smallest quantity, satisfied,
+​	This condition (RIP) yields for all vector $\boldsymbol{c}$ sharing same $K$ nonzero entries as $\boldsymbol{x}$, and let $\boldsymbol{\Phi}_T, T\subset\{1,\cdots,N\}$, be the $M\times|T|$ submatrix obtained by extracting the columns of $\boldsymbol{\Phi}$ corresponding to the indices in $T$, then for the S-restricted isometry constant $\delta_S$ of $\boldsymbol{\Phi}$ which is the smallest quantity, satisfied,
 
 $$
 \begin{equation}
@@ -53,7 +53,7 @@ $$
 \end{equation}
 $$
 
-​	Another equivalent method of identifing the matrix obeys RIP is to **check whether the inner product of the measurement matrix and the sparse basis $\mu(\boldsymbol{\Phi},\boldsymbol{\Psi})$ is small enough** (the smaller $\mu$ indicates the more irrelavent of $\boldsymbol{\Phi}$ and $\boldsymbol{\Psi}$​),
+​	Another equivalent method of identifying the matrix obeys RIP is to **check whether the inner product of the measurement matrix and the sparse basis $\mu(\boldsymbol{\Phi},\boldsymbol{\Psi})$ is small enough** (the smaller $\mu$ indicates the more irrelevant of $\boldsymbol{\Phi}$ and $\boldsymbol{\Psi}$),
 
 $$
 \begin{equation}
