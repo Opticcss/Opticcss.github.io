@@ -43,7 +43,7 @@ $$
 
 ​	**Incoherence** of the problem is measured by the **restricted isometry property** (**RIP**, which is stated by the uncertainty principle) of the measurement matrix $\boldsymbol{\Phi}$​​.
 
-​	This condition (RIP) yields for all vector $\boldsymbol{c}$ sharing same $K$ nonzero entries as $\boldsymbol{x}$, and let $\boldsymbol{\Phi}_T, T\subset\{1,\cdots,N\}$, be the $M\times|T|$ submatrix obtained by extracting the columns of $\boldsymbol{\Phi}$ corresponding to the indices in $T$, then for the S-restricted isometry constant $\delta_S$ of $\boldsymbol{\Phi}$ which is the smallest quantity, satisfied,
+​	This condition (RIP) yields for all vector $\boldsymbol{c}$​ sharing same $K$​ nonzero entries as $\boldsymbol{x}$​, and let $\boldsymbol{\Phi}_T, T\subset\{1,\cdots,N\}$​, be the $M\times\|T\|$​ submatrix obtained by extracting the columns of $\boldsymbol{\Phi}$​ corresponding to the indices in $T$​, then for the S-restricted isometry constant $\delta_S$​ of $\boldsymbol{\Phi}$​ which is the smallest quantity, satisfied,
 
 $$
 \begin{equation}
