@@ -1,6 +1,6 @@
 ---
 layout: optics_post
-title:  "Compressive Sensing as Sub-Nyquist Sampling Theory.md"
+title:  "Compressive Sensing as Sub-Nyquist Sampling Theory"
 author: Li Jinzhao
 categories: [Signal Processing]
 image: ....jpg
