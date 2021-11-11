@@ -9,7 +9,7 @@ title: About LI JINZHAO
 
 ​	My name is **Li Jinzhao**, a theoretical fanatic. Now I am a student majoring in **telecommunication engineering**, with a certain understanding of the field of applied mathematics, and I am familiar with **computation**, **photonics**, and other related fields.
 
-​	Happily, I take "<u>making my own stuff</u>" my daily hobby, and stick to the idea that "<u>you don't need a lot of friends, you just need to be friends with them for life</u>" and try to live a challenging life....
+​	I like to <u>make stuff</u>, and stick to the idea that "<u>you don't need a lot of friends, you just need to be friends with them for life</u>" and try to live a challenging life, sometimes they are really useful.
 
 ### Programming Languages
 
