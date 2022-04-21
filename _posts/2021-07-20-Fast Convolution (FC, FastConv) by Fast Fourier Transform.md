@@ -3,7 +3,6 @@ layout: optics_post
 title:  "Fast Convolution (FC, FastConv) by Fast Fourier Transform"
 author: Li Jinzhao
 categories: [Signal Processing]
-image: .jpg
 tags: [Harmonic Analysis, Julia]
 typora-root-url: ..
 ---
