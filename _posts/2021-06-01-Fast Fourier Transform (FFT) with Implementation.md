@@ -3,6 +3,7 @@ layout: optics_post
 title:  "Fast Fourier Transform (FFT) with Implementation"
 author: Li Jinzhao
 categories: [Signal Processing]
+image: .jpg
 tags: [Harmonic Analysis, Julia]
 typora-root-url: ..
 ---
