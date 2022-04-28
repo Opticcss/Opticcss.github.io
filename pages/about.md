@@ -7,9 +7,9 @@ title: About LI JINZHAO
 
 ## **About Me**
 
-​	My name is **Li Jinzhao**, a theoretical fanatic. Now I am a student majoring in **telecommunication engineering**, with a certain understanding of the field of applied mathematics, and I am familiar with **computation**, **photonics**, and other related fields.
+​	My name is **Li Jinzhao**, a theoretical fanatic, and currently a student majored in **signal processing**, with a certain understanding of the field of applied mathematics, and I am also familiar with **electromagnetics**, and other related fields.
 
-​	I like to <u>make stuff</u>, and stick to the idea that "<u>you don't need a lot of friends, you just need to be friends with them for life</u>" and try to live a challenging life, sometimes they are really useful.
+​	I like to <u>make stuff</u>, and stick to the idea that "<u>you don't need much friends, you just need to be friends with several persons for life</u>" and try to live a challenging life, sometimes they are really useful.
 
 ### Programming Languages
 
@@ -25,13 +25,11 @@ title: About LI JINZHAO
 
 ### Knowledges
 
-- Optics and Related Theories
-- Classical Electromagnetics and Microwave Engineering,
 - Signal Analysis
-- Quantum Mechanics
 - SLAM (Simultaneous Localization and Mapping)
-- Complex Network Theory
 - Optimization Theory
+- Classical Electromagnetics and Related Theories
+- Quantum Mechanics
 
 ## **Contact?**
 
@@ -40,6 +38,8 @@ title: About LI JINZHAO
 - QQ: 1020602279
 
 ## **Details of My Blog**
+
+[![create by optics_css](https://img.shields.io/badge/created%20by-Opticscss-008751.svg?style=for-the-badge)](https://github.com/acekyd/made-by-Opticscss) [![license](https://img.shields.io/badge/license-Apache-1aaaa0.svg?style=for-the-badge)](https://code.visualstudio.com/updates/v1_12) [![build](https://img.shields.io/badge/build-passing-eaa895.svg?style=for-the-badge)](https://code.visualstudio.com/updates/v1_12)
 
 ​	This blog is produced by [**Jekyll**](https://jekyllrb.com/) <img src="..\static\img\jekyll.svg" alt="jekyll" style="zoom:3%;" /> and hosted on [**GitHub Pages**](https://pages.github.com/), for more details related to the development (update) process of the blog, see the following table as shown below
 
