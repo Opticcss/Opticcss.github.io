@@ -5,33 +5,6 @@ title: About LI JINZHAO
 
 ​	Hey there, welcome to Optics_css 's blog [@Opticcss](https://opticcss.github.io/), star me if you like, questions and inquiries are also welcome.
 
-## **About Me**
-
-​	My name is **Li Jinzhao**, a theoretical fanatic, and currently a student majored in **signal processing**, with a certain understanding of the field of applied mathematics, and I am also familiar with **electromagnetics**, and other related fields.
-
-​	I like to <u>make stuff</u>, and stick to the idea that "<u>you don't need much friends, you just need to be friends with several persons for life</u>" and try to live a challenging life, sometimes they are really useful.
-
-### Programming Languages
-
-|                                                              | **Commonly Used Languages** |
-| :----------------------------------------------------------: | --------------------------- |
-| <img src="..\static\img\julialang.svg" alt="julialang" style="zoom:15%;" /> | **Julia Lang**              |
-| <img src="..\static\img\cpplang.svg" alt="cpplang" style="zoom:14%;" /> | **C++**                     |
-| <img src="..\static\img\pythonlang.svg" alt="pythonlang" style="zoom:14%;" />**/**<img src="..\static\img\torchlang.svg" alt="torchlang" style="zoom:12%;" /> | **Torch with Python**       |
-| <img src="..\static\img\matlablang.svg" alt="matlablang" style="zoom:15%;" /> | **MATLAB**                  |
-| <img src="..\static\img\clang.svg" alt="clang" style="zoom:10%;" /> **/**<img src="..\static\img\cmake.svg" alt="cmake" style="zoom:15%;" /> | **C with CMake**            |
-| <img src="..\static\img\rustlang.svg" alt="rustlang" style="zoom: 15%;" /> | **Rust**                    |
-| <img src="..\static\img\javascriptlang.svg" alt="javascriptlang" style="zoom:12%;" /> | **JavaScript**              |
-| <img src="..\static\img\veriloglang.svg" alt="veriloglang" style="zoom:15%;" /> | **Verilog HDL (VHDL)**      |
-
-### Knowledges
-
-- Signal Analysis
-- SLAM (Simultaneous Localization and Mapping)
-- Optimization Theory
-- Classical Electromagnetics and Related Theories
-- Quantum Mechanics
-
 ## **Contact?**
 
 - Email: [optics_css@foxmail.com](mailto:optics_css@foxmail.com)
